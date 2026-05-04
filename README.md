@@ -2,7 +2,7 @@
 
 **Live Dashboard:** [https://agr19.shinyapps.io/philippines-industrial-zones/](https://agr19.shinyapps.io/philippines-industrial-zones/)
 
-- ArcGIS results and other results also presnt below.
+- ArcGIS images and other results also available in the repo (find it here : https://github.com/AGR19/SEZ-Spatial-Data-Research/tree/main/Result%20Maps%20ArcGIS ) .
 
 ## Research Question
 
