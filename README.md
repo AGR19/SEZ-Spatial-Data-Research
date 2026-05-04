@@ -1,7 +1,8 @@
 # Philippines Industrial Zones: Spatial Data Research
 
 **Live Dashboard:** [https://agr19.shinyapps.io/philippines-industrial-zones/](https://agr19.shinyapps.io/philippines-industrial-zones/)
-ArcGIS results and other results also presnt below.
+
+- ArcGIS results and other results also presnt below.
 
 ## Research Question
 
