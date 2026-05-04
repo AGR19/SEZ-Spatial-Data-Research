@@ -1,0 +1,225 @@
+================================================================================
+DIFFICULTIES ENCOUNTERED IN DATASET RESEARCH — Philippines Industrial Zones
+================================================================================
+
+Document created: 2026-05-03
+Purpose: Honest documentation of data access challenges encountered while
+researching datasets for the Philippines industrial zones spatial analysis.
+
+================================================================================
+1. PEZA MANUFACTURING ZONE LIST — No Downloadable Structured Dataset
+================================================================================
+
+What was searched for:
+  A comprehensive, downloadable list of all 74 PEZA-registered manufacturing
+  economic zones with zone names, GPS coordinates, municipality, province,
+  area (hectares), establishment year, and sector/activity type.
+
+What was found:
+  - PEZA website (peza.gov.ph) is operational (HTTP 200) but has an expired
+    SSL certificate, causing most automated tools to reject the connection.
+  - The "Operating Economic Zones" page exists at:
+    https://www.peza.gov.ph/operating-economic-zones
+  - However, zone listings are loaded via JavaScript (Drupal CMS) — the page
+    renders zone data dynamically, making automated scraping unreliable.
+  - The "Economic Zone Locator" page exists but appears to be an interactive
+    tool, not a downloadable dataset.
+  - No CSV, Excel, or shapefile download found anywhere on the PEZA site.
+  - PEZA has a "Downloads" section at /downloads, but it contains regulatory
+    documents (issuances, forms), not data files.
+
+Why this matters:
+  Manufacturing zones are the PRIMARY dataset for this assignment. Without a
+  downloadable structured list, the zone dataset must be constructed manually
+  from the PEZA website, Wikipedia compilations, and news articles.
+
+Workarounds:
+  a) Wikipedia's "List of economic zones in the Philippines" provides partial
+     data for agro-industrial zones (22 zones with names, locations, area,
+     operators) and free ports (11 zones). Manufacturing zone details are
+     mentioned as a category (74 zones) but NOT individually listed.
+  b) PEZA's Freedom of Information (FOI) request portal exists at:
+     https://www.peza.gov.ph/foi-request — this could be used to formally
+     request the zone master list with coordinates.
+  c) Manual geocoding: Using zone names + municipality names from whatever
+     partial list can be assembled, geocode via Nominatim/Google Maps API.
+  d) Academic sources: Some research papers (Sanders & Brown 2012, Ortega
+     et al. 2015) may include zone lists in their appendices.
+
+Status: PARTIAL DATA AVAILABLE — full manufacturing zone list requires
+manual assembly or FOI request.
+
+================================================================================
+2. PEZA ZONE COORDINATES — Not Publicly Available in Structured Format
+================================================================================
+
+What was searched for:
+  Latitude/longitude coordinates or polygon boundaries for individual
+  industrial zones.
+
+What was found:
+  - PEZA does not publish a GIS layer, shapefile, or coordinate file.
+  - The "Economic Zone Locator" on peza.gov.ph may contain a map interface
+    but is JavaScript-rendered and not scrapable.
+  - No Philippine government GIS portal was found with zone boundaries.
+  - NAMRIA (National Mapping and Resource Information Authority) is the
+    official mapping agency but its data catalog was not publicly browsable.
+
+Why this matters:
+  Without coordinates, zones cannot be placed on a map or linked to
+  spatial datasets (night lights, population density, etc.).
+
+Workarounds:
+  a) Geocode zone names using municipality/city location as proxy.
+     Most zones are identified by their municipality (e.g., "Cavite
+     Economic Zone" in Rosario, Cavite). Municipality centroids from
+     GADM or the Philippines JSON maps repo can serve as approximate
+     zone locations.
+  b) For major zones (Subic, Clark, Mactan, Cavite), Google Maps satellite
+     imagery shows clear industrial park boundaries that could be manually
+     digitized.
+  c) OpenStreetMap may have some industrial zone boundaries tagged as
+     landuse=industrial — worth checking in the Philippines .osm.pbf extract.
+
+Status: NOT DIRECTLY AVAILABLE — requires geocoding or manual construction.
+
+================================================================================
+3. PHILIPPINE STATISTICS AUTHORITY (PSA) — Portal Access Issues
+================================================================================
+
+What was searched for:
+  Municipality-level economic data: employment by sector, number of
+  establishments, GDP/GRP, census population counts.
+
+What was found:
+  - psa.gov.ph is the main portal but returned HTTP 403 (Forbidden) when
+    accessed programmatically.
+  - openstat.psa.gov.ph (the open data portal) also returned 403.
+  - PSA publishes the Census of Population and Housing, Annual Survey of
+    Philippine Business and Industry (ASPBI), and Census of Philippine
+    Business and Industry — but these appear to be available only through
+    their web interface or by request, not as bulk downloads.
+
+Why this matters:
+  Municipality-level economic data is essential for comparing zone vs
+  non-zone locations (Part 3 of the assignment) and for constructing
+  the analysis_units.csv file.
+
+Workarounds:
+  a) World Bank Philippines data portal has country-level indicators in
+     CSV/Excel format — useful but NOT subnational.
+  b) Philippine Statistical Yearbooks may contain provincial/regional data
+     in PDF format that could be extracted.
+  c) HDX (Humanitarian Data Exchange) at data.humdata.org sometimes hosts
+     Philippines subnational datasets but returned 403 on attempted access.
+  d) The PhilAtlas website (philatlas.com) has municipality profiles that
+     include census population — could be scraped if needed.
+
+Status: COUNTRY-LEVEL DATA AVAILABLE; MUNICIPALITY-LEVEL REQUIRES
+ALTERNATIVE SOURCES OR DIRECT PSA REQUEST.
+
+================================================================================
+4. LAND VALUES — Very Limited Public Availability
+================================================================================
+
+What was searched for:
+  Land prices or zonal land values at the municipality level for the
+  Philippines. The Bureau of Internal Revenue (BIR) sets "zonal values"
+  for tax purposes, which would be the closest proxy.
+
+What was found:
+  - BIR zonal values exist but are published per Revenue District Office,
+    often in PDF gazette format, not as a consolidated spatial dataset.
+  - No centralized downloadable file of land values per municipality.
+  - Private real estate platforms (Lamudi, Property24) have asking prices
+    but these are not suitable for academic research.
+
+Why this matters:
+  Land values are one of the requested comparison variables in the
+  assignment. They are also theoretically important — Garg's research
+  emphasizes how land pricing variation affects firm entry.
+
+Workarounds:
+  a) Use night lights as a proxy for economic activity/land value
+     (established correlation in development economics literature).
+  b) Built-up area from GHSL could serve as urbanization proxy.
+  c) If time permits, a sample of BIR zonal values could be manually
+     extracted from gazette PDFs for major municipalities.
+
+Status: NOT AVAILABLE AS STRUCTURED DATA — requires manual extraction
+or proxy variables.
+
+================================================================================
+5. ZONE ESTABLISHMENT YEARS — Scattered Across Multiple Sources
+================================================================================
+
+What was searched for:
+  Year of establishment/proclamation for each industrial zone, needed for
+  Part 4 of the assignment (dynamic/causal extension).
+
+What was found:
+  - Presidential Proclamations designating zones are published individually
+    but not compiled in a single list.
+  - Some establishment dates can be inferred from Wikipedia entries,
+    news articles, and zone websites.
+  - RA 7916 (1995 Special Economic Zone Act) provides the legal framework
+    but individual zone dates vary widely (1972 for Bataan EPZ through
+    2020s for newer zones).
+
+Workarounds:
+  a) Cross-reference Wikipedia zone listings with Presidential Proclamation
+     numbers (which contain dates).
+  b) PEZA annual reports may contain lists of newly proclaimed zones by year.
+  c) News article archives (BusinessWorld, Rappler, Inquirer) often report
+     zone proclamations.
+
+Status: PARTIALLY AVAILABLE — requires compilation from multiple sources.
+
+================================================================================
+6. DATASETS THAT ARE FREELY ACCESSIBLE AND VERIFIED
+================================================================================
+
+The following datasets were confirmed as downloadable and suitable:
+
+| Dataset                        | URL / Source                                      | Format       | Access     |
+|-------------------------------|--------------------------------------------------|-------------|------------|
+| Philippine admin boundaries    | github.com/faeldon/philippines-json-maps          | GeoJSON      | Free, open |
+| GADM admin boundaries (PHL)    | gadm.org/download_country.html                    | SHP/GPKG/R   | Free       |
+| OpenStreetMap Philippines       | download.geofabrik.de/asia/philippines.html       | PBF/SHP/GPKG | Free, 568MB-1.3GB |
+| WorldPop population density    | hub.worldpop.org (Philippines, 1km res, 2000-2020)| GeoTIFF      | CC-BY 4.0  |
+| VIIRS nighttime lights         | eogdata.mines.edu/products/vnl/                   | GeoTIFF      | CC-BY 4.0  |
+| GHSL built-up/urban extent     | human-settlement.emergency.copernicus.eu          | GeoTIFF tiles| Open/free  |
+| Natural Earth coastline/rivers | naturalearthdata.com (10m vectors)                | Shapefile    | Public domain |
+| OurAirports                    | ourairports.com/data/                             | CSV          | Public domain |
+| World Bank Philippines         | data.worldbank.org/country/philippines             | CSV/Excel    | Free       |
+| Wikipedia zone lists           | en.wikipedia.org/wiki/List_of_economic_zones_in_the_Philippines | HTML tables | Open |
+
+These sources collectively cover: administrative boundaries, population
+density, nighttime lights, built-up area, coastlines, rivers, airports,
+roads (via OSM), and partial zone information.
+
+================================================================================
+7. SUMMARY OF FEASIBILITY ASSESSMENT
+================================================================================
+
+FEASIBLE with available data:
+  - Constructing a PARTIAL zone dataset from Wikipedia + PEZA web scraping
+  - Geocoding zones to municipality level using admin boundary centroids
+  - Merging with population density (WorldPop), night lights (VIIRS),
+    built-up area (GHSL), distances to infrastructure (OSM)
+  - Comparing zone vs non-zone municipalities on these variables
+
+REQUIRES ADDITIONAL EFFORT (beyond current session):
+  - Complete manufacturing zone list (FOI request to PEZA)
+  - Precise zone coordinates/boundaries (manual digitization or OSM extraction)
+  - Municipality-level economic data (PSA portal access or manual extraction)
+  - Land values (BIR gazette PDF extraction)
+  - Zone establishment years (multi-source compilation)
+
+The assignment explicitly states that a careful partial solution with
+clear documentation of constraints is preferred over an opaque complete
+solution. This difficulties document serves that purpose.
+
+================================================================================
+END OF DOCUMENT
+================================================================================

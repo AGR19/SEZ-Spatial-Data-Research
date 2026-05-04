@@ -1,0 +1,227 @@
+================================================================================
+CLAUDE TG INSIGHT — Deep Analysis of Tishara Garg's JMP
+================================================================================
+
+INTERNAL LEARNING DOCUMENT ONLY — DO NOT REPRODUCE IN ANY DELIVERABLE.
+This captures research methodology lessons from Garg's paper. All assignment
+work must be independently framed and originally written.
+
+Paper: "Can Industrial Policy Overcome Coordination Failures?"
+Author: Tishara Garg, Stanford University
+Context: India's industrial zones as coordination devices for shifting
+         economies from low- to high-industrialization equilibria.
+
+================================================================================
+1. RESEARCH QUESTION & THEORETICAL FRAMEWORK
+================================================================================
+
+Central question: Can government-designated industrial zones overcome
+coordination failures — not just by improving physical fundamentals (roads,
+land, infrastructure) but by coordinating firm expectations toward high-
+industrialization equilibria?
+
+Theoretical roots: Rosenstein-Rodan (1943) "big push" theory, extended by
+Myrdal (1957) and Hirschman (1958). In settings with multiple equilibria,
+government policy can coordinate private actors to select better outcomes.
+
+Key innovation: Garg distinguishes between two channels through which
+industrial zones affect outcomes:
+  (a) FUNDAMENTALS channel — better infrastructure, land, connectivity
+  (b) COORDINATION channel — self-fulfilling expectations that shift
+      the equilibrium type (from low-industrialization to high)
+
+She decomposes the total treatment effect into these two channels, which
+is rarely done empirically.
+
+================================================================================
+2. IDENTIFICATION STRATEGY
+================================================================================
+
+Primary method: Event study Difference-in-Differences (DiD)
+
+The strategy exploits:
+  - STAGGERED ROLLOUT: Industrial zones established in different Indian
+    municipalities at different times (decentralized state-level decisions)
+  - TREATMENT: Binary indicator for first zone establishment in a given
+    census period
+  - CONTROLS: Municipalities >25km from any zone, matched via propensity
+    score on baseline characteristics
+
+Specification:
+  y_it = alpha_i + beta_r(t) + sum_s beta_DiD,s * 1[TreatRound_i=s] * Zone_i + epsilon_it
+
+Where:
+  alpha_i      = municipality fixed effects
+  beta_r(t)    = state x period fixed effects
+  beta_DiD,s   = treatment effect s periods after zone establishment
+  Clustering   = at municipality level
+
+Critical assumption: Parallel trends — validated by showing no pre-trends
+in the event study leads.
+
+Beyond standard DiD, Garg builds a three-step STRUCTURAL estimation:
+  Step 1: Recover unobserved fundamentals via GMM using zone instruments
+  Step 2: Enumerate ALL possible equilibria via total-degree homotopy
+          continuation (algebraic geometry technique)
+  Step 3: Decompose treatment effects into fundamentals vs coordination
+
+================================================================================
+3. DATA CONSTRUCTION — How She Built the Dataset
+================================================================================
+
+This is the most directly useful section for our Philippines work.
+
+ZONE DATA:
+  - Source: India Industrial Land Bank + RTI (Right to Information) requests
+    to State Industrial Development Corporations
+  - Coverage: ~4,000 geocoded industrial zones
+  - Establishment dates: Available for 1,585 zones
+  - Exclusions: Removed SEZs and Export Promotion Zones to focus on
+    standard industrial parks (analogous to our manufacturing zones)
+  - Geocoding: Polygon centroids used as zone locations
+
+OUTCOME DATA:
+  | Dataset               | Source                 | Spatial Unit   | Time Periods        |
+  |-----------------------|------------------------|----------------|---------------------|
+  | Economic Census       | Ministry of Statistics  | Municipality   | 1990, 1998, 2005, 2013 |
+  | Population Census     | Government of India    | Municipality   | 1991, 2001, 2011    |
+  | Night lights          | DMSP-OLS               | 1/120 deg grid | 1994-2013           |
+  | Company registrations | Min. Corporate Affairs | ZIP code       | Various             |
+  | Historical roads      | Digitized from archives| Network layers | Multiple periods    |
+
+SPATIAL CONSTRUCTION:
+  - Matched municipalities to zones using geocoded coordinates
+  - Distance buffers: 25km (main), 10-15km (spillover analysis)
+  - Catchment areas: ~627 labor markets partitioned into inner rings
+    and peripheral hinterland
+  - Historical roads: DIGITIZED from archival maps — a major data
+    construction effort to control for concurrent infrastructure changes
+
+KEY LESSON: She did not rely on a single downloadable dataset. She
+assembled the zone list from government records + RTI requests, geocoded
+them, and merged with census data. The data construction IS the research.
+
+================================================================================
+4. SPATIAL METHODS
+================================================================================
+
+COORDINATE SYSTEM:
+  - Geodetic coordinates (latitude/longitude) for storage
+  - Great-circle (haversine) distances between zone centroids and
+    municipality centers
+
+DISTANCE CALCULATIONS:
+  - Distance bins: 5km increments (0-5, 5-10, 10-15, 15-20, 20-25km)
+  - Spillover decay: Estimated as exp(-eta * d) with eta = 0.71
+    meaning spillovers halve every ~1km
+  - Control group: Municipalities >25km from any zone
+
+SPATIAL JOIN APPROACH:
+  - Municipality boundaries mapped to zones via buffer radius
+  - Treatment assignment: (i) zone established in census period,
+    (ii) no prior zone within 25km
+
+SPILLOVER SPECIFICATION:
+  y_imt = alpha_i + gamma + sum_b beta_DiD,b * 1[b(i)=b] * Zone_m + X_it + epsilon_imt
+  Distance bins b: 0-5km, 5-10km, 10-15km, 15-20km, 20-25km
+
+IMPORTANT: Her 5km bin structure is specific to India's density. For the
+Philippines (lower population density, island geography), different bin
+widths would be appropriate. Do NOT replicate her exact bin structure.
+
+================================================================================
+5. HOW SHE HANDLES DATA LIMITATIONS
+================================================================================
+
+This is critical for the assignment's evaluation criteria — transparency.
+
+  1. MISSING ESTABLISHMENT DATES: Only 1,585 of 4,000 zones have dates.
+     She acknowledges this and works with the subset, explaining the
+     coverage implications.
+
+  2. SUTVA CONCERNS: If spillovers contaminate controls, estimates are
+     biased. She addresses this by:
+     - Using distance-restricted controls (>25km)
+     - Testing robustness with tighter restrictions (10km, 15km, 20km)
+     - Showing estimates DECLINE with tighter restrictions (consistent
+       with positive spillovers, not contamination)
+
+  3. MULTIPLE EQUILIBRIA IDENTIFICATION: She explicitly states where her
+     assumptions differ from prior theoretical literature and what could
+     violate them.
+
+  4. INFRASTRUCTURE CONFOUNDING: Road construction often accompanies zone
+     establishment. She addresses this by digitizing historical road
+     networks and controlling for road proximity as time-varying covariate.
+
+Pattern: She never hides a limitation. She states it, explains its
+implication for estimates, and shows robustness checks that bound the
+concern. This is exactly what the assignment evaluators want to see.
+
+================================================================================
+6. KEY FINDINGS & MAGNITUDES
+================================================================================
+
+  - 60% increase in industrial employment within 15 years
+  - 125-142 more non-farm jobs per km^2 (hired workers)
+  - 37-41 more firms per km^2
+  - Positive spillovers extend 10-15km from zone
+  - Service sector spillovers to non-targeted sectors (agglomeration evidence)
+  - Treatment effects are BIMODAL — some municipalities switch equilibria,
+    others see only marginal improvement
+  - 38% increase in likelihood of transitioning from low to high
+    industrialization equilibrium
+  - 32.47% of total effect attributable to coordination (vs 67.53% fundamentals)
+  - Structural estimate: Adding 100 non-farm workers increases local
+    productivity by 3.14% (delta = 61.94)
+
+================================================================================
+7. METHODOLOGICAL LESSONS FOR PHILIPPINES ADAPTATION
+================================================================================
+
+(These are lessons about HOW to do research, not specifications to copy)
+
+  a) DATA ASSEMBLY IS THE RESEARCH: Don't expect a clean downloadable
+     dataset. The value is in carefully constructing zone lists from
+     government records, geocoding them, and documenting every step.
+
+  b) TRANSPARENCY OVER COMPLETENESS: The assignment explicitly values
+     honest documentation of limitations over polished-looking results.
+
+  c) DISTANCE MATTERS: Choosing the right spatial unit and distance
+     thresholds requires understanding local geography. The Philippines
+     is an archipelago — distances across water are not the same as
+     overland distances. This is a real methodological consideration.
+
+  d) STAGGERED TIMING ENABLES CAUSAL INFERENCE: If zones were established
+     at different times, DiD becomes feasible. Identifying establishment
+     years is therefore a high-priority data task.
+
+  e) MULTIPLE OUTCOME SOURCES STRENGTHEN RESULTS: Night lights, census
+     employment, firm registrations — triangulating across independent
+     data sources is how she validates findings.
+
+  f) CONTROL GROUP CONSTRUCTION: The control group is not "all other
+     municipalities" — it is carefully restricted to comparable units
+     that are far enough from zones to avoid spillover contamination.
+
+  g) PROPENSITY SCORE MATCHING: Matching treated and control units on
+     baseline characteristics (road proximity, distance to towns, water
+     sources) strengthens the parallel trends assumption.
+
+================================================================================
+8. WRITING & PRESENTATION STYLE
+================================================================================
+
+  - Theory-first structure: motivate with economic theory, then test
+  - "Three Facts" empirical strategy: present key descriptive patterns
+    before structural modeling
+  - Careful causal language: "effects on fundamentals" vs "effects on
+    equilibrium selection"
+  - Figures with confidence intervals and multiple specifications
+  - Distribution plots to show heterogeneity (bimodality)
+  - Extensive appendices for robustness and data construction details
+
+================================================================================
+END OF DOCUMENT — FOR INTERNAL LEARNING ONLY
+================================================================================
