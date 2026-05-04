@@ -16,10 +16,10 @@ raw datasets/*.geojson
 raw datasets/*.xlsx
 raw datasets/airports.csv
 
-# Excluded reference materials (kept local)
+# Internal reference materials (kept local, not for submission)
 Gold Standard_JMP_TG.pdf
 Assignment Instructions/
-Fireline_DataScience/ARC-GIS-datascience-main/
-Fireline_DataScience/Learning flow simulator/
-Fireline_DataScience/koch_research-consolidate/
-Fireline_DataScience/.DS_Store
+Fireline_DataScience/
+Claude_TG_Insight.txt
+Difficulties_Claude.txt
+CLAUDE.md
