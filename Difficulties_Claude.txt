@@ -333,6 +333,15 @@ during automated verification on 2026-05-03:
 | HDX Philippines Search              | https://data.humdata.org/dataset?q=philippines+population      | HTTP 403 (Forbidden)                   | Search endpoint also blocked                   |
 | Hansen Global Forest Change         | https://earthenginepartners.appspot.com/science-2013-global-forest | Page loaded but no content rendered | JS-heavy Google Earth Engine app; data accessible via GEE platform |
 | Global Surface Water (sample tile)  | https://storage.googleapis.com/global-surface-water/downloads_v1_4_2021/occurrence/occurrence_120E_10Nv1_4_2021.tif | HTTP 404 (Not Found) | Specific tile URL may have changed; check via JRC portal |
+| Frick et al. SEZ database (SSRN)    | https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3148037   | HTTP 403 (Forbidden)                   | 346 geocoded SEZs in 22 countries; PH coverage unconfirmed; paywall |
+| Frick et al. (Taylor & Francis)     | https://www.tandfonline.com/doi/full/10.1080/00130095.2018.1462774 | HTTP 403 (Forbidden)            | Same paper, journal version; no public replication data found |
+| World Bank SEZ database (S3)        | https://development-data-hub-s3-public.s3.amazonaws.com/ddhfiles/94641/sez-database.zip | HTTP 403 (Forbidden) | 553 SEZs in 51 countries; download blocked |
+| World Bank Data Catalog SEZ search  | https://datacatalog.worldbank.org/search?q=special+economic+zones | Returned 0 results              | No SEZ dataset listed in catalog               |
+| UNCTAD WIR 2019 Ch.4 (PDF)         | https://unctad.org/system/files/official-document/WIR2019_CH4.pdf | HTTP 403 (Forbidden)            | ~5,400 SEZs in 147 economies; underlying data not downloadable |
+| Harvard Dataverse (PH SEZ search)   | https://dataverse.harvard.edu/dataverse/harvard?q=special+economic+zones+Philippines | Empty results  | No Philippine SEZ/industrial zone datasets found |
+| Zenodo (PH SEZ search)             | https://zenodo.org/search?q=%22special+economic+zones%22+Philippines&type=dataset | HTTP 403 (Forbidden) | Repository blocked automated access |
+| Figshare (SEZ search)              | https://figshare.com/search?q=special+economic+zones          | HTTP 403 (Forbidden)                   | Repository blocked automated access            |
+| World Bank Open Knowledge (SEZ)     | https://openknowledge.worldbank.org/search?query=special+economic+zones+database | HTTP 403 (Forbidden) | Repository blocked automated access |
 
 NOTES ON ACCESS PATTERNS:
   - Philippine government sites (psa.gov.ph, peza.gov.ph) generally block
@@ -382,17 +391,29 @@ All sources ordered by importance to the assignment. Priority groups:
 | 22| 6. Economic: Census Data              | PSA Census Page                      | https://psa.gov.ph/statistics/census/philippine-census-population-and-housing              | Various       | NOT WORKING  | HTTP 403; blocks programmatic access     |
 | 23| 6. Economic: Subnational Population   | HDX Philippines Population           | https://data.humdata.org/dataset/cod-ps-phl                                                | Various       | NOT WORKING  | HTTP 403; blocked automated access       |
 | 24| 6. Economic: Subnational Search       | HDX Philippines Data Search          | https://data.humdata.org/dataset?q=philippines+population                                  | Various       | NOT WORKING  | HTTP 403; blocked automated access       |
+| 25| 7. Academic: Cross-country SEZ DB     | Frick, Rodriguez-Pose & Wong (2019)  | https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3148037                                | Paper/data    | NOT WORKING  | 346 geocoded SEZs in 22 countries; PH coverage unconfirmed; paywall/403 |
+| 26| 7. Academic: Cross-country SEZ DB     | World Bank SEZ database (2017)       | https://development-data-hub-s3-public.s3.amazonaws.com/ddhfiles/94641/sez-database.zip    | ZIP           | NOT WORKING  | 553 SEZs in 51 countries; HTTP 403       |
+| 27| 7. Academic: Cross-country SEZ DB     | UNCTAD WIR 2019 Ch.4 SEZ mapping    | https://unctad.org/system/files/official-document/WIR2019_CH4.pdf                          | PDF           | NOT WORKING  | ~5,400 SEZs in 147 economies; underlying data not downloadable; 403 |
+| 28| 7. Academic: Data Repositories        | Harvard Dataverse (PH SEZ search)    | https://dataverse.harvard.edu/dataverse/harvard?q=special+economic+zones+Philippines        | Various       | NOT WORKING  | Empty results; no PH zone datasets found |
+| 29| 7. Academic: Data Repositories        | Zenodo (PH SEZ search)               | https://zenodo.org/search?q=%22special+economic+zones%22+Philippines&type=dataset            | Various       | NOT WORKING  | HTTP 403                                 |
+| 30| 7. Academic: Data Repositories        | Figshare (SEZ search)                | https://figshare.com/search?q=special+economic+zones                                        | Various       | NOT WORKING  | HTTP 403                                 |
+| 31| 7. Academic: Data Repositories        | World Bank Data Catalog (SEZ search) | https://datacatalog.worldbank.org/search?q=special+economic+zones                           | Various       | NOT WORKING  | Returned 0 results                       |
+| 32| 7. Academic: Data Repositories        | World Bank Open Knowledge (SEZ)      | https://openknowledge.worldbank.org/search?query=special+economic+zones+database            | Various       | NOT WORKING  | HTTP 403                                 |
 
-SUMMARY:  13 WORKING  /  11 NOT WORKING
+SUMMARY:  13 WORKING  /  19 NOT WORKING  (32 total sources checked)
 
-Key takeaway: The two most critical datasets are now available:
-  Row 1: PEZA manufacturing zones Excel (all 74 zones) — WORKING
-  Row 2: PEZA agro-industrial zones Excel (22 operating + 6 proclaimed,
-         with locator enterprises and PEZA approval/registration dates) — WORKING
-Combined, these give us 96 industrial zones + 6 proclaimed = 102 total.
-The remaining gaps are: zone GPS coordinates (require geocoding),
-municipality-level economic data (PSA blocked), and land values.
-Spatial/raster layers and admin boundaries are well covered.
+Key takeaways:
+  1. The two most critical datasets are available:
+     Row 1: PEZA manufacturing zones Excel (all 74 zones) — WORKING
+     Row 2: PEZA agro-industrial zones Excel (22+6 zones with dates) — WORKING
+  2. NO pre-built geocoded dataset of Philippine industrial zones exists
+     in any academic repository (Harvard Dataverse, Zenodo, Figshare,
+     World Bank Data Catalog) — confirmed via systematic search.
+  3. Cross-country SEZ databases (Frick et al., World Bank, UNCTAD)
+     exist but their data files are not freely downloadable.
+  4. Spatial/raster layers and admin boundaries are well covered.
+  5. Remaining gaps: zone GPS coordinates (require geocoding),
+     municipality-level economic data (PSA blocked), land values.
 
 ================================================================================
 9. SUMMARY OF FEASIBILITY ASSESSMENT
