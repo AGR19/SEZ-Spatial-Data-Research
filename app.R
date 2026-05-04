@@ -1,5 +1,6 @@
 # ─────────────────────────────────────────────────────────────────────────────
 # Philippines Industrial Zones Explorer — Shiny Dashboard
+# Version: 2.0 (2026-05-04) — Added freeports, GADM boundaries, fixed builtup
 # ─────────────────────────────────────────────────────────────────────────────
 #
 # DATA CONTRACT
@@ -62,7 +63,7 @@ ui <- navbarPage(
   tabPanel("Zone Map",
     div(style = "padding: 10px;",
       h4("Industrial Zone Locations in the Philippines"),
-      p("93 zones from PEZA and World Bank. Click a marker for details."),
+      p(paste0(nrow(zones), " zones from PEZA, World Bank, and Wikipedia. Click a marker for details.")),
       leafletOutput("zone_map", height = "600px"),
       br(),
       DTOutput("zone_table")
