@@ -2,7 +2,8 @@
 
 **Live Dashboard:** [https://agr19.shinyapps.io/philippines-industrial-zones/](https://agr19.shinyapps.io/philippines-industrial-zones/)
 
-- ArcGIS images and other results also available in the repo (find it here : https://github.com/AGR19/SEZ-Spatial-Data-Research/tree/main/Result%20Maps%20ArcGIS ) .
+- ArcGIS maps available in the repo: [Result Maps ArcGIS](https://github.com/AGR19/SEZ-Spatial-Data-Research/tree/main/Result%20Maps%20ArcGIS)
+- R-generated figures available here: [figures/](https://github.com/AGR19/SEZ-Spatial-Data-Research/tree/main/figures)
 
 ## Research Question
 
@@ -131,6 +132,24 @@ Core analysis window is **~2017–2020**. The 2–3 year spread across datasets 
 **Significance:** *** p<0.01, ** p<0.05, * p<0.10
 
 **Interpretation:** Industrial zones are systematically located in more urbanized, better-connected, and economically active municipalities. Zone municipalities have **4x higher population density**, **6x higher nighttime radiance**, and are **5.5 km closer to primary roads** than non-zone municipalities. Distance to airport is marginally significant (p=0.08). These differences are descriptive — zone placement is a deliberate policy choice driven by proximity to infrastructure and labor markets.
+
+## Statistical Tests Performed
+
+| # | Test | Purpose | Variables | Result |
+|---|---|---|---|---|
+| 1 | **Welch's t-test** (two-sample, unequal variance) | Compare means between zone vs non-zone municipalities | pop_density_mean_2020 | p=0.002 *** |
+| 2 | **Welch's t-test** | Compare means | nightlights_mean_2018 | p<0.001 *** |
+| 3 | **Welch's t-test** | Compare means | builtup_fraction_2020 | p<0.001 *** |
+| 4 | **Welch's t-test** | Compare means | dist_nearest_primary_road_km | p<0.001 *** |
+| 5 | **Welch's t-test** | Compare means | dist_nearest_airport_km | p=0.080 * (marginal) |
+| 6 | **Pearson correlation matrix** | Identify linear associations between zone status and all municipality characteristics | has_zone + 5 continuous variables | Strongest: nightlights (r=+0.25), builtup (r=+0.24), pop_density (r=+0.18) |
+| 7 | **Logistic regression (GLM, binomial)** | Identify which characteristics best predict zone presence (multivariate) | has_zone ~ pop_density + nightlights + builtup + dist_airport + dist_road | dist_road strongest predictor (coef=-0.92); builtup second (+0.65); model accuracy 97% |
+
+**Notes on statistical approach:**
+- Welch's t-test (not Student's) used because zone (N=56) and non-zone (N=1,572) groups have very unequal sample sizes
+- Logistic regression uses all predictors simultaneously — controls for collinearity between variables
+- All tests are descriptive/associational, NOT causal — see Limitations section
+- Model accuracy of 97% is driven by class imbalance (97% of municipalities have no zone), not model quality
 
 ## ArcGIS Pro Workflow
 
