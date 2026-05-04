@@ -7,7 +7,7 @@ Purpose: Honest documentation of data access challenges encountered while
 researching datasets for the Philippines industrial zones spatial analysis.
 
 ================================================================================
-1. PEZA MANUFACTURING ZONE LIST — No Downloadable Structured Dataset
+1. PEZA MANUFACTURING ZONE LIST — FOUND (Excel download from PEZA)
 ================================================================================
 
 What was searched for:
@@ -16,38 +16,55 @@ What was searched for:
   area (hectares), establishment year, and sector/activity type.
 
 What was found:
-  - PEZA website (peza.gov.ph) is operational (HTTP 200) but has an expired
-    SSL certificate, causing most automated tools to reject the connection.
-  - The "Operating Economic Zones" page exists at:
-    https://www.peza.gov.ph/operating-economic-zones
-  - However, zone listings are loaded via JavaScript (Drupal CMS) — the page
-    renders zone data dynamically, making automated scraping unreliable.
-  - The "Economic Zone Locator" page exists but appears to be an interactive
-    tool, not a downloadable dataset.
-  - No CSV, Excel, or shapefile download found anywhere on the PEZA site.
-  - PEZA has a "Downloads" section at /downloads, but it contains regulatory
-    documents (issuances, forms), not data files.
+  *** RESOLVED *** An official PEZA Excel file was located at:
+    https://www.peza.gov.ph/sites/default/files/1.xls
 
-Why this matters:
-  Manufacturing zones are the PRIMARY dataset for this assignment. Without a
-  downloadable structured list, the zone dataset must be constructed manually
-  from the PEZA website, Wikipedia compilations, and news articles.
+  This file contains the complete "LIST OF OPERATING MANUFACTURING ECONOMIC
+  ZONES" as of 30 November 2017. It lists all 74 zones with:
+    - Zone number (1-74)
+    - Zone name
+    - Location (barangay, municipality/city, province)
+    - Region
+    - Developer/operator name
+    - Land area (hectares)
+    - Approved investments (PHP millions)
+    - Corporate nationality (ownership breakdown)
 
-Workarounds:
-  a) Wikipedia's "List of economic zones in the Philippines" provides partial
-     data for agro-industrial zones (22 zones with names, locations, area,
-     operators) and free ports (11 zones). Manufacturing zone details are
-     mentioned as a category (74 zones) but NOT individually listed.
-  b) PEZA's Freedom of Information (FOI) request portal exists at:
-     https://www.peza.gov.ph/foi-request — this could be used to formally
-     request the zone master list with coordinates.
-  c) Manual geocoding: Using zone names + municipality names from whatever
-     partial list can be assembled, geocode via Nominatim/Google Maps API.
-  d) Academic sources: Some research papers (Sanders & Brown 2012, Ortega
-     et al. 2015) may include zone lists in their appendices.
+  The file has been downloaded locally as: peza_zones_raw.xls (55 KB)
 
-Status: PARTIAL DATA AVAILABLE — full manufacturing zone list requires
-manual assembly or FOI request.
+  NOTE: The PEZA website has an expired SSL certificate, so the download
+  requires bypassing certificate verification (curl -k flag). The file
+  itself is a valid Composite Document (Excel .xls), last saved Feb 2018.
+
+  Geographic concentration of zones:
+    - Laguna: 14 zones (heaviest concentration)
+    - Cavite: 11 zones
+    - Batangas: 10 zones
+    - Pampanga: 6 zones
+    - NCR: 6 zones
+    - Cebu: 7 zones
+    (CALABARZON corridor south of Manila dominates)
+
+  Largest zones by area:
+    - Clark Special Economic Zone: 29,365 hectares
+    - Phividec Industrial Estate: 3,000 hectares
+    - Taganito SEZ: 687.5 hectares
+    - Lima Technology Center: 430 hectares
+    - Leyte Industrial Development Estate: 425 hectares
+    - Rio Tuba Export Processing Zone: 424 hectares
+
+Remaining limitations:
+  - No GPS coordinates or polygon boundaries — locations are textual
+    (barangay + municipality + province). Geocoding to municipality
+    centroids is needed.
+  - Data is as of November 2017 — zones proclaimed after this date
+    are not included.
+  - No establishment year column — dates must be sourced separately.
+  - No sector/activity type column — all are classified as
+    "manufacturing" but actual industrial activities vary.
+
+Status: COMPLETE LIST AVAILABLE — 74 manufacturing zones with names,
+locations, area, and developer. Geocoding required for spatial analysis.
 
 ================================================================================
 2. PEZA ZONE COORDINATES — Not Publicly Available in Structured Format
@@ -183,6 +200,7 @@ The following datasets were confirmed as downloadable and suitable:
 
 | Dataset                        | URL                                                                          | Format       | Access     | Link Status |
 |-------------------------------|------------------------------------------------------------------------------|-------------|------------|-------------|
+| PEZA Manufacturing Zones (74)  | https://www.peza.gov.ph/sites/default/files/1.xls                            | Excel (.xls) | Free (SSL bypass needed) | WORKING |
 | Philippine admin boundaries    | https://github.com/faeldon/philippines-json-maps                             | GeoJSON      | Free, open | WORKING     |
 | GADM admin boundaries (PHL)    | https://gadm.org/download_country.html                                       | SHP/GPKG/R   | Free       | WORKING     |
 | OpenStreetMap Philippines       | https://download.geofabrik.de/asia/philippines.html                          | PBF/SHP/GPKG | Free       | WORKING     |
@@ -240,37 +258,43 @@ All sources ordered by importance to the assignment. Priority groups:
   6. Economic / statistical data
   7. Reference / general
 
-| # | Priority Group                        | Dataset                              | URL                                                                                         | Format        | Link Status  | Error (if not working)                   |
+| # | Priority Group                        | Dataset                              | URL                                                                                         | Format        | Link Status  | Notes / Error                            |
 |---|---------------------------------------|--------------------------------------|---------------------------------------------------------------------------------------------|---------------|--------------|------------------------------------------|
-| 1 | 1. Industrial Zones (PRIMARY)         | PEZA Operating Economic Zones        | https://www.peza.gov.ph/operating-economic-zones                                            | HTML (JS)     | NOT WORKING  | SSL cert expired; JS-rendered content    |
-| 2 | 1. Industrial Zones (PRIMARY)         | PEZA Manufacturing Zones             | https://www.peza.gov.ph/economic-zones/manufacturing                                       | HTML (JS)     | NOT WORKING  | Timeout (>60s); heavy JS rendering       |
-| 3 | 1. Industrial Zones (PRIMARY)         | PEZA Economic Zone Locator (map)     | https://www.peza.gov.ph/getting-started-category/economic-zone-locator                      | HTML (JS map) | NOT WORKING  | SSL cert expired; interactive tool only  |
-| 4 | 1. Industrial Zones (PRIMARY)         | PEZA FOI Request Portal              | https://www.peza.gov.ph/foi-request                                                        | Web form      | NOT WORKING  | SSL cert expired; requires manual filing |
-| 5 | 1. Industrial Zones (PRIMARY)         | Wikipedia PH Economic Zones List     | https://en.wikipedia.org/wiki/List_of_economic_zones_in_the_Philippines                     | HTML tables   | WORKING      | Partial: 22 agro-industrial + 11 freeports listed; 74 manufacturing NOT individually listed |
-| 6 | 2. Additional Zones (SUPPLEMENTARY)   | PEZA Full Zone Directory             | https://www.peza.gov.ph/economic-zones                                                     | HTML (JS)     | NOT WORKING  | SSL cert expired; JS-rendered            |
-| 7 | 3. Admin Boundaries                   | Philippines JSON Maps (GeoJSON)      | https://github.com/faeldon/philippines-json-maps                                            | GeoJSON       | WORKING      |                                          |
-| 8 | 3. Admin Boundaries                   | GADM Philippines (PHL)               | https://gadm.org/download_country.html                                                     | SHP/GPKG/R    | WORKING      |                                          |
-| 9 | 4. Distances: Roads, Rivers, Ports    | OpenStreetMap Philippines Extract    | https://download.geofabrik.de/asia/philippines.html                                        | PBF/SHP/GPKG  | WORKING      | 568MB-1.3GB depending on format          |
-| 10| 4. Distances: Airports                | OurAirports                          | https://ourairports.com/data/                                                              | CSV           | WORKING      | Public domain; includes lat/lon          |
-| 11| 4. Distances: Coastline, Rivers       | Natural Earth 10m Physical Vectors   | https://www.naturalearthdata.com/downloads/10m-physical-vectors/                            | Shapefile     | WORKING      | Public domain                            |
-| 12| 5. Raster: Population Density         | WorldPop Philippines                 | https://hub.worldpop.org/geodata/listing?id=76                                             | GeoTIFF, 1km  | WORKING      | CC-BY 4.0; years 2000-2020              |
-| 13| 5. Raster: Night Lights               | VIIRS DNB Annual Composites          | https://eogdata.mines.edu/products/vnl/                                                    | GeoTIFF       | WORKING      | CC-BY 4.0; ~500m resolution; 2012+      |
-| 14| 5. Raster: Built-up / Urban Extent    | GHSL (Copernicus)                    | https://human-settlement.emergency.copernicus.eu/download.php                              | GeoTIFF tiles | WORKING      | Open/free; tile-based download           |
-| 15| 5. Raster: Forest Cover               | Hansen Global Forest Change          | https://earthenginepartners.appspot.com/science-2013-global-forest                         | GeoTIFF (GEE) | NOT WORKING  | JS-only app; requires Google Earth Engine|
-| 16| 5. Raster: Surface Water              | JRC Global Surface Water             | https://storage.googleapis.com/global-surface-water/downloads_v1_4_2021/occurrence/occurrence_120E_10Nv1_4_2021.tif | GeoTIFF | NOT WORKING | HTTP 404; tile URL may have changed |
-| 17| 6. Economic: National Indicators      | World Bank Philippines               | https://data.worldbank.org/country/philippines                                             | CSV/Excel     | WORKING      | Country-level only; no subnational       |
-| 18| 6. Economic: Census / Business Stats  | PSA Main Portal                      | https://psa.gov.ph                                                                         | Various       | NOT WORKING  | HTTP 403; blocks programmatic access     |
-| 19| 6. Economic: Census / Business Stats  | PSA OpenStat                         | https://openstat.psa.gov.ph                                                                | Various       | NOT WORKING  | HTTP 403; blocks programmatic access     |
-| 20| 6. Economic: Census Data              | PSA Census Page                      | https://psa.gov.ph/statistics/census/philippine-census-population-and-housing              | Various       | NOT WORKING  | HTTP 403; blocks programmatic access     |
-| 21| 6. Economic: Subnational Population   | HDX Philippines Population           | https://data.humdata.org/dataset/cod-ps-phl                                                | Various       | NOT WORKING  | HTTP 403; blocked automated access       |
-| 22| 6. Economic: Subnational Search       | HDX Philippines Data Search          | https://data.humdata.org/dataset?q=philippines+population                                  | Various       | NOT WORKING  | HTTP 403; blocked automated access       |
+| 1 | 1. Industrial Zones (PRIMARY)         | PEZA Manufacturing Zones Excel (74)  | https://www.peza.gov.ph/sites/default/files/1.xls                                          | Excel (.xls)  | WORKING      | Complete list: 74 zones, names, locations, area, developer, investments. As of Nov 2017. SSL bypass needed (curl -k). |
+| 2 | 1. Industrial Zones (PRIMARY)         | PEZA Agro-Industrial Zones + Locators (22 operating + 6 proclaimed) | https://www.peza.gov.ph/sites/default/files/3.xls                       | Excel (.xls)  | WORKING      | 22 operating + 6 proclaimed agro-industrial zones. Includes locator enterprises, PEZA Board approval dates and registration dates. SSL bypass needed. |
+| 3 | 1. Industrial Zones (PRIMARY)         | Wikipedia PH Economic Zones List     | https://en.wikipedia.org/wiki/List_of_economic_zones_in_the_Philippines                     | HTML tables   | WORKING      | 22 agro-industrial + 11 freeports listed individually; manufacturing zones listed only as count (74) |
+| 4 | 1. Industrial Zones (PRIMARY)         | PEZA Operating Economic Zones page   | https://www.peza.gov.ph/operating-economic-zones                                            | HTML (JS)     | NOT WORKING  | SSL cert expired; JS-rendered content    |
+| 5 | 1. Industrial Zones (PRIMARY)         | PEZA Manufacturing Zones page        | https://www.peza.gov.ph/economic-zones/manufacturing                                       | HTML (JS)     | NOT WORKING  | Timeout (>60s); heavy JS rendering       |
+| 6 | 1. Industrial Zones (PRIMARY)         | PEZA Economic Zone Locator (map)     | https://www.peza.gov.ph/getting-started-category/economic-zone-locator                      | HTML (JS map) | NOT WORKING  | SSL cert expired; interactive tool only  |
+| 7 | 1. Industrial Zones (PRIMARY)         | PEZA FOI Request Portal              | https://www.peza.gov.ph/foi-request                                                        | Web form      | NOT WORKING  | SSL cert expired; requires manual filing |
+| 8 | 2. Additional Zones (SUPPLEMENTARY)   | PEZA Full Zone Directory             | https://www.peza.gov.ph/economic-zones                                                     | HTML (JS)     | NOT WORKING  | SSL cert expired; JS-rendered; covers IT parks, tourism, etc. |
+| 9 | 3. Admin Boundaries                   | Philippines JSON Maps (GeoJSON)      | https://github.com/faeldon/philippines-json-maps                                            | GeoJSON       | WORKING      | Regions, provinces, municipalities, barangays. EPSG:32651. |
+| 10| 3. Admin Boundaries                   | GADM Philippines (PHL)               | https://gadm.org/download_country.html                                                     | SHP/GPKG/R    | WORKING      | Multiple admin levels                    |
+| 11| 4. Distances: Roads, Rivers, Ports    | OpenStreetMap Philippines Extract    | https://download.geofabrik.de/asia/philippines.html                                        | PBF/SHP/GPKG  | WORKING      | 568MB-1.3GB; updated daily               |
+| 12| 4. Distances: Airports                | OurAirports                          | https://ourairports.com/data/                                                              | CSV           | WORKING      | Public domain; includes lat/lon          |
+| 13| 4. Distances: Coastline, Rivers       | Natural Earth 10m Physical Vectors   | https://www.naturalearthdata.com/downloads/10m-physical-vectors/                            | Shapefile     | WORKING      | Public domain                            |
+| 14| 5. Raster: Population Density         | WorldPop Philippines                 | https://hub.worldpop.org/geodata/listing?id=76                                             | GeoTIFF, 1km  | WORKING      | CC-BY 4.0; years 2000-2020              |
+| 15| 5. Raster: Night Lights               | VIIRS DNB Annual Composites          | https://eogdata.mines.edu/products/vnl/                                                    | GeoTIFF       | WORKING      | CC-BY 4.0; ~500m resolution; 2012+      |
+| 16| 5. Raster: Built-up / Urban Extent    | GHSL (Copernicus)                    | https://human-settlement.emergency.copernicus.eu/download.php                              | GeoTIFF tiles | WORKING      | Open/free; tile-based download           |
+| 17| 5. Raster: Forest Cover               | Hansen Global Forest Change          | https://earthenginepartners.appspot.com/science-2013-global-forest                         | GeoTIFF (GEE) | NOT WORKING  | JS-only app; requires Google Earth Engine|
+| 18| 5. Raster: Surface Water              | JRC Global Surface Water             | https://storage.googleapis.com/global-surface-water/downloads_v1_4_2021/occurrence/occurrence_120E_10Nv1_4_2021.tif | GeoTIFF | NOT WORKING | HTTP 404; tile URL may have changed |
+| 19| 6. Economic: National Indicators      | World Bank Philippines               | https://data.worldbank.org/country/philippines                                             | CSV/Excel     | WORKING      | Country-level only; no subnational       |
+| 20| 6. Economic: Census / Business Stats  | PSA Main Portal                      | https://psa.gov.ph                                                                         | Various       | NOT WORKING  | HTTP 403; blocks programmatic access     |
+| 21| 6. Economic: Census / Business Stats  | PSA OpenStat                         | https://openstat.psa.gov.ph                                                                | Various       | NOT WORKING  | HTTP 403; blocks programmatic access     |
+| 22| 6. Economic: Census Data              | PSA Census Page                      | https://psa.gov.ph/statistics/census/philippine-census-population-and-housing              | Various       | NOT WORKING  | HTTP 403; blocks programmatic access     |
+| 23| 6. Economic: Subnational Population   | HDX Philippines Population           | https://data.humdata.org/dataset/cod-ps-phl                                                | Various       | NOT WORKING  | HTTP 403; blocked automated access       |
+| 24| 6. Economic: Subnational Search       | HDX Philippines Data Search          | https://data.humdata.org/dataset?q=philippines+population                                  | Various       | NOT WORKING  | HTTP 403; blocked automated access       |
 
-SUMMARY:  10 WORKING  /  12 NOT WORKING
+SUMMARY:  13 WORKING  /  11 NOT WORKING
 
-Key takeaway: The most critical datasets (PEZA industrial zone lists) are
-NOT WORKING for automated access. The strongest available data covers
-spatial/raster layers and admin boundaries. Economic data at the
-municipality level remains the biggest gap after the zone list itself.
+Key takeaway: The two most critical datasets are now available:
+  Row 1: PEZA manufacturing zones Excel (all 74 zones) — WORKING
+  Row 2: PEZA agro-industrial zones Excel (22 operating + 6 proclaimed,
+         with locator enterprises and PEZA approval/registration dates) — WORKING
+Combined, these give us 96 industrial zones + 6 proclaimed = 102 total.
+The remaining gaps are: zone GPS coordinates (require geocoding),
+municipality-level economic data (PSA blocked), and land values.
+Spatial/raster layers and admin boundaries are well covered.
 
 ================================================================================
 9. SUMMARY OF FEASIBILITY ASSESSMENT

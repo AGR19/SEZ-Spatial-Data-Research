@@ -48,7 +48,9 @@ Country chosen: **Philippines**
 
 | Dataset | Source | Format | Status |
 |---------|--------|--------|--------|
-| Zone list (agro-industrial, free ports) | Wikipedia + PEZA website | HTML tables | Partial — manufacturing zones require FOI |
+| PEZA Manufacturing Zones (74) | peza.gov.ph/sites/default/files/1.xls | Excel (.xls) | WORKING — complete list with names, locations, area, developer, investments (Nov 2017) |
+| PEZA Agro-Industrial Zones (22+6) | peza.gov.ph/sites/default/files/3.xls | Excel (.xls) | WORKING — includes locator enterprises and PEZA approval/registration dates |
+| Zone list (Wikipedia) | en.wikipedia.org/wiki/List_of_economic_zones_in_the_Philippines | HTML tables | Supplementary — 22 agro-industrial + 11 freeports listed |
 | Admin boundaries | github.com/faeldon/philippines-json-maps | GeoJSON | Verified accessible |
 | Admin boundaries | gadm.org (PHL) | SHP/GPKG | Verified accessible |
 | Roads, rivers, ports | download.geofabrik.de/asia/philippines.html | PBF/SHP (568MB-1.3GB) | Verified accessible |
@@ -103,6 +105,8 @@ SEZ-Spatial-Data-Research/
 ├── Gold Standard_JMP_TG.pdf           # Tishara Garg's JMP (INTERNAL REFERENCE ONLY)
 ├── Claude_TG_Insight.txt              # Deep analysis of TG paper (internal learning)
 ├── Difficulties_Claude.txt            # Dataset access difficulties documented
+├── peza_zones_raw.xls                 # PEZA manufacturing zones (74) — downloaded from peza.gov.ph/sites/default/files/1.xls
+├── peza_locators_raw.xls              # PEZA agro-industrial zones (22+6) with locators — from peza.gov.ph/sites/default/files/3.xls
 ├── Assignment Instructions/
 │   ├── Written Assignment.pdf         # Official assignment instructions
 │   └── My Insights and Questions/     # Handwritten notes, screenshots
