@@ -1,8 +1,7 @@
 # Philippines Industrial Zones: Spatial Data Research
 
-Stanford IRISS Predoctoral Research Assignment — Place-Based Industrial Policy and Development
-
 **Live Dashboard:** [https://agr19.shinyapps.io/philippines-industrial-zones/](https://agr19.shinyapps.io/philippines-industrial-zones/)
+ArcGIS results and other results also presnt below.
 
 ## Research Question
 
