@@ -209,9 +209,25 @@ cat("  Types:", paste(names(table(wiki_zones$zone_type)), table(wiki_zones$zone_
 # --- 1.5 Name-match World Bank ↔ PEZA zones ----------------------------------
 cat("--- 1.5 Fuzzy matching zone names across sources ---\n")
 
-# Combine all PEZA zones
-peza_all <- bind_rows(peza_mfg, peza_agro_all)
-cat("  Total PEZA zones:", nrow(peza_all), "\n")
+# Combine all PEZA zones + Wikipedia freeports (supplementary)
+wiki_freeports <- wiki_zones %>%
+  filter(zone_type == "freeport") %>%
+  transmute(
+    zone_number = NA_integer_,
+    zone_name, location_text,
+    developer, area_hectares,
+    investments_php_m = NA_character_,
+    nationality = NA_character_,
+    zone_type = "freeport",
+    data_source = "Wikipedia",
+    region
+  )
+
+peza_all <- bind_rows(peza_mfg, peza_agro_all, wiki_freeports)
+cat("  Total PEZA + freeport zones:", nrow(peza_all), "\n")
+cat("    Manufacturing:", sum(peza_all$zone_type == "manufacturing"), "\n")
+cat("    Agro-industrial:", sum(grepl("agro", peza_all$zone_type)), "\n")
+cat("    Freeport:", sum(peza_all$zone_type == "freeport"), "\n")
 
 # Normalize names for matching
 normalize_name <- function(x) {
@@ -254,23 +270,17 @@ cat("\n")
 # --- 1.6 Geocode unmatched PEZA zones to municipality centroids --------------
 cat("--- 1.6 Loading municipality boundaries for geocoding ---\n")
 
-# Read all municipality GeoJSON files from province-level directories
-prov_dir <- file.path(RAW_PATH, "philippines-json-maps-master", "2023",
-                      "geojson", "provdists", "hires")
-prov_files <- list.files(prov_dir, pattern = "\\.json$", full.names = TRUE)
-
-muni_list <- list()
-for (f in prov_files) {
-  tryCatch({
-    gj <- st_read(f, quiet = TRUE)
-    if ("adm3_en" %in% names(gj)) {
-      muni_list[[length(muni_list) + 1]] <- gj
-    }
-  }, error = function(e) NULL)
-}
-
-municipalities <- do.call(rbind, muni_list)
-cat("  Municipalities loaded:", nrow(municipalities), "\n")
+# Load GADM level 3 (municipalities) — works in both R and ArcGIS Pro
+# JSON Maps from faeldon/philippines-json-maps don't load in ArcGIS Pro,
+# so we use GADM shapefiles which are universally compatible.
+# GADM level 2 = municipalities/cities (1,647 units)
+# GADM level 3 = barangays (41,948) — too granular for our analysis
+library(geodata)
+gadm_vect <- gadm(country = "PHL", level = 2, path = file.path(RAW_PATH, "gadm"))
+municipalities <- st_as_sf(gadm_vect)
+# Remove waterbody features
+municipalities <- municipalities %>% filter(ENGTYPE_2 != "Waterbody")
+cat("  Municipalities loaded (GADM level 2):", nrow(municipalities), "\n")
 
 # Disable S2 spherical geometry — Philippine GeoJSON files have some invalid
 # edges that cause S2 errors. Planar geometry is fine for our purposes.
@@ -279,6 +289,15 @@ sf_use_s2(FALSE)
 # Compute municipality centroids for geocoding
 municipalities <- st_make_valid(municipalities)
 municipalities <- st_transform(municipalities, CRS_WGS84)
+
+# Rename GADM level 2 columns to standard names
+# Level 2: NAME_2=municipality/city, NAME_1=province/region
+if ("NAME_2" %in% names(municipalities)) {
+  municipalities <- municipalities %>%
+    rename(adm3_en = NAME_2, adm2_en = NAME_1,
+           adm3_psgc = GID_2, adm1_psgc = GID_1)
+}
+
 muni_centroids_geom <- st_centroid(municipalities)
 cent_coords <- st_coordinates(muni_centroids_geom)
 municipalities$cent_lon <- cent_coords[, 1]
@@ -301,8 +320,8 @@ parse_municipality <- function(loc_text) {
 
 unmatched$parsed_municipality <- sapply(unmatched$location_text, parse_municipality)
 
-# Fuzzy match parsed municipality names to GeoJSON municipality names
-muni_names <- muni_centroids$adm3_en
+# Fuzzy match parsed municipality names to boundary municipality names
+muni_names <- as.character(muni_centroids$adm3_en)
 unmatched_muni_norm <- normalize_name(unmatched$parsed_municipality)
 muni_names_norm <- normalize_name(muni_names)
 
@@ -528,7 +547,10 @@ if (file.exists(ghsl_zip)) {
     ghsl_ph <- crop(ghsl, ph_extent)
 
     bu_stats <- exact_extract(ghsl_ph, analysis_units, fun = "mean")
-    analysis_units$builtup_fraction_2020 <- bu_stats
+    # GHSL BUILT-S stores built-up surface in m² per grid cell.
+    # At 30 arcsec (~1km), cell area is ~1,000,000 m². Normalize to 0-1 fraction.
+    cell_area_m2 <- 1000 * 1000  # approximate cell area at equator
+    analysis_units$builtup_fraction_2020 <- pmin(bu_stats / cell_area_m2, 1.0)
     cat("  Built-up fraction extracted\n")
     cat("  Range:", round(min(analysis_units$builtup_fraction_2020, na.rm = TRUE), 3),
         "-", round(max(analysis_units$builtup_fraction_2020, na.rm = TRUE), 3), "\n\n")
@@ -616,9 +638,8 @@ analysis_export <- analysis_units %>%
   st_drop_geometry() %>%
   select(
     municipality_name = adm3_en,
-    psgc_code = adm3_psgc,
-    province_psgc = adm2_psgc,
-    region_psgc = adm1_psgc,
+    gadm_id = adm3_psgc,
+    province = adm2_en,
     area_sqkm,
     has_zone, zone_count, total_zone_area_ha,
     has_manufacturing, has_agro,
@@ -672,7 +693,10 @@ for (v in compare_vars) {
   }
 }
 
-cat("\n  Significance: *** p<0.01, ** p<0.05, * p<0.10\n\n")
+cat("\n  Significance: *** p<0.01, ** p<0.05, * p<0.10, NS = not significant\n")
+cat("  NOTE: dist_nearest_airport_km and area_sqkm are NOT statistically\n")
+cat("  significant — zones are NOT systematically closer to airports or\n")
+cat("  larger in area than non-zone municipalities.\n\n")
 
 
 # --- 3.2 Correlation matrix ---------------------------------------------------

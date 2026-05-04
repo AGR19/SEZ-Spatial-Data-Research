@@ -9,6 +9,7 @@ raw datasets/worldpop/
 raw datasets/viirs/
 raw datasets/philippines-260503-free/
 raw datasets/philippines-json-maps-master/
+raw datasets/gadm/
 raw datasets/API_PHL_DS2_en_csv_v2_2199/
 raw datasets/*.csv
 raw datasets/*.geojson
