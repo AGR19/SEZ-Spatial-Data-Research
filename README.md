@@ -1,18 +1,18 @@
 # Philippines Industrial Zones: Spatial Data Construction and Descriptive Analysis
 
-**Adishesh Gonibeed Ravishankar** — Stanford Predoctoral IRiSS Assignment — Dr. Tishara Garg
+**Adishesh Gonibeed Ravishankar** - Stanford Predoctoral IRiSS Assignment - Dr. Tishara Garg
 
 ---
 
 ## 1. Summary
 
-I chose the **Philippines** for having a moderately higher GDP than other developing nations. It is also a newly industrialized country (NIC) having a mostly agrarian economy.¹ To study where industrial zones are located, I assembled a spatial dataset of 102 zones from government and international sources, linked it to satellite-derived and infrastructure data at the municipality level, and compared zone versus non-zone locations descriptively. The analysis suggests that industrial zones are systematically located in municipalities with higher population density, greater nighttime economic activity, and closer proximity to primary road networks. This is a partial solution — further work is needed to verify data accuracy and address missing datasets.
+I chose the **Philippines** for having a moderately higher GDP than other developing nations. It is also a newly industrialized country (NIC) having a mostly agrarian economy.¹ To study where industrial zones are located, I assembled a spatial dataset of 102 zones from government and international sources, linked it to satellite-derived and infrastructure data at the municipality level, and compared zone versus non-zone locations descriptively. The analysis suggests that industrial zones are systematically located in municipalities with higher population density, greater nighttime economic activity, and closer proximity to primary road networks. This is a partial solution - further work is needed to verify data accuracy and address missing datasets.
 
 ## 2. Background and Motivation
 
-The Philippines enacted the Special Economic Zone Act of 1995 (Republic Act 7916), establishing the Philippine Economic Zone Authority (PEZA) as the coordinating body for industrial zone development. PEZA currently administers over 300 economic zones of various types, with manufacturing and agro-industrial zones being the primary vehicles for industrial development and foreign direct investment attraction.
+The Philippines enacted the Special Economic Zone Act of 1995 (Republic Act 7916), establishing the Philippine Economic Zone Authority (PEZA) as the coordinating body for industrial zone development.⁵ PEZA currently administers over 300 economic zones of various types, with manufacturing and agro-industrial zones being the primary vehicles for industrial development and foreign direct investment attraction (Ortega et al., 2015).
 
-Understanding *where* these zones are placed — and how those locations differ from non-zone areas — is foundational to studying whether place-based industrial policy shapes local economic outcomes. This analysis constructs the spatial dataset necessary for such an inquiry.
+Understanding *where* these zones are placed - and how those locations differ from non-zone areas - is foundational to studying whether place-based industrial policy shapes local economic outcomes. This analysis constructs the spatial dataset necessary for such an inquiry.
 
 ## 3. Prior Work
 
@@ -20,6 +20,7 @@ Ortega, Acielo, and Hermida (2015) conducted the most directly relevant prior st
 
 ## 4. Results
 
+- **GitHub Repository:** [https://github.com/AGR19/SEZ-Spatial-Data-Research](https://github.com/AGR19/SEZ-Spatial-Data-Research)
 - **Live Interactive Dashboard (Bonus):** [https://agr19.shinyapps.io/philippines-industrial-zones/](https://agr19.shinyapps.io/philippines-industrial-zones/)
 - **R-Generated Statistical Figures:** [figures/](https://github.com/AGR19/SEZ-Spatial-Data-Research/tree/main/figures)
 - **ArcGIS Pro Maps:** [Result Maps ArcGIS/](https://github.com/AGR19/SEZ-Spatial-Data-Research/tree/main/Result%20Maps%20ArcGIS)
@@ -30,19 +31,19 @@ Ortega, Acielo, and Hermida (2015) conducted the most directly relevant prior st
 
 Twenty data sources were identified, evaluated, and documented in `sources.csv`. Key sources:
 
-1. **PEZA Manufacturing Zones** (peza.gov.ph/sites/default/files/1.xls) — 74 zones with names, locations, area
-2. **PEZA Agro-Industrial Zones** (peza.gov.ph/sites/default/files/3.xls) — 22 operating + 6 proclaimed
-3. **World Bank CIIP SEZ Database** (datacatalog.worldbank.org) — 47 zones with GPS coordinates and establishment years
-4. **GADM Philippines v4.1** (gadm.org via R geodata package) — municipality boundaries
-5. **VIIRS Nighttime Lights 2018** (eogdata.mines.edu) — economic activity proxy
-6. **WorldPop Population 2020** (worldpop.org) — population density raster
-7. **GHSL Built-up Surface 2020** (human-settlement.emergency.copernicus.eu) — urbanization
-8. **OpenStreetMap Philippines** (download.geofabrik.de) — roads, waterways, transport infrastructure
-9. **OurAirports** (ourairports.com) — airport locations with coordinates
+1. **PEZA Manufacturing Zones** (peza.gov.ph/sites/default/files/1.xls) - 74 zones with names, locations, area
+2. **PEZA Agro-Industrial Zones** (peza.gov.ph/sites/default/files/3.xls) - 22 operating + 6 proclaimed
+3. **World Bank CIIP SEZ Database** (datacatalog.worldbank.org) - 47 zones with GPS coordinates and establishment years
+4. **GADM Philippines v4.1** (gadm.org via R geodata package) - municipality boundaries
+5. **VIIRS Nighttime Lights 2018** (eogdata.mines.edu) - economic activity proxy
+6. **WorldPop Population 2020** (worldpop.org) - population density raster
+7. **GHSL Built-up Surface 2020** (human-settlement.emergency.copernicus.eu) - urbanization
+8. **OpenStreetMap Philippines** (download.geofabrik.de) - roads, waterways, transport infrastructure
+9. **OurAirports** (ourairports.com) - airport locations with coordinates
 
 **Pain Points Encountered:**
 1. Some government websites (even the one cited on Wikipedia itself) were not operational.¹ ²
-2. Philippines Statistics Authority's OpenStat³ websites — some were not working, only a few worked. I could do queries on the table but I was not able to download the csv files. (Showed Cloudflare Error 520) or PXWeb Errors when I open some datasets. Wish I had this data. The quality and the micro/macroeconomic segments of datasets were too good!
+2. Philippines Statistics Authority's OpenStat³ websites - some were not working, only a few worked. I could do queries on the table but I was not able to download the csv files. (Showed Cloudflare Error 520) or PXWeb Errors when I open some datasets. Wish I had this data. The quality and the micro/macroeconomic segments of datasets were too good!
 3. GADM⁴ download links not working. Had to download it via R geodata package.
 
 ## 6. Methods
@@ -72,18 +73,18 @@ Twenty data sources were identified, evaluated, and documented in `sources.csv`.
 
 ## 8. Conclusions
 
-The data suggest that Philippine industrial zones reinforce existing urban-industrial corridors rather than creating new development poles in remote areas. This is descriptive, not causal — zones were intentionally placed near infrastructure. A causal analysis using staggered difference-in-differences, exploiting variation in establishment timing (1974–2014), would be the natural next step to determine whether zones *cause* local economic growth or merely *reflect* pre-existing advantages.
+The data suggest that Philippine industrial zones reinforce existing urban-industrial corridors rather than creating new development poles in remote areas. This is descriptive, not causal - zones were intentionally placed near infrastructure. A causal analysis using staggered difference-in-differences, exploiting variation in establishment timing (1974–2014), would be the natural next step to determine whether zones *cause* local economic growth or merely *reflect* pre-existing advantages.
 
 **This is a partial solution.** Next steps include verifying data accuracy, handling missing datasets, and obtaining complete PEZA zone coordinates via Freedom of Information request.
 
 ## 9. Limitations and Future Directions
 
 **Current limitations:**
-1. Selection bias — zones placed deliberately near infrastructure; correlation ≠ causation
-2. Geocoding imprecision — 27 zones approximated to municipality centroids
-3. Temporal gaps — zone data (2017), nightlights (2018), population (2020)
-4. Island geography — Euclidean distances do not account for water crossings
-5. Missing zone types — IT Parks (262), Tourism Zones (19) not individually listed in public data
+1. Selection bias - zones placed deliberately near infrastructure; correlation ≠ causation
+2. Geocoding imprecision - 27 zones approximated to municipality centroids
+3. Temporal gaps - zone data (2017), nightlights (2018), population (2020)
+4. Island geography - Euclidean distances do not account for water crossings
+5. Missing zone types - IT Parks (262), Tourism Zones (19) not individually listed in public data
 
 **With more time, I would:**
 - File a Freedom of Information request to PEZA for complete zone coordinates
@@ -122,6 +123,7 @@ Philippine Economic Zone Authority (2017). *List of Operating Manufacturing Econ
 ² https://www.peza.gov.ph/index.php/economic-zones/list-of-economic-zones/operating-economic-zones
 ³ https://openstat.psa.gov.ph/
 ⁴ https://gadm.org/download_country.html
+⁵ Republic of the Philippines. (1995). *Republic Act No. 7916: Special Economic Zone Act of 1995*. https://www.peza.gov.ph/special-economic-zone-act
 
 ## 12. Statistical Tests and Results
 
@@ -162,7 +164,7 @@ MIT License. See `LICENSE` file.
 
 | File | Description |
 |---|---|
-| `sources.csv` | Source audit table — 20 sources with 8 columns each |
+| `sources.csv` | Source audit table - 20 sources with 8 columns each |
 | `zones.csv` | 102 industrial zones with coordinates, type, area, source |
 | `analysis_units.csv` | 1,628 municipalities with zone indicators and 17 variables |
 | `analysis.R` | Reproducible R script covering Parts 1–4 |
@@ -175,7 +177,7 @@ MIT License. See `LICENSE` file.
 ### Prerequisites
 
 - R 4.5+ with packages listed in Section 10
-- ArcGIS Pro with organizational account (for map generation — optional)
+- ArcGIS Pro with organizational account (for map generation - optional)
 
 ### Install R packages
 
@@ -211,7 +213,7 @@ shiny::runApp("app.R")
 
 ## ArcGIS Pro Workflow
 
-**Boundary data:** Use GADM shapefiles at `raw datasets/gadm/gadm41_PHL_2.shp`. Generated by analysis.R via `geodata` R package. Philippines JSON Maps GeoJSON files do NOT load in ArcGIS Pro — use GADM instead.
+**Boundary data:** Use GADM shapefiles at `raw datasets/gadm/gadm41_PHL_2.shp`. Generated by analysis.R via `geodata` R package. Philippines JSON Maps GeoJSON files do NOT load in ArcGIS Pro - use GADM instead.
 
 ### Map 1: Zone Locations
 1. Map tab → Add Data → `raw datasets/gadm/gadm41_PHL_2.shp`
@@ -234,3 +236,7 @@ shiny::runApp("app.R")
 1. Add `protected_conserved_areas_wdpca_polygons.geojson`
 2. Set 50% transparency, dark green fill
 3. Overlay zone points → Export
+
+## Technical Appendix
+
+The complete technical appendix including all code, data documentation, download notes, and reproducibility instructions is available in the GitHub repository: [https://github.com/AGR19/SEZ-Spatial-Data-Research](https://github.com/AGR19/SEZ-Spatial-Data-Research)
