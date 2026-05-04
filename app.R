@@ -173,7 +173,7 @@ server <- function(input, output, session) {
       setView(lng = 121.5, lat = 12.5, zoom = 6) %>%
       addCircleMarkers(
         lng = ~longitude, lat = ~latitude,
-        radius = ~pmin(sqrt(area_hectares) / 3, 15),
+        radius = ~pmin(sqrt(ifelse(is.na(area_hectares), 100, area_hectares)) / 3, 15),
         color = ~pal(zone_type),
         fillOpacity = 0.7, stroke = TRUE, weight = 1,
         popup = ~paste0(
