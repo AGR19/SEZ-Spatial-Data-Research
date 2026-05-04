@@ -105,8 +105,9 @@ SEZ-Spatial-Data-Research/
 ├── Gold Standard_JMP_TG.pdf           # Tishara Garg's JMP (INTERNAL REFERENCE ONLY)
 ├── Claude_TG_Insight.txt              # Deep analysis of TG paper (internal learning)
 ├── Difficulties_Claude.txt            # Dataset access difficulties documented
-├── peza_zones_raw.xls                 # PEZA manufacturing zones (74) — downloaded from peza.gov.ph/sites/default/files/1.xls
-├── peza_locators_raw.xls              # PEZA agro-industrial zones (22+6) with locators — from peza.gov.ph/sites/default/files/3.xls
+├── raw datasets/
+│   ├── peza_zones_raw.xls             # PEZA manufacturing zones (74) — from peza.gov.ph/sites/default/files/1.xls
+│   └── peza_locators_raw.xls          # PEZA agro-industrial zones (22+6) with locators — from peza.gov.ph/sites/default/files/3.xls
 ├── Assignment Instructions/
 │   ├── Written Assignment.pdf         # Official assignment instructions
 │   └── My Insights and Questions/     # Handwritten notes, screenshots
