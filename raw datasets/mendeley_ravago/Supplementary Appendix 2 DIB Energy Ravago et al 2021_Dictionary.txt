@@ -1,0 +1,1258 @@
+position	name	type	varlab
+1	locatorid	str9	Unique Locator ID Number
+2	source	str22	Source - FGD or Online Survey
+3	ecozonetype	float	Ecozone Type - 1 for Private; 2 for Public
+4	sIq1_ecozone	str55	Q1 - Ecozone
+5	sIq2_city	str11	Q2 - City/Municipality
+6	sIq2_prov	str12	Q2 - Province
+7	sIq2_zip	int	Q2 - ZIP Code
+8	sIq3_person_num	int	Q3 - Number of Personnel
+9	sIq4_person_adminsup_perc	byte	Q4 - Percentage of Admin and Support Personnel
+10	sIq4_person_prodtech_perc	byte	Q4 - Percentage of Production and Technical Staff
+11	sIq5_salary_person_php	long	Q5 - Monthly Salary of Personnel
+12	sIq6_salary_adminsup_perc	byte	Q6 - Percentage of Admin and Support Personnel in Total Salary
+13	sIq6_salary_prodtech_perc	byte	Q6 - Percentage of Production and Technical Personnel in Total Salary
+14	sIq7_bookvalue_php	str19	Q7 - Book Value
+15	sIq8q9_bookvalue_php_ave	float	Q8-Q9 - Book Value (Average)
+16	sIIq10_domexp	str17	Q10 - Products Sold Domestically or Exported
+17	sIIq11_prodsales_php	str19	Q11 - Production Sales in 2018
+18	sIIq12q13_prodsales_php_ave	float	Q12-Q13 - Production Sales in 2018 (Average)
+19	sIIq14_peakmo	str9	Q14 - Peak Month
+20	sIIq15_peakmo_main_day	double	"Q15 - Operating Days (Peak Month, Main Production)"
+21	sIIq16_peakmo_main_hr	double	"Q16 - Operating Hours (Peak Month, Main Production)"
+22	sIIq17_peakmo_aux_day	double	"Q17 - Operating Days (Peak Month, Auxiliary)"
+23	sIIq18_peakmo_aux_hr	double	"Q18 - Operating Hours (Peak Month, Auxiliary)"
+24	sIIq19_peakmo_distdel	str3	Q19 - Distribution and Delivery Expense (Peak Month)
+25	sIIq20_peakmo_distdelexp_php	float	"Q20 - Distribution and Delivery Expense in PHP (Peak, Average)"
+26	sIIq21_lowmo	str9	Q21 - Low Month
+27	sIIq22_lowmo_main_day	double	"Q22 - Operating Days (Low Month, Main Production)"
+28	sIIq23_lowmo_main_hr	double	"Q23 - Operating Hours (Low Month, Main Production)"
+29	sIIq24_lowmo_aux_day	double	"Q24 - Operating Days (Low Month, Auxiliary)"
+30	sIIq25_lowmo_aux_hr	double	"Q25 - Operating Hours (Low Month, Auxiliary)"
+31	sIIq26_lowmo_distdel	str3	Q26 - Distribution and Delivery Expense (Low Month)
+32	sIIq27_lowmo_distdelexp_php	float	"Q27 - Distribution and Delivery Expense in PHP (Low, Average)"
+33	sIIIq28_elecsour_pplant	str26	Q28 - Electricity Sources - Power Plant Inside Ecozone
+34	sIIIq28_elecsour_coop	str31	Q28 - Electricity Sources - Meralco or Electric Cooperative
+35	sIIIq28_elecsour_res	str33	Q28 - Electricity Sources - Retail Electricity Supplier (RES)
+36	sIIIq28_elecsour_genco	str59	Q28 - Electricity Sources - Direct from Generation Company
+37	sIIIq28_elecsour_selfgen	str15	Q28 - Electricity Sources - Self-generation
+38	sIIIq28_elecsour_other	str36	Q28 - Electricity Sources - Others
+39	sIIIq29_elecsour_pplant_perc	byte	Q29 - Percentage of Electricity Source - Power Plant Inside Ecozone
+40	sIIIq29_elecsour_coop_perc	byte	Q29 - Percentage of Electricity Source - Meralco or Electric Cooperative
+41	sIIIq29_elecsour_res_perc	byte	Q29 - Percentage of Electricity Source - Retail Electricity Supplier (RES)
+42	sIIIq29_elecsour_genco_perc	byte	Q29 - Percentage of Electricity Source - Direct from Generation Company
+43	sIIIq29_elecsour_selfgen_perc	byte	Q29 - Percentage of Electricity Source - Self-generation
+44	sIIIq29_elecsour_other_perc	byte	Q29 - Percentage of Electricity Source - Others
+45	sIIIq30_sourcebefres	str31	Q30 - Electricity Source Before Switching to RES
+46	sIIIq31_switchres	str3	Q31 - Switched Retailer After Switching to RES
+47	sIIIq32_switchres_freq	byte	Q32 - Number of Times Switched RES
+48	sIIIq33_selfgen_biodie	byte	Q33 - Self-generation Fuel - Biodiesel
+49	sIIIq33_selfgen_bunker	byte	Q33 - Self-generation Fuel - Bunker
+50	sIIIq33_selfgen_coal	byte	Q33 - Self-generation Fuel - Coal
+51	sIIIq33_selfgen_diesel	str6	Q33 - Self-generation Fuel - Diesel
+52	sIIIq33_selfgen_gaso	byte	Q33 - Self-generation Fuel - Gasoline
+53	sIIIq33_selfgen_kero	byte	Q33 - Self-generation Fuel - Kerosene
+54	sIIIq33_selfgen_lpg	byte	Q33 - Self-generation Fuel - LPG
+55	sIIIq33_selfgen_natgas	byte	Q33 - Self-generation Fuel - Natural Gas
+56	sIIIq33_selfgen_prop	byte	Q33 - Self-generation Fuel - Propane
+57	sIIIq33_selfgen_solar	str5	Q33 - Self-generation Fuel - Solar
+58	sIIIq33_selfgen_wind	byte	Q33 - Self-generation Fuel - Wind
+59	sIIIq33_selfgen_other	str1	Q33 - Self-generation Fuel - Others
+60	sIIIq34_backup	str3	Q34 - With Back-up Generation
+61	sIIIq35_backup__biodie	str9	Q35 - Back-up Generation Fuel - Biodiesel
+62	sIIIq35_backup__bunker	byte	Q35 - Back-up Generation Fuel - Bunker
+63	sIIIq35_backup__coal	byte	Q35 - Back-up Generation Fuel - Coal
+64	sIIIq35_backup__diesel	str6	Q35 - Back-up Generation Fuel - Diesel
+65	sIIIq35_backup__gaso	str8	Q35 - Back-up Generation Fuel - Gasoline
+66	sIIIq35_backup__kero	byte	Q35 - Back-up Generation Fuel - Kerosene
+67	sIIIq35_backup__lpg	byte	Q35 - Back-up Generation Fuel - LPG
+68	sIIIq35_backup__natgas	byte	Q35 - Back-up Generation Fuel - Natural Gas
+69	sIIIq35_backup__prop	byte	Q35 - Back-up Generation Fuel - Propane
+70	sIIIq35_backup__solar	byte	Q35 - Back-up Generation Fuel - Solar
+71	sIIIq35_backup__wind	byte	Q35 - Back-up Generation Fuel - Wind
+72	sIIIq35_backup__other	str29	Q35 - Back-up Generation Fuel - Others
+73	sIIIq36_elec_main_aircon	str16	Q36 - Process in Main Production that Use Electricity - Air Conditioning
+74	sIIIq36_elec_main_airgas	str40	Q36 - Process in Main Production that Use Electricity - Air/Gas Mixing
+75	sIIIq36_elec_main_baking	str6	Q36 - Process in Main Production that Use Electricity - Baking
+76	sIIIq36_elec_main_boiler	str50	Q36 - Process in Main Production that Use Electricity - Boiler Operation
+77	sIIIq36_elec_main_burn	str7	Q36 - Process in Main Production that Use Electricity - Burning
+78	sIIIq36_elec_main_curing	str52	Q36 - Process in Main Production that Use Electricity - Curing
+79	sIIIq36_elec_main_diecast	str27	Q36 - Process in Main Production that Use Electricity - Die Casting or Wire Bond
+80	sIIIq36_elec_main_dry	str84	Q36 - Process in Main Production that Use Electricity - Drying or Annealing
+81	sIIIq36_elec_main_engload	str29	Q36 - Process in Main Production that Use Electricity - Engine Loading or Prep
+82	sIIIq36_elec_main_fabri	str11	Q36 - Process in Main Production that Use Electricity - Fabrication
+83	sIIIq36_elec_main_fork	str18	Q36 - Process in Main Production that Use Electricity - Forklift Operation
+84	sIIIq36_elec_main_heat	str14	Q36 - Process in Main Production that Use Electricity - Heat Treatment
+85	sIIIq36_elec_main_ice	str10	Q36 - Process in Main Production that Use Electricity - Ice Making
+86	sIIIq36_elec_main_impreg	str12	Q36 - Process in Main Production that Use Electricity - Impregnation
+87	sIIIq36_elec_main_machinj	str28	Q36 - Process in Main Production that Use Electricity - Machine Inject or Mold
+88	sIIIq36_elec_main_melt	str22	Q36 - Process in Main Production that Use Electricity - Melting or Pre-melting
+89	sIIIq36_elec_main_metal	str32	Q36 - Process in Main Production that Use Electricity - Metal Treatment or Pre
+90	sIIIq36_elec_main_paint	str8	Q36 - Process in Main Production that Use Electricity - Painting
+91	sIIIq36_elec_main_power	str16	Q36 - Process in Main Production that Use Electricity - Power Generation
+92	sIIIq36_elec_main_smelt	str8	Q36 - Process in Main Production that Use Electricity - Smelting
+93	sIIIq36_elec_main_standby	str35	Q36 - Process in Main Production that Use Electricity - Standby or Back-up Power
+94	sIIIq36_elec_main_steel	str13	Q36 - Process in Main Production that Use Electricity - Steel Cutting
+95	sIIIq36_elec_main_thermoxi	byte	Q36 - Process in Main Production that Use Electricity - Thermal Oxidaation
+96	sIIIq36_elec_main_transpo	str74	Q36 - Process in Main Production that Use Electricity - Transportation and Log
+97	sIIIq36_elec_main_weld	str7	Q36 - Process in Main Production that Use Electricity - Welding
+98	sIIIq36_elec_main_stamp	str8	Q36 - Process in Main Production that Use Electricity - Stamping
+99	sIIIq36_elec_main_aircomp	str27	Q36 - Process in Main Production that Use Electricity - Air Compression / Vacuum
+100	sIIIq36_elec_main_other	str71	Q36 - Process in Main Production that Use Electricity - Others
+101	sIIIq37_elecconskwh	str17	Q37 - Electricity Consumption in kWh
+102	sIIIq38q39_elecconskwh_ave	float	Q38-Q39 - Electricity Consumption in kWh (Average)
+103	sIIIq40_elecconsphp	str19	Q40 - Electricity Expenditure in PHP
+104	sIIIq41q42_elecconsphp_ave	float	Q41-Q42 - Electricity Expenditure in PHP (Average)
+105	sIIIq43_elecratephp	float	Q43 - Electricity Rate in PHP/kWh (Average)
+106	sIIIq44_waterconscum	str16	Q44 - Water Consumption in cu.m.
+107	sIIIq45q46_waterconscum_ave	float	Q45-Q46 - Water Consumption in cu.m. (Average)
+108	sIIIq47_waterconsphp	str17	Q47 - Water Expenditure in PHP
+109	sIIIq48q49_waterconsphp_ave	float	Q48-Q49 - Water Expenditure in PHP (Average)
+110	sIIIq50_waterratephp	float	Q50 - Water Rate in PHP/cu.m. (Average)
+111	sIIIq51_switchconsiprice	byte	Q51 - Consideration in Switching Electricity Provider - Price
+112	sIIIq51_switchconsisupply	byte	Q51 - Consideration in Switching Electricity Provider - Supply and Stability
+113	sIIIq51_switchconsisafe	byte	Q51 - Consideration in Switching Electricity Provider - Safety and Security
+114	sIIIq51_switchconsienvi	byte	Q51 - Consideration in Switching Electricity Provider - Environment
+115	sIIIq52_pezaparti	str3	Q52 - Participated in PEZA Activities
+116	sIIIq53_peza_awareenms	str3	Q53 - Awareness of PEZA Activities - Energy Management Systems (EnMS) Standards
+117	sIIIq53_peza_awaresysopti	str3	"Q53 - Awareness of PEZA Activities - System Optimization (SO) for Steam, Compres"
+118	sIIIq53_peza_awarefinan	str3	Q53 - Awareness of PEZA Activities - Financial Opportunities for Energy Efficien
+119	sIIIq54_reduc_meas	str3	Q54 - Energy Conservation Measures
+120	sIIIq55_reduc_meas_solar	str23	Q55 - Energy Conservation Measures - Installing Solar Panels
+121	sIIIq55_reduc_meas_invert	str35	Q55 - Energy Conservation Measures - Using Inverter-type Air Conditioners
+122	sIIIq55_reduc_meas_led	str23	Q55 - Energy Conservation Measures - Installing LED Lighting
+123	sIIIq55_reduc_meas_other	str215	Q55 - Energy Conservation Measures - Others
+124	sIIIq56_reason_noimple_lackfund	byte	Q56 - Reason for Not Implementing Conservation Measures - Lack of Understanding
+125	sIIIq56_reason_noimple_lackknow	byte	Q56 - Reason for Not Implementing Conservation Measures - Lack of Tech Know
+126	sIIIq56_reason_noimple_lackres	byte	Q56 - Reason for Not Implementing Conservation Measures - Lack of Resources
+127	sIIIq56_reason_noimple_notprio	byte	Q56 - Reason for Not Implementing Conservation Measures - Not a Priority
+128	sIIIq56_reason_noimple_noeffect	byte	Q56 - Reason for Not Implementing Conservation Measures - No Perceived Effect
+129	sIVq57_fueluse	float	Q57 - Fuel Use (at least one fuel)
+130	sIVq58_fuelmix_biodiesel	byte	Q58 - Share of Biodiesel in Production Fuel Mix
+131	sIVq58_fuelmix_bunker	byte	Q58 - Share of Bunker in Production Fuel Mix
+132	sIVq58_fuelmix_coal	byte	Q58 - Share of Coal in Production Fuel Mix
+133	sIVq58_fuelmix_diesel	byte	Q58 - Share of  Diesel in Production Fuel Mix
+134	sIVq58_fuelmix_electricity	byte	Q58 - Share of Electricity in Production Fuel Mix
+135	sIVq58_fuelmix_gasoline	byte	Q58 - Share of Gasoline in Production Fuel Mix
+136	sIVq58_fuelmix_kerosene	byte	Q58 - Share of Kerosene in Production Fuel Mix
+137	sIVq58_fuelmix_lpg	byte	Q58 - Share of LPG in Production Fuel Mix
+138	sIVq58_fuelmix_natgas	byte	Q58 - Share of Natural Gas in Production Fuel Mix
+139	sIVq58_fuelmix_propane	byte	Q58 - Share of Propane in Production Fuel Mix
+140	sIVq58_fuelmix_other1	byte	Q58 - Share of Other Fuel (1) in Production Fuel Mix
+141	sIVq58_fuelmix_other2	byte	Q58 - Share of Other Fuel (2) in Production Fuel Mix
+142	sIVq58_fuelmix_other3	byte	Q58 - Share of Other Fuel (3) in Production Fuel Mix
+143	sIVq59_biodie_use	str2	Q59 - Use of Biodiesel
+144	sIVq60_biodie_impor	byte	Q60 - Importance of Biodiesel
+145	sIVq61_biodie_airgas	byte	Q61 - Biodiesel - Process in Production that Use Fuel - Air/Gas Mixing
+146	sIVq61_biodie_baking	byte	Q61 - Biodiesel - Process in Production that Use Fuel - Baking
+147	sIVq61_biodie_boiler	byte	Q61 - Biodiesel - Process in Production that Use Fuel - Boiler Operation
+148	sIVq61_biodie_burn	byte	Q61 - Biodiesel - Process in Production that Use Fuel - Burning
+149	sIVq61_biodie_curing	byte	Q61 - Biodiesel - Process in Production that Use Fuel - Curing
+150	sIVq61_biodie_diecast	byte	Q61 - Biodiesel - Process in Production that Use Fuel - Die Casting or Wire Bond
+151	sIVq61_biodie_dry	byte	Q61 - Biodiesel - Process in Production that Use Fuel - Drying or Annealing
+152	sIVq61_biodie_engload	byte	Q61 - Biodiesel - Process in Production that Use Fuel - Engine Loading or Prepar
+153	sIVq61_biodie_fabri	byte	Q61 - Biodiesel - Process in Production that Use Fuel - Fabrication
+154	sIVq61_biodie_fork	byte	Q61 - Biodiesel - Process in Production that Use Fuel - Forklift Operation
+155	sIVq61_biodie_heat	byte	Q61 - Biodiesel - Process in Production that Use Fuel - Heat Treatment
+156	sIVq61_biodie_ice	byte	Q61 - Biodiesel - Process in Production that Use Fuel - Ice Making
+157	sIVq61_biodie_impreg	byte	Q61 - Biodiesel - Process in Production that Use Fuel - Impregnation
+158	sIVq61_biodie_machinj	byte	Q61 - Biodiesel - Process in Production that Use Fuel - Machine Injection or Mol
+159	sIVq61_biodie_melt	byte	Q61 - Biodiesel - Process in Production that Use Fuel - Melting or Pre-melting
+160	sIVq61_biodie_metal	byte	Q61 - Biodiesel - Process in Production that Use Fuel - Metal Treatment or Pre-t
+161	sIVq61_biodie_paint	byte	Q61 - Biodiesel - Process in Production that Use Fuel - Painting
+162	sIVq61_biodie_smelt	byte	Q61 - Biodiesel - Process in Production that Use Fuel - Smelting
+163	sIVq61_biodie_steel	byte	Q61 - Biodiesel - Process in Production that Use Fuel - Steel Cutting
+164	sIVq61_biodie_thermoxi	byte	Q61 - Biodiesel - Process in Production that Use Fuel - Thermal Oxidaation
+165	sIVq61_biodie_transpo	byte	Q61 - Biodiesel - Process in Production that Use Fuel - Transportation and Logis
+166	sIVq61_biodie_weld	byte	Q61 - Biodiesel - Process in Production that Use Fuel - Welding
+167	sIVq61_biodie_stamp	byte	Q61 - Biodiesel - Process in Production that Use Fuel - Stamping
+168	sIVq61_biodie_aircomp	byte	Q61 - Biodiesel - Process in Production that Use Fuel - Air Compression / Vacuum
+169	sIVq61_biodie_other	byte	Q61 - Biodiesel - Process in Production that Use Fuel - Others
+170	sIVq62_biodie_cons_lit_airgas	byte	Q62 - Biodiesel - Consumption per Process in Liters per Day - Air/Gas Mixing
+171	sIVq62_biodie_cons_lit_baking	byte	Q62 - Biodiesel - Consumption per Process in Liters per Day - Baking
+172	sIVq62_biodie_cons_lit_boiler	byte	Q62 - Biodiesel - Consumption per Process in Liters per Day - Boiler Operation
+173	sIVq62_biodie_cons_lit_burn	byte	Q62 - Biodiesel - Consumption per Process in Liters per Day - Burning
+174	sIVq62_biodie_cons_lit_curing	byte	Q62 - Biodiesel - Consumption per Process in Liters per Day - Curing
+175	sIVq62_biodie_cons_lit_diecast	byte	Q62 - Biodiesel - Consumption per Process in Liters per Day - Die Casting or Wir
+176	sIVq62_biodie_cons_lit_dry	byte	Q62 - Biodiesel - Consumption per Process in Liters per Day - Drying or Annealin
+177	sIVq62_biodie_cons_lit_engload	byte	Q62 - Biodiesel - Consumption per Process in Liters per Day - Engine Loading or
+178	sIVq62_biodie_cons_lit_fabri	byte	Q62 - Biodiesel - Consumption per Process in Liters per Day - Fabrication
+179	sIVq62_biodie_cons_lit_fork	byte	Q62 - Biodiesel - Consumption per Process in Liters per Day - Forklift Operation
+180	sIVq62_biodie_cons_lit_heat	byte	Q62 - Biodiesel - Consumption per Process in Liters per Day - Heat Treatment
+181	sIVq62_biodie_cons_lit_ice	byte	Q62 - Biodiesel - Consumption per Process in Liters per Day - Ice Making
+182	sIVq62_biodie_cons_lit_impreg	byte	Q62 - Biodiesel - Consumption per Process in Liters per Day - Impregnation
+183	sIVq62_biodie_cons_lit_machinj	byte	Q62 - Biodiesel - Consumption per Process in Liters per Day - Machine Injection
+184	sIVq62_biodie_cons_lit_melt	byte	Q62 - Biodiesel - Consumption per Process in Liters per Day - Melting or Pre-mel
+185	sIVq62_biodie_cons_lit_metal	byte	Q62 - Biodiesel - Consumption per Process in Liters per Day - Metal Treatment or
+186	sIVq62_biodie_cons_lit_paint	byte	Q62 - Biodiesel - Consumption per Process in Liters per Day - Painting
+187	sIVq62_biodie_cons_lit_smelt	byte	Q62 - Biodiesel - Consumption per Process in Liters per Day - Smelting
+188	sIVq62_biodie_cons_lit_weld	byte	Q62 - Biodiesel - Consumption per Process in Liters per Day - Welding
+189	sIVq62_biodie_cons_lit_stamp	byte	Q62 - Biodiesel - Consumption per Process in Liters per Day - Stamping
+190	sIVq62_biodie_cons_lit_aircomp	byte	Q62 - Biodiesel - Consumption per Process in Liters per Day - Air Compression /
+191	sIVq62_biodie_cons_lit_steel	byte	Q62 - Biodiesel - Consumption per Process in Liters per Day - Steel Cutting
+192	sIVq62_biodie_cons_lit_thermoxi	byte	Q62 - Biodiesel - Consumption per Process in Liters per Day - Thermal Oxidaation
+193	sIVq62_biodie_cons_lit_transpo	byte	Q62 - Biodiesel - Consumption per Process in Liters per Day - Transportation and
+194	sIVq62_biodie_cons_lit_other	byte	Q62 - Biodiesel - Consumption per Process in Liters per Day - Others
+195	sIVq63_biodie_exp_php_airgas	byte	Q63 - Biodiesel - Expenditure per Process in Pesos per Month - Air/Gas Mixing
+196	sIVq63_biodie_exp_php_baking	byte	Q63 - Biodiesel - Expenditure per Process in Pesos per Month - Baking
+197	sIVq63_biodie_exp_php_boiler	byte	Q63 - Biodiesel - Expenditure per Process in Pesos per Month - Boiler Operation
+198	sIVq63_biodie_exp_php_burn	byte	Q63 - Biodiesel - Expenditure per Process in Pesos per Month - Burning
+199	sIVq63_biodie_exp_php_curing	byte	Q63 - Biodiesel - Expenditure per Process in Pesos per Month - Curing
+200	sIVq63_biodie_exp_php_diecast	byte	Q63 - Biodiesel - Expenditure per Process in Pesos per Month - Die Casting or Wi
+201	sIVq63_biodie_exp_php_dry	byte	Q63 - Biodiesel - Expenditure per Process in Pesos per Month - Drying or Anneali
+202	sIVq63_biodie_exp_php_engload	byte	Q63 - Biodiesel - Expenditure per Process in Pesos per Month - Engine Loading or
+203	sIVq63_biodie_exp_php_fabri	byte	Q63 - Biodiesel - Expenditure per Process in Pesos per Month - Fabrication
+204	sIVq63_biodie_exp_php_fork	byte	Q63 - Biodiesel - Expenditure per Process in Pesos per Month - Forklift Operatio
+205	sIVq63_biodie_exp_php_heat	byte	Q63 - Biodiesel - Expenditure per Process in Pesos per Month - Heat Treatment
+206	sIVq63_biodie_exp_php_ice	byte	Q63 - Biodiesel - Expenditure per Process in Pesos per Month - Ice Making
+207	sIVq63_biodie_exp_php_impreg	byte	Q63 - Biodiesel - Expenditure per Process in Pesos per Month - Impregnation
+208	sIVq63_biodie_exp_php_machinj	byte	Q63 - Biodiesel - Expenditure per Process in Pesos per Month - Machine Injection
+209	sIVq63_biodie_exp_php_melt	byte	Q63 - Biodiesel - Expenditure per Process in Pesos per Month - Melting or Pre-me
+210	sIVq63_biodie_exp_php_metal	byte	Q63 - Biodiesel - Expenditure per Process in Pesos per Month - Metal Treatment o
+211	sIVq63_biodie_exp_php_paint	byte	Q63 - Biodiesel - Expenditure per Process in Pesos per Month - Painting
+212	sIVq63_biodie_exp_php_smelt	byte	Q63 - Biodiesel - Expenditure per Process in Pesos per Month - Smelting
+213	sIVq63_biodie_exp_php_weld	byte	Q63 - Biodiesel - Expenditure per Process in Pesos per Month - Welding
+214	sIVq63_biodie_exp_php_stamp	byte	Q63 - Biodiesel - Expenditure per Process in Pesos per Month - Stamping
+215	sIVq63_biodie_exp_php_aircomp	byte	Q63 - Biodiesel - Expenditure per Process in Pesos per Month - Air Compression /
+216	sIVq63_biodie_exp_php_steel	byte	Q63 - Biodiesel - Expenditure per Process in Pesos per Month - Steel Cutting
+217	sIVq63_biodie_exp_php_thermoxi	byte	Q63 - Biodiesel - Expenditure per Process in Pesos per Month - Thermal Oxidaatio
+218	sIVq63_biodie_exp_php_transpo	byte	Q63 - Biodiesel - Expenditure per Process in Pesos per Month - Transportation an
+219	sIVq63_biodie_exp_php_other	byte	Q63 - Biodiesel - Expenditure per Process in Pesos per Month - Others
+220	sIVq64_biodie_procmode	byte	Q64 - Biodiesel - Mode of Procuring Fuel
+221	sIVq64_biodie_procmode_other	byte	Q64 - Biodiesel - Other Mode of Procuring Fuel
+222	sIVq65_bunker_use	str2	Q65 - Use of Bunker
+223	sIVq66_bunker_impor	byte	Q66 - Importance of Bunker
+224	sIVq67_bunker_airgas	byte	Q67 - Bunker - Process in Production that Use Fuel - Air/Gas Mixing
+225	sIVq67_bunker_baking	byte	Q67 - Bunker - Process in Production that Use Fuel - Baking
+226	sIVq67_bunker_boiler	byte	Q67 - Bunker - Process in Production that Use Fuel - Boiler Operation
+227	sIVq67_bunker_burn	byte	Q67 - Bunker - Process in Production that Use Fuel - Burning
+228	sIVq67_bunker_curing	byte	Q67 - Bunker - Process in Production that Use Fuel - Curing
+229	sIVq67_bunker_diecast	byte	Q67 - Bunker - Process in Production that Use Fuel - Die Casting or Wire Bonding
+230	sIVq67_bunker_dry	byte	Q67 - Bunker - Process in Production that Use Fuel - Drying or Annealing
+231	sIVq67_bunker_engload	byte	Q67 - Bunker - Process in Production that Use Fuel - Engine Loading or Preparati
+232	sIVq67_bunker_fabri	byte	Q67 - Bunker - Process in Production that Use Fuel - Fabrication
+233	sIVq67_bunker_fork	byte	Q67 - Bunker - Process in Production that Use Fuel - Forklift Operation
+234	sIVq67_bunker_heat	byte	Q67 - Bunker - Process in Production that Use Fuel - Heat Treatment
+235	sIVq67_bunker_ice	byte	Q67 - Bunker - Process in Production that Use Fuel - Ice Making
+236	sIVq67_bunker_impreg	byte	Q67 - Bunker - Process in Production that Use Fuel - Impregnation
+237	sIVq67_bunker_machinj	byte	Q67 - Bunker - Process in Production that Use Fuel - Machine Injection or Moldin
+238	sIVq67_bunker_melt	byte	Q67 - Bunker - Process in Production that Use Fuel - Melting or Pre-melting
+239	sIVq67_bunker_metal	byte	Q67 - Bunker - Process in Production that Use Fuel - Metal Treatment or Pre-trea
+240	sIVq67_bunker_paint	byte	Q67 - Bunker - Process in Production that Use Fuel - Painting
+241	sIVq67_bunker_smelt	byte	Q67 - Bunker - Process in Production that Use Fuel - Smelting
+242	sIVq67_bunker_steel	byte	Q67 - Bunker - Process in Production that Use Fuel - Steel Cutting
+243	sIVq67_bunker_thermoxi	byte	Q67 - Bunker - Process in Production that Use Fuel - Thermal Oxidaation
+244	sIVq67_bunker_transpo	byte	Q67 - Bunker - Process in Production that Use Fuel - Transportation and Logistic
+245	sIVq67_bunker_weld	byte	Q67 - Bunker - Process in Production that Use Fuel - Welding
+246	sIVq67_bunker_stamp	byte	Q67 - Bunker - Process in Production that Use Fuel - Stamping
+247	sIVq67_bunker_aircomp	byte	Q67 - Bunker - Process in Production that Use Fuel - Air Compression / Vacuuming
+248	sIVq67_bunker_other	byte	Q67 - Bunker - Process in Production that Use Fuel - Others
+249	sIVq68_bunker_cons_lit_airgas	byte	Q68 - Bunker - Consumption per Process in Liters per Day - Air/Gas Mixing
+250	sIVq68_bunker_cons_lit_baking	byte	Q68 - Bunker - Consumption per Process in Liters per Day - Baking
+251	sIVq68_bunker_cons_lit_boiler	byte	Q68 - Bunker - Consumption per Process in Liters per Day - Boiler Operation
+252	sIVq68_bunker_cons_lit_burn	byte	Q68 - Bunker - Consumption per Process in Liters per Day - Burning
+253	sIVq68_bunker_cons_lit_curing	byte	Q68 - Bunker - Consumption per Process in Liters per Day - Curing
+254	sIVq68_bunker_cons_lit_diecast	byte	Q68 - Bunker - Consumption per Process in Liters per Day - Die Casting or Wire B
+255	sIVq68_bunker_cons_lit_dry	byte	Q68 - Bunker - Consumption per Process in Liters per Day - Drying or Annealing
+256	sIVq68_bunker_cons_lit_engload	byte	Q68 - Bunker - Consumption per Process in Liters per Day - Engine Loading or Pre
+257	sIVq68_bunker_cons_lit_fabri	byte	Q68 - Bunker - Consumption per Process in Liters per Day - Fabrication
+258	sIVq68_bunker_cons_lit_fork	byte	Q68 - Bunker - Consumption per Process in Liters per Day - Forklift Operation
+259	sIVq68_bunker_cons_lit_heat	byte	Q68 - Bunker - Consumption per Process in Liters per Day - Heat Treatment
+260	sIVq68_bunker_cons_lit_ice	byte	Q68 - Bunker - Consumption per Process in Liters per Day - Ice Making
+261	sIVq68_bunker_cons_lit_impreg	byte	Q68 - Bunker - Consumption per Process in Liters per Day - Impregnation
+262	sIVq68_bunker_cons_lit_machinj	byte	Q68 - Bunker - Consumption per Process in Liters per Day - Machine Injection or
+263	sIVq68_bunker_cons_lit_melt	byte	Q68 - Bunker - Consumption per Process in Liters per Day - Melting or Pre-meltin
+264	sIVq68_bunker_cons_lit_metal	byte	Q68 - Bunker - Consumption per Process in Liters per Day - Metal Treatment or Pr
+265	sIVq68_bunker_cons_lit_paint	byte	Q68 - Bunker - Consumption per Process in Liters per Day - Painting
+266	sIVq68_bunker_cons_lit_smelt	byte	Q68 - Bunker - Consumption per Process in Liters per Day - Smelting
+267	sIVq68_bunker_cons_lit_weld	byte	Q68 - Bunker - Consumption per Process in Liters per Day - Welding
+268	sIVq68_bunker_cons_lit_stamp	byte	Q68 - Bunker - Consumption per Process in Liters per Day - Stamping
+269	sIVq68_bunker_cons_lit_aircomp	byte	Q68 - Bunker - Consumption per Process in Liters per Day - Air Compression / Vac
+270	sIVq68_bunker_cons_lit_steel	byte	Q68 - Bunker - Consumption per Process in Liters per Day - Steel Cutting
+271	sIVq68_bunker_cons_lit_thermoxi	byte	Q68 - Bunker - Consumption per Process in Liters per Day - Thermal Oxidaation
+272	sIVq68_bunker_cons_lit_transpo	byte	Q68 - Bunker - Consumption per Process in Liters per Day - Transportation and Lo
+273	sIVq68_bunker_cons_lit_other	byte	Q68 - Bunker - Consumption per Process in Liters per Day - Others
+274	sIVq69_bunker_exp_php_airgas	byte	Q69 - Bunker - Expenditure per Process in Pesos per Month - Air/Gas Mixing
+275	sIVq69_bunker_exp_php_baking	byte	Q69 - Bunker - Expenditure per Process in Pesos per Month - Baking
+276	sIVq69_bunker_exp_php_boiler	byte	Q69 - Bunker - Expenditure per Process in Pesos per Month - Boiler Operation
+277	sIVq69_bunker_exp_php_burn	byte	Q69 - Bunker - Expenditure per Process in Pesos per Month - Burning
+278	sIVq69_bunker_exp_php_curing	byte	Q69 - Bunker - Expenditure per Process in Pesos per Month - Curing
+279	sIVq69_bunker_exp_php_diecast	byte	Q69 - Bunker - Expenditure per Process in Pesos per Month - Die Casting or Wire
+280	sIVq69_bunker_exp_php_dry	byte	Q69 - Bunker - Expenditure per Process in Pesos per Month - Drying or Annealing
+281	sIVq69_bunker_exp_php_engload	byte	Q69 - Bunker - Expenditure per Process in Pesos per Month - Engine Loading or Pr
+282	sIVq69_bunker_exp_php_fabri	byte	Q69 - Bunker - Expenditure per Process in Pesos per Month - Fabrication
+283	sIVq69_bunker_exp_php_fork	byte	Q69 - Bunker - Expenditure per Process in Pesos per Month - Forklift Operation
+284	sIVq69_bunker_exp_php_heat	byte	Q69 - Bunker - Expenditure per Process in Pesos per Month - Heat Treatment
+285	sIVq69_bunker_exp_php_ice	byte	Q69 - Bunker - Expenditure per Process in Pesos per Month - Ice Making
+286	sIVq69_bunker_exp_php_impreg	byte	Q69 - Bunker - Expenditure per Process in Pesos per Month - Impregnation
+287	sIVq69_bunker_exp_php_machinj	byte	Q69 - Bunker - Expenditure per Process in Pesos per Month - Machine Injection or
+288	sIVq69_bunker_exp_php_melt	byte	Q69 - Bunker - Expenditure per Process in Pesos per Month - Melting or Pre-melti
+289	sIVq69_bunker_exp_php_metal	byte	Q69 - Bunker - Expenditure per Process in Pesos per Month - Metal Treatment or P
+290	sIVq69_bunker_exp_php_paint	byte	Q69 - Bunker - Expenditure per Process in Pesos per Month - Painting
+291	sIVq69_bunker_exp_php_smelt	byte	Q69 - Bunker - Expenditure per Process in Pesos per Month - Smelting
+292	sIVq69_bunker_exp_php_weld	byte	Q69 - Bunker - Expenditure per Process in Pesos per Month - Welding
+293	sIVq69_bunker_exp_php_stamp	byte	Q69 - Bunker - Expenditure per Process in Pesos per Month - Stamping
+294	sIVq69_bunker_exp_php_aircomp	byte	Q69 - Bunker - Expenditure per Process in Pesos per Month - Air Compression / Va
+295	sIVq69_bunker_exp_php_steel	byte	Q69 - Bunker - Expenditure per Process in Pesos per Month - Steel Cutting
+296	sIVq69_bunker_exp_php_thermoxi	byte	Q69 - Bunker - Expenditure per Process in Pesos per Month - Thermal Oxidaation
+297	sIVq69_bunker_exp_php_transpo	byte	Q69 - Bunker - Expenditure per Process in Pesos per Month - Transportation and L
+298	sIVq69_bunker_exp_php_other	byte	Q69 - Bunker - Expenditure per Process in Pesos per Month - Others
+299	sIVq70_bunker_procmode	byte	Q70 - Bunker - Mode of Procuring Fuel
+300	sIVq70_bunker_procmode_other	byte	Q70 - Bunker - Other Mode of Procuring Fuel
+301	sIVq71_coal_use	str2	Q71 - Use of Coal
+302	sIVq72_coal_impor	byte	Q72 - Importance of Coal
+303	sIVq73_coal_airgas	byte	Q73 - Coal - Process in Production that Use Fuel - Air/Gas Mixing
+304	sIVq73_coal_baking	byte	Q73 - Coal - Process in Production that Use Fuel - Baking
+305	sIVq73_coal_boiler	byte	Q73 - Coal - Process in Production that Use Fuel - Boiler Operation
+306	sIVq73_coal_burn	byte	Q73 - Coal - Process in Production that Use Fuel - Burning
+307	sIVq73_coal_curing	byte	Q73 - Coal - Process in Production that Use Fuel - Curing
+308	sIVq73_coal_diecast	byte	Q73 - Coal - Process in Production that Use Fuel - Die Casting or Wire Bonding
+309	sIVq73_coal_dry	byte	Q73 - Coal - Process in Production that Use Fuel - Drying or Annealing
+310	sIVq73_coal_engload	byte	Q73 - Coal - Process in Production that Use Fuel - Engine Loading or Preparation
+311	sIVq73_coal_fabri	byte	Q73 - Coal - Process in Production that Use Fuel - Fabrication
+312	sIVq73_coal_fork	byte	Q73 - Coal - Process in Production that Use Fuel - Forklift Operation
+313	sIVq73_coal_heat	byte	Q73 - Coal - Process in Production that Use Fuel - Heat Treatment
+314	sIVq73_coal_ice	byte	Q73 - Coal - Process in Production that Use Fuel - Ice Making
+315	sIVq73_coal_impreg	byte	Q73 - Coal - Process in Production that Use Fuel - Impregnation
+316	sIVq73_coal_machinj	byte	Q73 - Coal - Process in Production that Use Fuel - Machine Injection or Molding
+317	sIVq73_coal_melt	byte	Q73 - Coal - Process in Production that Use Fuel - Melting or Pre-melting
+318	sIVq73_coal_metal	byte	Q73 - Coal - Process in Production that Use Fuel - Metal Treatment or Pre-treatm
+319	sIVq73_coal_paint	byte	Q73 - Coal - Process in Production that Use Fuel - Painting
+320	sIVq73_coal_smelt	byte	Q73 - Coal - Process in Production that Use Fuel - Smelting
+321	sIVq73_coal_steel	byte	Q73 - Coal - Process in Production that Use Fuel - Steel Cutting
+322	sIVq73_coal_thermoxi	byte	Q73 - Coal - Process in Production that Use Fuel - Thermal Oxidaation
+323	sIVq73_coal_transpo	byte	Q73 - Coal - Process in Production that Use Fuel - Transportation and Logistics
+324	sIVq73_coal_weld	byte	Q73 - Coal - Process in Production that Use Fuel - Welding
+325	sIVq73_coal_stamp	byte	Q73 - Coal - Process in Production that Use Fuel - Stamping
+326	sIVq73_coal_aircomp	byte	Q73 - Coal - Process in Production that Use Fuel - Air Compression / Vacuuming
+327	sIVq73_coal_other	byte	Q73 - Coal - Process in Production that Use Fuel - Others
+328	sIVq74_coal_cons_mt_airgas	byte	Q74 - Coal - Consumption per Process in Metric Tons per Day - Air/Gas Mixing
+329	sIVq74_coal_cons_mt_baking	byte	Q74 - Coal - Consumption per Process in Metric Tons per Day - Baking
+330	sIVq74_coal_cons_mt_boiler	byte	Q74 - Coal - Consumption per Process in Metric Tons per Day - Boiler Operation
+331	sIVq74_coal_cons_mt_burn	byte	Q74 - Coal - Consumption per Process in Metric Tons per Day - Burning
+332	sIVq74_coal_cons_mt_curing	byte	Q74 - Coal - Consumption per Process in Metric Tons per Day - Curing
+333	sIVq74_coal_cons_mt_diecast	byte	Q74 - Coal - Consumption per Process in Metric Tons per Day - Die Casting or Wir
+334	sIVq74_coal_cons_mt_dry	byte	Q74 - Coal - Consumption per Process in Metric Tons per Day - Drying or Annealin
+335	sIVq74_coal_cons_mt_engload	byte	Q74 - Coal - Consumption per Process in Metric Tons per Day - Engine Loading or
+336	sIVq74_coal_cons_mt_fabri	byte	Q74 - Coal - Consumption per Process in Metric Tons per Day - Fabrication
+337	sIVq74_coal_cons_mt_fork	byte	Q74 - Coal - Consumption per Process in Metric Tons per Day - Forklift Operation
+338	sIVq74_coal_cons_mt_heat	byte	Q74 - Coal - Consumption per Process in Metric Tons per Day - Heat Treatment
+339	sIVq74_coal_cons_mt_ice	byte	Q74 - Coal - Consumption per Process in Metric Tons per Day - Ice Making
+340	sIVq74_coal_cons_mt_impreg	byte	Q74 - Coal - Consumption per Process in Metric Tons per Day - Impregnation
+341	sIVq74_coal_cons_mt_machinj	byte	Q74 - Coal - Consumption per Process in Metric Tons per Day - Machine Injection
+342	sIVq74_coal_cons_mt_melt	byte	Q74 - Coal - Consumption per Process in Metric Tons per Day - Melting or Pre-mel
+343	sIVq74_coal_cons_mt_metal	byte	Q74 - Coal - Consumption per Process in Metric Tons per Day - Metal Treatment or
+344	sIVq74_coal_cons_mt_paint	byte	Q74 - Coal - Consumption per Process in Metric Tons per Day - Painting
+345	sIVq74_coal_cons_mt_smelt	byte	Q74 - Coal - Consumption per Process in Metric Tons per Day - Smelting
+346	sIVq74_coal_cons_mt_weld	byte	Q74 - Coal - Consumption per Process in Metric Tons per Day - Welding
+347	sIVq74_coal_cons_mt_stamp	byte	Q74 - Coal - Consumption per Process in Metric Tons per Day - Stamping
+348	sIVq74_coal_cons_mt_aircomp	byte	Q74 - Coal - Consumption per Process in Metric Tons per Day - Air Compression /
+349	sIVq74_coal_cons_mt_steel	byte	Q74 - Coal - Consumption per Process in Metric Tons per Day - Steel Cutting
+350	sIVq74_coal_cons_mt_thermoxi	byte	Q74 - Coal - Consumption per Process in Metric Tons per Day - Thermal Oxidaation
+351	sIVq74_coal_cons_mt_transpo	byte	Q74 - Coal - Consumption per Process in Metric Tons per Day - Transportation and
+352	sIVq74_coal_cons_mt_other	byte	Q74 - Coal - Consumption per Process in Metric Tons per Day - Others
+353	sIVq75_coal_exp_php_airgas	byte	Q75 - Coal - Expenditure per Process in Pesos per Month - Air/Gas Mixing
+354	sIVq75_coal_exp_php_baking	byte	Q75 - Coal - Expenditure per Process in Pesos per Month - Baking
+355	sIVq75_coal_exp_php_boiler	byte	Q75 - Coal - Expenditure per Process in Pesos per Month - Boiler Operation
+356	sIVq75_coal_exp_php_burn	byte	Q75 - Coal - Expenditure per Process in Pesos per Month - Burning
+357	sIVq75_coal_exp_php_curing	byte	Q75 - Coal - Expenditure per Process in Pesos per Month - Curing
+358	sIVq75_coal_exp_php_diecast	byte	Q75 - Coal - Expenditure per Process in Pesos per Month - Die Casting or Wire Bo
+359	sIVq75_coal_exp_php_dry	byte	Q75 - Coal - Expenditure per Process in Pesos per Month - Drying or Annealing
+360	sIVq75_coal_exp_php_engload	byte	Q75 - Coal - Expenditure per Process in Pesos per Month - Engine Loading or Prep
+361	sIVq75_coal_exp_php_fabri	byte	Q75 - Coal - Expenditure per Process in Pesos per Month - Fabrication
+362	sIVq75_coal_exp_php_fork	byte	Q75 - Coal - Expenditure per Process in Pesos per Month - Forklift Operation
+363	sIVq75_coal_exp_php_heat	byte	Q75 - Coal - Expenditure per Process in Pesos per Month - Heat Treatment
+364	sIVq75_coal_exp_php_ice	byte	Q75 - Coal - Expenditure per Process in Pesos per Month - Ice Making
+365	sIVq75_coal_exp_php_impreg	byte	Q75 - Coal - Expenditure per Process in Pesos per Month - Impregnation
+366	sIVq75_coal_exp_php_machinj	byte	Q75 - Coal - Expenditure per Process in Pesos per Month - Machine Injection or M
+367	sIVq75_coal_exp_php_melt	byte	Q75 - Coal - Expenditure per Process in Pesos per Month - Melting or Pre-melting
+368	sIVq75_coal_exp_php_metal	byte	Q75 - Coal - Expenditure per Process in Pesos per Month - Metal Treatment or Pre
+369	sIVq75_coal_exp_php_paint	byte	Q75 - Coal - Expenditure per Process in Pesos per Month - Painting
+370	sIVq75_coal_exp_php_smelt	byte	Q75 - Coal - Expenditure per Process in Pesos per Month - Smelting
+371	sIVq75_coal_exp_php_weld	byte	Q75 - Coal - Expenditure per Process in Pesos per Month - Welding
+372	sIVq75_coal_exp_php_stamp	byte	Q75 - Coal - Expenditure per Process in Pesos per Month - Stamping
+373	sIVq75_coal_exp_php_aircomp	byte	Q75 - Coal - Expenditure per Process in Pesos per Month - Air Compression / Vacu
+374	sIVq75_coal_exp_php_steel	byte	Q75 - Coal - Expenditure per Process in Pesos per Month - Steel Cutting
+375	sIVq75_coal_exp_php_thermoxi	byte	Q75 - Coal - Expenditure per Process in Pesos per Month - Thermal Oxidaation
+376	sIVq75_coal_exp_php_transpo	byte	Q75 - Coal - Expenditure per Process in Pesos per Month - Transportation and Log
+377	sIVq75_coal_exp_php_other	byte	Q75 - Coal - Expenditure per Process in Pesos per Month - Others
+378	sIVq76_coal_procmode	byte	Q76 - Coal - Mode of Procuring Fuel
+379	sIVq76_coal_procmode_other	byte	Q76 - Coal - Other Mode of Procuring Fuel
+380	sIVq77_diesel_use	str3	Q77 - Use of Diesel
+381	sIVq78_diesel_impor	str18	Q78 - Importance of Diesel
+382	sIVq79_diesel_airgas	byte	Q79 - Diesel - Process in Production that Use Fuel - Air/Gas Mixing
+383	sIVq79_diesel_baking	byte	Q79 - Diesel - Process in Production that Use Fuel - Baking
+384	sIVq79_diesel_boiler	str50	Q79 - Diesel - Process in Production that Use Fuel - Boiler Operation
+385	sIVq79_diesel_burn	byte	Q79 - Diesel - Process in Production that Use Fuel - Burning
+386	sIVq79_diesel_curing	byte	Q79 - Diesel - Process in Production that Use Fuel - Curing
+387	sIVq79_diesel_diecast	byte	Q79 - Diesel - Process in Production that Use Fuel - Die Casting or Wire Bonding
+388	sIVq79_diesel_dry	byte	Q79 - Diesel - Process in Production that Use Fuel - Drying or Annealing
+389	sIVq79_diesel_engload	str29	Q79 - Diesel - Process in Production that Use Fuel - Engine Loading or Preparati
+390	sIVq79_diesel_fabri	str11	Q79 - Diesel - Process in Production that Use Fuel - Fabrication
+391	sIVq79_diesel_fork	str18	Q79 - Diesel - Process in Production that Use Fuel - Forklift Operation
+392	sIVq79_diesel_heat	str14	Q79 - Diesel - Process in Production that Use Fuel - Heat Treatment
+393	sIVq79_diesel_ice	byte	Q79 - Diesel - Process in Production that Use Fuel - Ice Making
+394	sIVq79_diesel_impreg	byte	Q79 - Diesel - Process in Production that Use Fuel - Impregnation
+395	sIVq79_diesel_machinj	byte	Q79 - Diesel - Process in Production that Use Fuel - Machine Injection or Moldin
+396	sIVq79_diesel_melt	byte	Q79 - Diesel - Process in Production that Use Fuel - Melting or Pre-melting
+397	sIVq79_diesel_metal	byte	Q79 - Diesel - Process in Production that Use Fuel - Metal Treatment or Pre-trea
+398	sIVq79_diesel_paint	byte	Q79 - Diesel - Process in Production that Use Fuel - Painting
+399	sIVq79_diesel_smelt	byte	Q79 - Diesel - Process in Production that Use Fuel - Smelting
+400	sIVq79_diesel_steel	byte	Q79 - Diesel - Process in Production that Use Fuel - Steel Cutting
+401	sIVq79_diesel_thermoxi	byte	Q79 - Diesel - Process in Production that Use Fuel - Thermal Oxidaation
+402	sIVq79_diesel_transpo	str74	Q79 - Diesel - Process in Production that Use Fuel - Transportation and Logistic
+403	sIVq79_diesel_weld	byte	Q79 - Diesel - Process in Production that Use Fuel - Welding
+404	sIVq79_diesel_stamp	str8	Q79 - Diesel - Process in Production that Use Fuel - Stamping
+405	sIVq79_diesel_aircomp	str25	Q79 - Diesel - Process in Production that Use Fuel - Air Compression / Vacuuming
+406	sIVq79_diesel_other	str51	Q79 - Diesel - Process in Production that Use Fuel - Others
+407	sIVq80_diesel_cons_lit_airgas	byte	Q80 - Diesel - Consumption per Process in Liters per Day - Air/Gas Mixing
+408	sIVq80_diesel_cons_lit_baking	byte	Q80 - Diesel - Consumption per Process in Liters per Day - Baking
+409	sIVq80_diesel_cons_lit_boiler	str10	Q80 - Diesel - Consumption per Process in Liters per Day - Boiler Operation
+410	sIVq80_diesel_cons_lit_burn	byte	Q80 - Diesel - Consumption per Process in Liters per Day - Burning
+411	sIVq80_diesel_cons_lit_curing	byte	Q80 - Diesel - Consumption per Process in Liters per Day - Curing
+412	sIVq80_diesel_cons_lit_diecast	byte	Q80 - Diesel - Consumption per Process in Liters per Day - Die Casting or Wire B
+413	sIVq80_diesel_cons_lit_dry	byte	Q80 - Diesel - Consumption per Process in Liters per Day - Drying or Annealing
+414	sIVq80_diesel_cons_lit_engload	str9	Q80 - Diesel - Consumption per Process in Liters per Day - Engine Loading or Pre
+415	sIVq80_diesel_cons_lit_fabri	str7	Q80 - Diesel - Consumption per Process in Liters per Day - Fabrication
+416	sIVq80_diesel_cons_lit_fork	str9	Q80 - Diesel - Consumption per Process in Liters per Day - Forklift Operation
+417	sIVq80_diesel_cons_lit_heat	str10	Q80 - Diesel - Consumption per Process in Liters per Day - Heat Treatment
+418	sIVq80_diesel_cons_lit_ice	byte	Q80 - Diesel - Consumption per Process in Liters per Day - Ice Making
+419	sIVq80_diesel_cons_lit_impreg	byte	Q80 - Diesel - Consumption per Process in Liters per Day - Impregnation
+420	sIVq80_diesel_cons_lit_machinj	byte	Q80 - Diesel - Consumption per Process in Liters per Day - Machine Injection or
+421	sIVq80_diesel_cons_lit_melt	byte	Q80 - Diesel - Consumption per Process in Liters per Day - Melting or Pre-meltin
+422	sIVq80_diesel_cons_lit_metal	byte	Q80 - Diesel - Consumption per Process in Liters per Day - Metal Treatment or Pr
+423	sIVq80_diesel_cons_lit_paint	byte	Q80 - Diesel - Consumption per Process in Liters per Day - Painting
+424	sIVq80_diesel_cons_lit_smelt	byte	Q80 - Diesel - Consumption per Process in Liters per Day - Smelting
+425	sIVq80_diesel_cons_lit_weld	byte	Q80 - Diesel - Consumption per Process in Liters per Day - Welding
+426	sIVq80_diesel_cons_lit_stamp	str7	Q80 - Diesel - Consumption per Process in Liters per Day - Stamping
+427	sIVq80_diesel_cons_lit_aircomp	str7	Q80 - Diesel - Consumption per Process in Liters per Day - Air Compression / Vac
+428	sIVq80_diesel_cons_lit_steel	byte	Q80 - Diesel - Consumption per Process in Liters per Day - Steel Cutting
+429	sIVq80_diesel_cons_lit_thermoxi	byte	Q80 - Diesel - Consumption per Process in Liters per Day - Thermal Oxidaation
+430	sIVq80_diesel_cons_lit_transpo	str9	Q80 - Diesel - Consumption per Process in Liters per Day - Transportation and Lo
+431	sIVq80_diesel_cons_lit_other	str9	Q80 - Diesel - Consumption per Process in Liters per Day - Others
+432	sIVq81_diesel_exp_php_airgas	byte	Q81 - Diesel - Expenditure per Process in Pesos per Month - Air/Gas Mixing
+433	sIVq81_diesel_exp_php_baking	byte	Q81 - Diesel - Expenditure per Process in Pesos per Month - Baking
+434	sIVq81_diesel_exp_php_boiler	str14	Q81 - Diesel - Expenditure per Process in Pesos per Month - Boiler Operation
+435	sIVq81_diesel_exp_php_burn	byte	Q81 - Diesel - Expenditure per Process in Pesos per Month - Burning
+436	sIVq81_diesel_exp_php_curing	byte	Q81 - Diesel - Expenditure per Process in Pesos per Month - Curing
+437	sIVq81_diesel_exp_php_diecast	byte	Q81 - Diesel - Expenditure per Process in Pesos per Month - Die Casting or Wire
+438	sIVq81_diesel_exp_php_dry	byte	Q81 - Diesel - Expenditure per Process in Pesos per Month - Drying or Annealing
+439	sIVq81_diesel_exp_php_engload	str11	Q81 - Diesel - Expenditure per Process in Pesos per Month - Engine Loading or Pr
+440	sIVq81_diesel_exp_php_fabri	str11	Q81 - Diesel - Expenditure per Process in Pesos per Month - Fabrication
+441	sIVq81_diesel_exp_php_fork	str11	Q81 - Diesel - Expenditure per Process in Pesos per Month - Forklift Operation
+442	sIVq81_diesel_exp_php_heat	str14	Q81 - Diesel - Expenditure per Process in Pesos per Month - Heat Treatment
+443	sIVq81_diesel_exp_php_ice	byte	Q81 - Diesel - Expenditure per Process in Pesos per Month - Ice Making
+444	sIVq81_diesel_exp_php_impreg	byte	Q81 - Diesel - Expenditure per Process in Pesos per Month - Impregnation
+445	sIVq81_diesel_exp_php_machinj	byte	Q81 - Diesel - Expenditure per Process in Pesos per Month - Machine Injection or
+446	sIVq81_diesel_exp_php_melt	byte	Q81 - Diesel - Expenditure per Process in Pesos per Month - Melting or Pre-melti
+447	sIVq81_diesel_exp_php_metal	byte	Q81 - Diesel - Expenditure per Process in Pesos per Month - Metal Treatment or P
+448	sIVq81_diesel_exp_php_paint	byte	Q81 - Diesel - Expenditure per Process in Pesos per Month - Painting
+449	sIVq81_diesel_exp_php_smelt	byte	Q81 - Diesel - Expenditure per Process in Pesos per Month - Smelting
+450	sIVq81_diesel_exp_php_weld	byte	Q81 - Diesel - Expenditure per Process in Pesos per Month - Welding
+451	sIVq81_diesel_exp_php_stamp	str11	Q81 - Diesel - Expenditure per Process in Pesos per Month - Stamping
+452	sIVq81_diesel_exp_php_aircomp	str11	Q81 - Diesel - Expenditure per Process in Pesos per Month - Air Compression / Va
+453	sIVq81_diesel_exp_php_steel	byte	Q81 - Diesel - Expenditure per Process in Pesos per Month - Steel Cutting
+454	sIVq81_diesel_exp_php_thermoxi	byte	Q81 - Diesel - Expenditure per Process in Pesos per Month - Thermal Oxidaation
+455	sIVq81_diesel_exp_php_transpo	str11	Q81 - Diesel - Expenditure per Process in Pesos per Month - Transportation and L
+456	sIVq81_diesel_exp_php_other	str11	Q81 - Diesel - Expenditure per Process in Pesos per Month - Others
+457	sIVq82_diesel_procmode	str16	Q82 - Diesel - Mode of Procuring Fuel
+458	sIVq82_diesel_procmode_other	byte	Q82 - Diesel - Other Mode of Procuring Fuel
+459	sIVq83_gaso_use	str3	Q83 - Use of Gasoline
+460	sIVq84_gaso_impor	str18	Q84 - Importance of Gasoline
+461	sIVq85_gaso_airgas	str40	Q85 - Gasoline - Process in Production that Use Fuel - Air/Gas Mixing
+462	sIVq85_gaso_baking	byte	Q85 - Gasoline - Process in Production that Use Fuel - Baking
+463	sIVq85_gaso_boiler	byte	Q85 - Gasoline - Process in Production that Use Fuel - Boiler Operation
+464	sIVq85_gaso_burn	byte	Q85 - Gasoline - Process in Production that Use Fuel - Burning
+465	sIVq85_gaso_curing	byte	Q85 - Gasoline - Process in Production that Use Fuel - Curing
+466	sIVq85_gaso_diecast	byte	Q85 - Gasoline - Process in Production that Use Fuel - Die Casting or Wire Bondi
+467	sIVq85_gaso_dry	byte	Q85 - Gasoline - Process in Production that Use Fuel - Drying or Annealing
+468	sIVq85_gaso_engload	byte	Q85 - Gasoline - Process in Production that Use Fuel - Engine Loading or Prepara
+469	sIVq85_gaso_fabri	str11	Q85 - Gasoline - Process in Production that Use Fuel - Fabrication
+470	sIVq85_gaso_fork	str18	Q85 - Gasoline - Process in Production that Use Fuel - Forklift Operation
+471	sIVq85_gaso_heat	byte	Q85 - Gasoline - Process in Production that Use Fuel - Heat Treatment
+472	sIVq85_gaso_ice	byte	Q85 - Gasoline - Process in Production that Use Fuel - Ice Making
+473	sIVq85_gaso_impreg	byte	Q85 - Gasoline - Process in Production that Use Fuel - Impregnation
+474	sIVq85_gaso_machinj	byte	Q85 - Gasoline - Process in Production that Use Fuel - Machine Injection or Mold
+475	sIVq85_gaso_melt	byte	Q85 - Gasoline - Process in Production that Use Fuel - Melting or Pre-melting
+476	sIVq85_gaso_metal	byte	Q85 - Gasoline - Process in Production that Use Fuel - Metal Treatment or Pre-tr
+477	sIVq85_gaso_paint	str8	Q85 - Gasoline - Process in Production that Use Fuel - Painting
+478	sIVq85_gaso_smelt	byte	Q85 - Gasoline - Process in Production that Use Fuel - Smelting
+479	sIVq85_gaso_steel	str13	Q85 - Gasoline - Process in Production that Use Fuel - Steel Cutting
+480	sIVq85_gaso_thermoxi	byte	Q85 - Gasoline - Process in Production that Use Fuel - Thermal Oxidaation
+481	sIVq85_gaso_transpo	str74	Q85 - Gasoline - Process in Production that Use Fuel - Transportation and Logist
+482	sIVq85_gaso_weld	str7	Q85 - Gasoline - Process in Production that Use Fuel - Welding
+483	sIVq85_gaso_stamp	byte	Q85 - Gasoline - Process in Production that Use Fuel - Stamping
+484	sIVq85_gaso_aircomp	str25	Q85 - Gasoline - Process in Production that Use Fuel - Air Compression / Vacuumi
+485	sIVq85_gaso_other	str21	Q85 - Gasoline - Process in Production that Use Fuel - Others
+486	sIVq86_gaso_cons_lit_airgas	str9	Q86 - Gasoline - Consumption per Process in Liters per Day - Air/Gas Mixing
+487	sIVq86_gaso_cons_lit_baking	byte	Q86 - Gasoline - Consumption per Process in Liters per Day - Baking
+488	sIVq86_gaso_cons_lit_boiler	byte	Q86 - Gasoline - Consumption per Process in Liters per Day - Boiler Operation
+489	sIVq86_gaso_cons_lit_burn	byte	Q86 - Gasoline - Consumption per Process in Liters per Day - Burning
+490	sIVq86_gaso_cons_lit_curing	byte	Q86 - Gasoline - Consumption per Process in Liters per Day - Curing
+491	sIVq86_gaso_cons_lit_diecast	byte	Q86 - Gasoline - Consumption per Process in Liters per Day - Die Casting or Wire
+492	sIVq86_gaso_cons_lit_dry	byte	Q86 - Gasoline - Consumption per Process in Liters per Day - Drying or Annealing
+493	sIVq86_gaso_cons_lit_engload	byte	Q86 - Gasoline - Consumption per Process in Liters per Day - Engine Loading or P
+494	sIVq86_gaso_cons_lit_fabri	str7	Q86 - Gasoline - Consumption per Process in Liters per Day - Fabrication
+495	sIVq86_gaso_cons_lit_fork	str7	Q86 - Gasoline - Consumption per Process in Liters per Day - Forklift Operation
+496	sIVq86_gaso_cons_lit_heat	byte	Q86 - Gasoline - Consumption per Process in Liters per Day - Heat Treatment
+497	sIVq86_gaso_cons_lit_ice	byte	Q86 - Gasoline - Consumption per Process in Liters per Day - Ice Making
+498	sIVq86_gaso_cons_lit_impreg	byte	Q86 - Gasoline - Consumption per Process in Liters per Day - Impregnation
+499	sIVq86_gaso_cons_lit_machinj	byte	Q86 - Gasoline - Consumption per Process in Liters per Day - Machine Injection o
+500	sIVq86_gaso_cons_lit_melt	byte	Q86 - Gasoline - Consumption per Process in Liters per Day - Melting or Pre-melt
+501	sIVq86_gaso_cons_lit_metal	byte	Q86 - Gasoline - Consumption per Process in Liters per Day - Metal Treatment or
+502	sIVq86_gaso_cons_lit_paint	str9	Q86 - Gasoline - Consumption per Process in Liters per Day - Painting
+503	sIVq86_gaso_cons_lit_smelt	byte	Q86 - Gasoline - Consumption per Process in Liters per Day - Smelting
+504	sIVq86_gaso_cons_lit_weld	str9	Q86 - Gasoline - Consumption per Process in Liters per Day - Welding
+505	sIVq86_gaso_cons_lit_stamp	byte	Q86 - Gasoline - Consumption per Process in Liters per Day - Stamping
+506	sIVq86_gaso_cons_lit_aircomp	str9	Q86 - Gasoline - Consumption per Process in Liters per Day - Air Compression / V
+507	sIVq86_gaso_cons_lit_steel	str9	Q86 - Gasoline - Consumption per Process in Liters per Day - Steel Cutting
+508	sIVq86_gaso_cons_lit_thermoxi	byte	Q86 - Gasoline - Consumption per Process in Liters per Day - Thermal Oxidaation
+509	sIVq86_gaso_cons_lit_transpo	str7	Q86 - Gasoline - Consumption per Process in Liters per Day - Transportation and
+510	sIVq86_gaso_cons_lit_other	str9	Q86 - Gasoline - Consumption per Process in Liters per Day - Others
+511	sIVq87_gaso_exp_php_airgas	str17	Q87 - Gasoline - Expenditure per Process in Pesos per Month - Air/Gas Mixing
+512	sIVq87_gaso_exp_php_baking	byte	Q87 - Gasoline - Expenditure per Process in Pesos per Month - Baking
+513	sIVq87_gaso_exp_php_boiler	byte	Q87 - Gasoline - Expenditure per Process in Pesos per Month - Boiler Operation
+514	sIVq87_gaso_exp_php_burn	byte	Q87 - Gasoline - Expenditure per Process in Pesos per Month - Burning
+515	sIVq87_gaso_exp_php_curing	byte	Q87 - Gasoline - Expenditure per Process in Pesos per Month - Curing
+516	sIVq87_gaso_exp_php_diecast	byte	Q87 - Gasoline - Expenditure per Process in Pesos per Month - Die Casting or Wir
+517	sIVq87_gaso_exp_php_dry	byte	Q87 - Gasoline - Expenditure per Process in Pesos per Month - Drying or Annealin
+518	sIVq87_gaso_exp_php_engload	byte	Q87 - Gasoline - Expenditure per Process in Pesos per Month - Engine Loading or
+519	sIVq87_gaso_exp_php_fabri	str11	Q87 - Gasoline - Expenditure per Process in Pesos per Month - Fabrication
+520	sIVq87_gaso_exp_php_fork	str11	Q87 - Gasoline - Expenditure per Process in Pesos per Month - Forklift Operation
+521	sIVq87_gaso_exp_php_heat	byte	Q87 - Gasoline - Expenditure per Process in Pesos per Month - Heat Treatment
+522	sIVq87_gaso_exp_php_ice	byte	Q87 - Gasoline - Expenditure per Process in Pesos per Month - Ice Making
+523	sIVq87_gaso_exp_php_impreg	byte	Q87 - Gasoline - Expenditure per Process in Pesos per Month - Impregnation
+524	sIVq87_gaso_exp_php_machinj	byte	Q87 - Gasoline - Expenditure per Process in Pesos per Month - Machine Injection
+525	sIVq87_gaso_exp_php_melt	byte	Q87 - Gasoline - Expenditure per Process in Pesos per Month - Melting or Pre-mel
+526	sIVq87_gaso_exp_php_metal	byte	Q87 - Gasoline - Expenditure per Process in Pesos per Month - Metal Treatment or
+527	sIVq87_gaso_exp_php_paint	str17	Q87 - Gasoline - Expenditure per Process in Pesos per Month - Painting
+528	sIVq87_gaso_exp_php_smelt	byte	Q87 - Gasoline - Expenditure per Process in Pesos per Month - Smelting
+529	sIVq87_gaso_exp_php_weld	str17	Q87 - Gasoline - Expenditure per Process in Pesos per Month - Welding
+530	sIVq87_gaso_exp_php_stamp	byte	Q87 - Gasoline - Expenditure per Process in Pesos per Month - Stamping
+531	sIVq87_gaso_exp_php_aircomp	str17	Q87 - Gasoline - Expenditure per Process in Pesos per Month - Air Compression /
+532	sIVq87_gaso_exp_php_steel	str17	Q87 - Gasoline - Expenditure per Process in Pesos per Month - Steel Cutting
+533	sIVq87_gaso_exp_php_thermoxi	byte	Q87 - Gasoline - Expenditure per Process in Pesos per Month - Thermal Oxidaation
+534	sIVq87_gaso_exp_php_transpo	str11	Q87 - Gasoline - Expenditure per Process in Pesos per Month - Transportation and
+535	sIVq87_gaso_exp_php_other	str11	Q87 - Gasoline - Expenditure per Process in Pesos per Month - Others
+536	sIVq88_gaso_procmode	str16	Q88 - Gasoline - Mode of Procuring Fuel
+537	sIVq88_gaso_procmode_other	byte	Q88 - Gasoline - Other Mode of Procuring Fuel
+538	sIVq89_kero_use	str3	Q89 - Use of Kerosene
+539	sIVq90_kero_impor	str18	Q90 - Importance of Kerosene
+540	sIVq91_kero_airgas	byte	Q91 - Kerosene - Process in Production that Use Fuel - Air/Gas Mixing
+541	sIVq91_kero_baking	byte	Q91 - Kerosene - Process in Production that Use Fuel - Baking
+542	sIVq91_kero_boiler	byte	Q91 - Kerosene - Process in Production that Use Fuel - Boiler Operation
+543	sIVq91_kero_burn	byte	Q91 - Kerosene - Process in Production that Use Fuel - Burning
+544	sIVq91_kero_curing	byte	Q91 - Kerosene - Process in Production that Use Fuel - Curing
+545	sIVq91_kero_diecast	str27	Q91 - Kerosene - Process in Production that Use Fuel - Die Casting or Wire Bondi
+546	sIVq91_kero_dry	byte	Q91 - Kerosene - Process in Production that Use Fuel - Drying or Annealing
+547	sIVq91_kero_engload	byte	Q91 - Kerosene - Process in Production that Use Fuel - Engine Loading or Prepara
+548	sIVq91_kero_fabri	byte	Q91 - Kerosene - Process in Production that Use Fuel - Fabrication
+549	sIVq91_kero_fork	byte	Q91 - Kerosene - Process in Production that Use Fuel - Forklift Operation
+550	sIVq91_kero_heat	byte	Q91 - Kerosene - Process in Production that Use Fuel - Heat Treatment
+551	sIVq91_kero_ice	byte	Q91 - Kerosene - Process in Production that Use Fuel - Ice Making
+552	sIVq91_kero_impreg	byte	Q91 - Kerosene - Process in Production that Use Fuel - Impregnation
+553	sIVq91_kero_machinj	byte	Q91 - Kerosene - Process in Production that Use Fuel - Machine Injection or Mold
+554	sIVq91_kero_melt	byte	Q91 - Kerosene - Process in Production that Use Fuel - Melting or Pre-melting
+555	sIVq91_kero_metal	byte	Q91 - Kerosene - Process in Production that Use Fuel - Metal Treatment or Pre-tr
+556	sIVq91_kero_paint	byte	Q91 - Kerosene - Process in Production that Use Fuel - Painting
+557	sIVq91_kero_smelt	byte	Q91 - Kerosene - Process in Production that Use Fuel - Smelting
+558	sIVq91_kero_steel	byte	Q91 - Kerosene - Process in Production that Use Fuel - Steel Cutting
+559	sIVq91_kero_thermoxi	byte	Q91 - Kerosene - Process in Production that Use Fuel - Thermal Oxidaation
+560	sIVq91_kero_transpo	byte	Q91 - Kerosene - Process in Production that Use Fuel - Transportation and Logist
+561	sIVq91_kero_weld	byte	Q91 - Kerosene - Process in Production that Use Fuel - Welding
+562	sIVq91_kero_stamp	byte	Q91 - Kerosene - Process in Production that Use Fuel - Stamping
+563	sIVq91_kero_aircomp	str25	Q91 - Kerosene - Process in Production that Use Fuel - Air Compression / Vacuumi
+564	sIVq91_kero_other	str25	Q91 - Kerosene - Process in Production that Use Fuel - Others
+565	sIVq92_kero_cons_lit_airgas	byte	Q92 - Kerosene - Consumption per Process in Liters per Day - Air/Gas Mixing
+566	sIVq92_kero_cons_lit_baking	byte	Q92 - Kerosene - Consumption per Process in Liters per Day - Baking
+567	sIVq92_kero_cons_lit_boiler	byte	Q92 - Kerosene - Consumption per Process in Liters per Day - Boiler Operation
+568	sIVq92_kero_cons_lit_burn	byte	Q92 - Kerosene - Consumption per Process in Liters per Day - Burning
+569	sIVq92_kero_cons_lit_curing	byte	Q92 - Kerosene - Consumption per Process in Liters per Day - Curing
+570	sIVq92_kero_cons_lit_diecast	str9	Q92 - Kerosene - Consumption per Process in Liters per Day - Die Casting or Wire
+571	sIVq92_kero_cons_lit_dry	byte	Q92 - Kerosene - Consumption per Process in Liters per Day - Drying or Annealing
+572	sIVq92_kero_cons_lit_engload	byte	Q92 - Kerosene - Consumption per Process in Liters per Day - Engine Loading or P
+573	sIVq92_kero_cons_lit_fabri	byte	Q92 - Kerosene - Consumption per Process in Liters per Day - Fabrication
+574	sIVq92_kero_cons_lit_fork	byte	Q92 - Kerosene - Consumption per Process in Liters per Day - Forklift Operation
+575	sIVq92_kero_cons_lit_heat	byte	Q92 - Kerosene - Consumption per Process in Liters per Day - Heat Treatment
+576	sIVq92_kero_cons_lit_ice	byte	Q92 - Kerosene - Consumption per Process in Liters per Day - Ice Making
+577	sIVq92_kero_cons_lit_impreg	byte	Q92 - Kerosene - Consumption per Process in Liters per Day - Impregnation
+578	sIVq92_kero_cons_lit_machinj	byte	Q92 - Kerosene - Consumption per Process in Liters per Day - Machine Injection o
+579	sIVq92_kero_cons_lit_melt	byte	Q92 - Kerosene - Consumption per Process in Liters per Day - Melting or Pre-melt
+580	sIVq92_kero_cons_lit_metal	byte	Q92 - Kerosene - Consumption per Process in Liters per Day - Metal Treatment or
+581	sIVq92_kero_cons_lit_paint	byte	Q92 - Kerosene - Consumption per Process in Liters per Day - Painting
+582	sIVq92_kero_cons_lit_smelt	byte	Q92 - Kerosene - Consumption per Process in Liters per Day - Smelting
+583	sIVq92_kero_cons_lit_weld	byte	Q92 - Kerosene - Consumption per Process in Liters per Day - Welding
+584	sIVq92_kero_cons_lit_stamp	byte	Q92 - Kerosene - Consumption per Process in Liters per Day - Stamping
+585	sIVq92_kero_cons_lit_aircomp	str9	Q92 - Kerosene - Consumption per Process in Liters per Day - Air Compression / V
+586	sIVq92_kero_cons_lit_steel	byte	Q92 - Kerosene - Consumption per Process in Liters per Day - Steel Cutting
+587	sIVq92_kero_cons_lit_thermoxi	byte	Q92 - Kerosene - Consumption per Process in Liters per Day - Thermal Oxidaation
+588	sIVq92_kero_cons_lit_transpo	byte	Q92 - Kerosene - Consumption per Process in Liters per Day - Transportation and
+589	sIVq92_kero_cons_lit_other	str7	Q92 - Kerosene - Consumption per Process in Liters per Day - Others
+590	sIVq93_kero_exp_php_airgas	byte	Q93 - Kerosene - Expenditure per Process in Pesos per Month - Air/Gas Mixing
+591	sIVq93_kero_exp_php_baking	byte	Q93 - Kerosene - Expenditure per Process in Pesos per Month - Baking
+592	sIVq93_kero_exp_php_boiler	byte	Q93 - Kerosene - Expenditure per Process in Pesos per Month - Boiler Operation
+593	sIVq93_kero_exp_php_burn	byte	Q93 - Kerosene - Expenditure per Process in Pesos per Month - Burning
+594	sIVq93_kero_exp_php_curing	byte	Q93 - Kerosene - Expenditure per Process in Pesos per Month - Curing
+595	sIVq93_kero_exp_php_diecast	str11	Q93 - Kerosene - Expenditure per Process in Pesos per Month - Die Casting or Wir
+596	sIVq93_kero_exp_php_dry	byte	Q93 - Kerosene - Expenditure per Process in Pesos per Month - Drying or Annealin
+597	sIVq93_kero_exp_php_engload	byte	Q93 - Kerosene - Expenditure per Process in Pesos per Month - Engine Loading or
+598	sIVq93_kero_exp_php_fabri	byte	Q93 - Kerosene - Expenditure per Process in Pesos per Month - Fabrication
+599	sIVq93_kero_exp_php_fork	byte	Q93 - Kerosene - Expenditure per Process in Pesos per Month - Forklift Operation
+600	sIVq93_kero_exp_php_heat	byte	Q93 - Kerosene - Expenditure per Process in Pesos per Month - Heat Treatment
+601	sIVq93_kero_exp_php_ice	byte	Q93 - Kerosene - Expenditure per Process in Pesos per Month - Ice Making
+602	sIVq93_kero_exp_php_impreg	byte	Q93 - Kerosene - Expenditure per Process in Pesos per Month - Impregnation
+603	sIVq93_kero_exp_php_machinj	byte	Q93 - Kerosene - Expenditure per Process in Pesos per Month - Machine Injection
+604	sIVq93_kero_exp_php_melt	byte	Q93 - Kerosene - Expenditure per Process in Pesos per Month - Melting or Pre-mel
+605	sIVq93_kero_exp_php_metal	byte	Q93 - Kerosene - Expenditure per Process in Pesos per Month - Metal Treatment or
+606	sIVq93_kero_exp_php_paint	byte	Q93 - Kerosene - Expenditure per Process in Pesos per Month - Painting
+607	sIVq93_kero_exp_php_smelt	byte	Q93 - Kerosene - Expenditure per Process in Pesos per Month - Smelting
+608	sIVq93_kero_exp_php_weld	byte	Q93 - Kerosene - Expenditure per Process in Pesos per Month - Welding
+609	sIVq93_kero_exp_php_stamp	byte	Q93 - Kerosene - Expenditure per Process in Pesos per Month - Stamping
+610	sIVq93_kero_exp_php_aircomp	str17	Q93 - Kerosene - Expenditure per Process in Pesos per Month - Air Compression /
+611	sIVq93_kero_exp_php_steel	byte	Q93 - Kerosene - Expenditure per Process in Pesos per Month - Steel Cutting
+612	sIVq93_kero_exp_php_thermoxi	byte	Q93 - Kerosene - Expenditure per Process in Pesos per Month - Thermal Oxidaation
+613	sIVq93_kero_exp_php_transpo	byte	Q93 - Kerosene - Expenditure per Process in Pesos per Month - Transportation and
+614	sIVq93_kero_exp_php_other	str11	Q93 - Kerosene - Expenditure per Process in Pesos per Month - Others
+615	sIVq94_kero_procmode	str16	Q94 - Kerosene - Mode of Procuring Fuel
+616	sIVq94_kero_procmode_other	byte	Q94 - Kerosene - Other Mode of Procuring Fuel
+617	sIVq95_lpg_use	str3	Q95 - Use of LPG
+618	sIVq96_lpg_impor	str18	Q96 - Imporatnce of LPG
+619	sIVq97_lpg_airgas	byte	Q97 - LPG - Process in Production that Use Fuel - Air/Gas Mixing
+620	sIVq97_lpg_baking	byte	Q97 - LPG - Process in Production that Use Fuel - Baking
+621	sIVq97_lpg_boiler	str50	Q97 - LPG - Process in Production that Use Fuel - Boiler Operation
+622	sIVq97_lpg_burn	str7	Q97 - LPG - Process in Production that Use Fuel - Burning
+623	sIVq97_lpg_curing	str52	Q97 - LPG - Process in Production that Use Fuel - Curing
+624	sIVq97_lpg_diecast	str27	Q97 - LPG - Process in Production that Use Fuel - Die Casting or Wire Bonding
+625	sIVq97_lpg_dry	str84	Q97 - LPG - Process in Production that Use Fuel - Drying or Annealing
+626	sIVq97_lpg_engload	byte	Q97 - LPG - Process in Production that Use Fuel - Engine Loading or Preparation
+627	sIVq97_lpg_fabri	str11	Q97 - LPG - Process in Production that Use Fuel - Fabrication
+628	sIVq97_lpg_fork	byte	Q97 - LPG - Process in Production that Use Fuel - Forklift Operation
+629	sIVq97_lpg_heat	str14	Q97 - LPG - Process in Production that Use Fuel - Heat Treatment
+630	sIVq97_lpg_ice	byte	Q97 - LPG - Process in Production that Use Fuel - Ice Making
+631	sIVq97_lpg_impreg	str12	Q97 - LPG - Process in Production that Use Fuel - Impregnation
+632	sIVq97_lpg_machinj	byte	Q97 - LPG - Process in Production that Use Fuel - Machine Injection or Molding
+633	sIVq97_lpg_melt	str22	Q97 - LPG - Process in Production that Use Fuel - Melting or Pre-melting
+634	sIVq97_lpg_metal	str32	Q97 - LPG - Process in Production that Use Fuel - Metal Treatment or Pre-treatme
+635	sIVq97_lpg_paint	byte	Q97 - LPG - Process in Production that Use Fuel - Painting
+636	sIVq97_lpg_smelt	str8	Q97 - LPG - Process in Production that Use Fuel - Smelting
+637	sIVq97_lpg_steel	str13	Q97 - LPG - Process in Production that Use Fuel - Steel Cutting
+638	sIVq97_lpg_thermoxi	byte	Q97 - LPG - Process in Production that Use Fuel - Thermal Oxidaation
+639	sIVq97_lpg_transpo	byte	Q97 - LPG - Process in Production that Use Fuel - Transportation and Logistics
+640	sIVq97_lpg_weld	str7	Q97 - LPG - Process in Production that Use Fuel - Welding
+641	sIVq97_lpg_stamp	byte	Q97 - LPG - Process in Production that Use Fuel - Stamping
+642	sIVq97_lpg_aircomp	str25	Q97 - LPG - Process in Production that Use Fuel - Air Compression / Vacuuming
+643	sIVq97_lpg_other	str34	Q97 - LPG - Process in Production that Use Fuel - Others
+644	sIVq98_lpg_cons_kg_airgas	byte	Q98 - LPG - Consumption per Process in Kilograms per Day - Air/Gas Mixing
+645	sIVq98_lpg_cons_kg_baking	byte	Q98 - LPG - Consumption per Process in Kilograms per Day - Baking
+646	sIVq98_lpg_cons_kg_boiler	str12	Q98 - LPG - Consumption per Process in Kilograms per Day - Boiler Operation
+647	sIVq98_lpg_cons_kg_burn	str10	Q98 - LPG - Consumption per Process in Kilograms per Day - Burning
+648	sIVq98_lpg_cons_kg_curing	str16	Q98 - LPG - Consumption per Process in Kilograms per Day - Curing
+649	sIVq98_lpg_cons_kg_diecast	str10	Q98 - LPG - Consumption per Process in Kilograms per Day - Die Casting or Wire B
+650	sIVq98_lpg_cons_kg_dry	str10	Q98 - LPG - Consumption per Process in Kilograms per Day - Drying or Annealing
+651	sIVq98_lpg_cons_kg_engload	byte	Q98 - LPG - Consumption per Process in Kilograms per Day - Engine Loading or Pre
+652	sIVq98_lpg_cons_kg_fabri	str15	Q98 - LPG - Consumption per Process in Kilograms per Day - Fabrication
+653	sIVq98_lpg_cons_kg_fork	byte	Q98 - LPG - Consumption per Process in Kilograms per Day - Forklift Operation
+654	sIVq98_lpg_cons_kg_heat	str15	Q98 - LPG - Consumption per Process in Kilograms per Day - Heat Treatment
+655	sIVq98_lpg_cons_kg_ice	byte	Q98 - LPG - Consumption per Process in Kilograms per Day - Ice Making
+656	sIVq98_lpg_cons_kg_impreg	str10	Q98 - LPG - Consumption per Process in Kilograms per Day - Impregnation
+657	sIVq98_lpg_cons_kg_machinj	byte	Q98 - LPG - Consumption per Process in Kilograms per Day - Machine Injection or
+658	sIVq98_lpg_cons_kg_melt	str15	Q98 - LPG - Consumption per Process in Kilograms per Day - Melting or Pre-meltin
+659	sIVq98_lpg_cons_kg_metal	str10	Q98 - LPG - Consumption per Process in Kilograms per Day - Metal Treatment or Pr
+660	sIVq98_lpg_cons_kg_paint	byte	Q98 - LPG - Consumption per Process in Kilograms per Day - Painting
+661	sIVq98_lpg_cons_kg_smelt	str10	Q98 - LPG - Consumption per Process in Kilograms per Day - Smelting
+662	sIVq98_lpg_cons_kg_weld	str15	Q98 - LPG - Consumption per Process in Kilograms per Day - Welding
+663	sIVq98_lpg_cons_kg_stamp	byte	Q98 - LPG - Consumption per Process in Kilograms per Day - Stamping
+664	sIVq98_lpg_cons_kg_aircomp	str15	Q98 - LPG - Consumption per Process in Kilograms per Day - Air Compression / Vac
+665	sIVq98_lpg_cons_kg_steel	str15	Q98 - LPG - Consumption per Process in Kilograms per Day - Steel Cutting
+666	sIVq98_lpg_cons_kg_thermoxi	byte	Q98 - LPG - Consumption per Process in Kilograms per Day - Thermal Oxidaation
+667	sIVq98_lpg_cons_kg_transpo	byte	Q98 - LPG - Consumption per Process in Kilograms per Day - Transportation and Lo
+668	sIVq98_lpg_cons_kg_other	str10	Q98 - LPG - Consumption per Process in Kilograms per Day - Others
+669	sIVq99_lpg_exp_php_airgas	byte	Q99 - LPG - Expenditure per Process in Pesos per Month - Air/Gas Mixing
+670	sIVq99_lpg_exp_php_baking	byte	Q99 - LPG - Expenditure per Process in Pesos per Month - Baking
+671	sIVq99_lpg_exp_php_boiler	str14	Q99 - LPG - Expenditure per Process in Pesos per Month - Boiler Operation
+672	sIVq99_lpg_exp_php_burn	str13	Q99 - LPG - Expenditure per Process in Pesos per Month - Burning
+673	sIVq99_lpg_exp_php_curing	str14	Q99 - LPG - Expenditure per Process in Pesos per Month - Curing
+674	sIVq99_lpg_exp_php_diecast	str21	Q99 - LPG - Expenditure per Process in Pesos per Month - Die Casting or Wire Bon
+675	sIVq99_lpg_exp_php_dry	str13	Q99 - LPG - Expenditure per Process in Pesos per Month - Drying or Annealing
+676	sIVq99_lpg_exp_php_engload	byte	Q99 - LPG - Expenditure per Process in Pesos per Month - Engine Loading or Prepa
+677	sIVq99_lpg_exp_php_fabri	str13	Q99 - LPG - Expenditure per Process in Pesos per Month - Fabrication
+678	sIVq99_lpg_exp_php_fork	byte	Q99 - LPG - Expenditure per Process in Pesos per Month - Forklift Operation
+679	sIVq99_lpg_exp_php_heat	str13	Q99 - LPG - Expenditure per Process in Pesos per Month - Heat Treatment
+680	sIVq99_lpg_exp_php_ice	byte	Q99 - LPG - Expenditure per Process in Pesos per Month - Ice Making
+681	sIVq99_lpg_exp_php_impreg	str13	Q99 - LPG - Expenditure per Process in Pesos per Month - Impregnation
+682	sIVq99_lpg_exp_php_machinj	byte	Q99 - LPG - Expenditure per Process in Pesos per Month - Machine Injection or Mo
+683	sIVq99_lpg_exp_php_melt	str21	Q99 - LPG - Expenditure per Process in Pesos per Month - Melting or Pre-melting
+684	sIVq99_lpg_exp_php_metal	str13	Q99 - LPG - Expenditure per Process in Pesos per Month - Metal Treatment or Pre-
+685	sIVq99_lpg_exp_php_paint	byte	Q99 - LPG - Expenditure per Process in Pesos per Month - Painting
+686	sIVq99_lpg_exp_php_smelt	str13	Q99 - LPG - Expenditure per Process in Pesos per Month - Smelting
+687	sIVq99_lpg_exp_php_weld	str13	Q99 - LPG - Expenditure per Process in Pesos per Month - Welding
+688	sIVq99_lpg_exp_php_stamp	byte	Q99 - LPG - Expenditure per Process in Pesos per Month - Stamping
+689	sIVq99_lpg_exp_php_aircomp	str13	Q99 - LPG - Expenditure per Process in Pesos per Month - Air Compression / Vacuu
+690	sIVq99_lpg_exp_php_steel	str13	Q99 - LPG - Expenditure per Process in Pesos per Month - Steel Cutting
+691	sIVq99_lpg_exp_php_thermoxi	byte	Q99 - LPG - Expenditure per Process in Pesos per Month - Thermal Oxidaation
+692	sIVq99_lpg_exp_php_transpo	byte	Q99 - LPG - Expenditure per Process in Pesos per Month - Transportation and Logi
+693	sIVq99_lpg_exp_php_other	str13	Q99 - LPG - Expenditure per Process in Pesos per Month - Others
+694	sIVq100_lpg_procmode	str16	Q100 - LPG - Mode of Procuring Fuel
+695	sIVq100_lpg_procmode_other	byte	Q100 - LPG - Other Mode of Procuring Fuel
+696	sIVq101_natgas_use	str3	Q101 - Use of Natural Gas
+697	sIVq102_natgas_impor	str18	Q102 - Importance of Natural Gas
+698	sIVq103_natgas_airgas	byte	Q103 - Natural Gas - Process in Production that Use Fuel - Air/Gas Mixing
+699	sIVq103_natgas_baking	byte	Q103 - Natural Gas - Process in Production that Use Fuel - Baking
+700	sIVq103_natgas_boiler	byte	Q103 - Natural Gas - Process in Production that Use Fuel - Boiler Operation
+701	sIVq103_natgas_burn	byte	Q103 - Natural Gas - Process in Production that Use Fuel - Burning
+702	sIVq103_natgas_curing	byte	Q103 - Natural Gas - Process in Production that Use Fuel - Curing
+703	sIVq103_natgas_diecast	byte	Q103 - Natural Gas - Process in Production that Use Fuel - Die Casting or Wire B
+704	sIVq103_natgas_dry	byte	Q103 - Natural Gas - Process in Production that Use Fuel - Drying or Annealing
+705	sIVq103_natgas_engload	byte	Q103 - Natural Gas - Process in Production that Use Fuel - Engine Loading or Pre
+706	sIVq103_natgas_fabri	str11	Q103 - Natural Gas - Process in Production that Use Fuel - Fabrication
+707	sIVq103_natgas_fork	byte	Q103 - Natural Gas - Process in Production that Use Fuel - Forklift Operation
+708	sIVq103_natgas_heat	byte	Q103 - Natural Gas - Process in Production that Use Fuel - Heat Treatment
+709	sIVq103_natgas_ice	byte	Q103 - Natural Gas - Process in Production that Use Fuel - Ice Making
+710	sIVq103_natgas_impreg	byte	Q103 - Natural Gas - Process in Production that Use Fuel - Impregnation
+711	sIVq103_natgas_machinj	byte	Q103 - Natural Gas - Process in Production that Use Fuel - Machine Injection or
+712	sIVq103_natgas_melt	byte	Q103 - Natural Gas - Process in Production that Use Fuel - Melting or Pre-meltin
+713	sIVq103_natgas_metal	byte	Q103 - Natural Gas - Process in Production that Use Fuel - Metal Treatment or Pr
+714	sIVq103_natgas_paint	byte	Q103 - Natural Gas - Process in Production that Use Fuel - Painting
+715	sIVq103_natgas_smelt	byte	Q103 - Natural Gas - Process in Production that Use Fuel - Smelting
+716	sIVq103_natgas_steel	byte	Q103 - Natural Gas - Process in Production that Use Fuel - Steel Cutting
+717	sIVq103_natgas_thermoxi	byte	Q103 - Natural Gas - Process in Production that Use Fuel - Thermal Oxidaation
+718	sIVq103_natgas_transpo	byte	Q103 - Natural Gas - Process in Production that Use Fuel - Transportation and Lo
+719	sIVq103_natgas_weld	byte	Q103 - Natural Gas - Process in Production that Use Fuel - Welding
+720	sIVq103_natgas_stamp	byte	Q103 - Natural Gas - Process in Production that Use Fuel - Stamping
+721	sIVq103_natgas_aircomp	str25	Q103 - Natural Gas - Process in Production that Use Fuel - Air Compression / Vac
+722	sIVq103_natgas_other	str35	Q103 - Natural Gas - Process in Production that Use Fuel - Others
+723	sIVq104_natgas_cons_mcf_airgas	byte	Q104 - Natural Gas - Consumption per Process in MMSCFD per Day - Air/Gas Mixing
+724	sIVq104_natgas_cons_mcf_baking	byte	Q104 - Natural Gas - Consumption per Process in MMSCFD per Day - Baking
+725	sIVq104_natgas_cons_mcf_boiler	byte	Q104 - Natural Gas - Consumption per Process in MMSCFD per Day - Boiler Operatio
+726	sIVq104_natgas_cons_mcf_burn	byte	Q104 - Natural Gas - Consumption per Process in MMSCFD per Day - Burning
+727	sIVq104_natgas_cons_mcf_curing	byte	Q104 - Natural Gas - Consumption per Process in MMSCFD per Day - Curing
+728	sIVq104_natgas_cons_mcf_diecast	byte	Q104 - Natural Gas - Consumption per Process in MMSCFD per Day - Die Casting or
+729	sIVq104_natgas_cons_mcf_dry	byte	Q104 - Natural Gas - Consumption per Process in MMSCFD per Day - Drying or Annea
+730	sIVq104_natgas_cons_mcf_engload	byte	Q104 - Natural Gas - Consumption per Process in MMSCFD per Day - Engine Loading
+731	sIVq104_natgas_cons_mcf_fabri	str6	Q104 - Natural Gas - Consumption per Process in MMSCFD per Day - Fabrication
+732	sIVq104_natgas_cons_mcf_fork	byte	Q104 - Natural Gas - Consumption per Process in MMSCFD per Day - Forklift Operat
+733	sIVq104_natgas_cons_mcf_heat	byte	Q104 - Natural Gas - Consumption per Process in MMSCFD per Day - Heat Treatment
+734	sIVq104_natgas_cons_mcf_ice	byte	Q104 - Natural Gas - Consumption per Process in MMSCFD per Day - Ice Making
+735	sIVq104_natgas_cons_mcf_impreg	byte	Q104 - Natural Gas - Consumption per Process in MMSCFD per Day - Impregnation
+736	sIVq104_natgas_cons_mcf_machinj	byte	Q104 - Natural Gas - Consumption per Process in MMSCFD per Day - Machine Injecti
+737	sIVq104_natgas_cons_mcf_melt	byte	Q104 - Natural Gas - Consumption per Process in MMSCFD per Day - Melting or Pre-
+738	sIVq104_natgas_cons_mcf_metal	byte	Q104 - Natural Gas - Consumption per Process in MMSCFD per Day - Metal Treatment
+739	sIVq104_natgas_cons_mcf_paint	byte	Q104 - Natural Gas - Consumption per Process in MMSCFD per Day - Painting
+740	sIVq104_natgas_cons_mcf_smelt	byte	Q104 - Natural Gas - Consumption per Process in MMSCFD per Day - Smelting
+741	sIVq104_natgas_cons_mcf_weld	byte	Q104 - Natural Gas - Consumption per Process in MMSCFD per Day - Welding
+742	sIVq104_natgas_cons_mcf_stamp	byte	Q104 - Natural Gas - Consumption per Process in MMSCFD per Day - Stamping
+743	sIVq104_natgas_cons_mcf_aircomp	str7	Q104 - Natural Gas - Consumption per Process in MMSCFD per Day - Air Compression
+744	sIVq104_natgas_cons_mcf_steel	byte	Q104 - Natural Gas - Consumption per Process in MMSCFD per Day - Steel Cutting
+745	sIVq104_natgas_cons_mcf_thermoxi	byte	Q104 - Natural Gas - Consumption per Process in MMSCFD per Day - Thermal Oxidaat
+746	sIVq104_natgas_cons_mcf_transpo	byte	Q104 - Natural Gas - Consumption per Process in MMSCFD per Day - Transportation
+747	sIVq104_natgas_cons_mcf_other	str7	Q104 - Natural Gas - Consumption per Process in MMSCFD per Day - Others
+748	sIVq105_natgas_exp_php_airgas	byte	Q105 - Natural Gas - Expenditure per Process in Pesos per Month - Air/Gas Mixing
+749	sIVq105_natgas_exp_php_baking	byte	Q105 - Natural Gas - Expenditure per Process in Pesos per Month - Baking
+750	sIVq105_natgas_exp_php_boiler	byte	Q105 - Natural Gas - Expenditure per Process in Pesos per Month - Boiler Operati
+751	sIVq105_natgas_exp_php_burn	byte	Q105 - Natural Gas - Expenditure per Process in Pesos per Month - Burning
+752	sIVq105_natgas_exp_php_curing	byte	Q105 - Natural Gas - Expenditure per Process in Pesos per Month - Curing
+753	sIVq105_natgas_exp_php_diecast	byte	Q105 - Natural Gas - Expenditure per Process in Pesos per Month - Die Casting or
+754	sIVq105_natgas_exp_php_dry	byte	Q105 - Natural Gas - Expenditure per Process in Pesos per Month - Drying or Anne
+755	sIVq105_natgas_exp_php_engload	byte	Q105 - Natural Gas - Expenditure per Process in Pesos per Month - Engine Loading
+756	sIVq105_natgas_exp_php_fabri	str13	Q105 - Natural Gas - Expenditure per Process in Pesos per Month - Fabrication
+757	sIVq105_natgas_exp_php_fork	byte	Q105 - Natural Gas - Expenditure per Process in Pesos per Month - Forklift Opera
+758	sIVq105_natgas_exp_php_heat	byte	Q105 - Natural Gas - Expenditure per Process in Pesos per Month - Heat Treatment
+759	sIVq105_natgas_exp_php_ice	byte	Q105 - Natural Gas - Expenditure per Process in Pesos per Month - Ice Making
+760	sIVq105_natgas_exp_php_impreg	byte	Q105 - Natural Gas - Expenditure per Process in Pesos per Month - Impregnation
+761	sIVq105_natgas_exp_php_machinj	byte	Q105 - Natural Gas - Expenditure per Process in Pesos per Month - Machine Inject
+762	sIVq105_natgas_exp_php_melt	byte	Q105 - Natural Gas - Expenditure per Process in Pesos per Month - Melting or Pre
+763	sIVq105_natgas_exp_php_metal	byte	Q105 - Natural Gas - Expenditure per Process in Pesos per Month - Metal Treatmen
+764	sIVq105_natgas_exp_php_paint	byte	Q105 - Natural Gas - Expenditure per Process in Pesos per Month - Painting
+765	sIVq105_natgas_exp_php_smelt	byte	Q105 - Natural Gas - Expenditure per Process in Pesos per Month - Smelting
+766	sIVq105_natgas_exp_php_weld	byte	Q105 - Natural Gas - Expenditure per Process in Pesos per Month - Welding
+767	sIVq105_natgas_exp_php_stamp	byte	Q105 - Natural Gas - Expenditure per Process in Pesos per Month - Stamping
+768	sIVq105_natgas_exp_php_aircomp	str21	Q105 - Natural Gas - Expenditure per Process in Pesos per Month - Air Compressio
+769	sIVq105_natgas_exp_php_steel	byte	Q105 - Natural Gas - Expenditure per Process in Pesos per Month - Steel Cutting
+770	sIVq105_natgas_exp_php_thermoxi	byte	Q105 - Natural Gas - Expenditure per Process in Pesos per Month - Thermal Oxidaa
+771	sIVq105_natgas_exp_php_transpo	byte	Q105 - Natural Gas - Expenditure per Process in Pesos per Month - Transportation
+772	sIVq105_natgas_exp_php_other	str13	Q105 - Natural Gas - Expenditure per Process in Pesos per Month - Others
+773	sIVq106_natgas_procmode	str10	Q106 - Natural Gas - Mode of Procuring Fuel
+774	sIVq106_natgas_procmode_other	byte	Q106 - Natural Gas - Other Mode of Procuring Fuel
+775	sIVq107_prop_use	str3	Q107 - Use of Propane
+776	sIVq108_prop_impor	str9	Q108 - Importance of Propane
+777	sIVq109_prop_airgas	byte	Q109 - Propane - Process in Production that Use Fuel - Air/Gas Mixing
+778	sIVq109_prop_baking	byte	Q109 - Propane - Process in Production that Use Fuel - Baking
+779	sIVq109_prop_boiler	byte	Q109 - Propane - Process in Production that Use Fuel - Boiler Operation
+780	sIVq109_prop_burn	byte	Q109 - Propane - Process in Production that Use Fuel - Burning
+781	sIVq109_prop_curing	byte	Q109 - Propane - Process in Production that Use Fuel - Curing
+782	sIVq109_prop_diecast	byte	Q109 - Propane - Process in Production that Use Fuel - Die Casting or Wire Bondi
+783	sIVq109_prop_dry	byte	Q109 - Propane - Process in Production that Use Fuel - Drying or Annealing
+784	sIVq109_prop_engload	byte	Q109 - Propane - Process in Production that Use Fuel - Engine Loading or Prepara
+785	sIVq109_prop_fabri	byte	Q109 - Propane - Process in Production that Use Fuel - Fabrication
+786	sIVq109_prop_fork	byte	Q109 - Propane - Process in Production that Use Fuel - Forklift Operation
+787	sIVq109_prop_heat	str14	Q109 - Propane - Process in Production that Use Fuel - Heat Treatment
+788	sIVq109_prop_ice	byte	Q109 - Propane - Process in Production that Use Fuel - Ice Making
+789	sIVq109_prop_impreg	byte	Q109 - Propane - Process in Production that Use Fuel - Impregnation
+790	sIVq109_prop_machinj	byte	Q109 - Propane - Process in Production that Use Fuel - Machine Injection or Mold
+791	sIVq109_prop_melt	byte	Q109 - Propane - Process in Production that Use Fuel - Melting or Pre-melting
+792	sIVq109_prop_metal	byte	Q109 - Propane - Process in Production that Use Fuel - Metal Treatment or Pre-tr
+793	sIVq109_prop_paint	byte	Q109 - Propane - Process in Production that Use Fuel - Painting
+794	sIVq109_prop_smelt	byte	Q109 - Propane - Process in Production that Use Fuel - Smelting
+795	sIVq109_prop_steel	byte	Q109 - Propane - Process in Production that Use Fuel - Steel Cutting
+796	sIVq109_prop_thermoxi	byte	Q109 - Propane - Process in Production that Use Fuel - Thermal Oxidaation
+797	sIVq109_prop_transpo	byte	Q109 - Propane - Process in Production that Use Fuel - Transportation and Logist
+798	sIVq109_prop_weld	byte	Q109 - Propane - Process in Production that Use Fuel - Welding
+799	sIVq109_prop_stamp	byte	Q109 - Propane - Process in Production that Use Fuel - Stamping
+800	sIVq109_prop_aircomp	str25	Q109 - Propane - Process in Production that Use Fuel - Air Compression / Vacuumi
+801	sIVq109_prop_other	byte	Q109 - Propane - Process in Production that Use Fuel - Others
+802	sIVq110_prop_cons_kg_airgas	byte	Q110 - Propane - Consumption per Process in Kilograms per Day - Air/Gas Mixing
+803	sIVq110_prop_cons_kg_baking	byte	Q110 - Propane - Consumption per Process in Kilograms per Day - Baking
+804	sIVq110_prop_cons_kg_boiler	byte	Q110 - Propane - Consumption per Process in Kilograms per Day - Boiler Operation
+805	sIVq110_prop_cons_kg_burn	byte	Q110 - Propane - Consumption per Process in Kilograms per Day - Burning
+806	sIVq110_prop_cons_kg_curing	byte	Q110 - Propane - Consumption per Process in Kilograms per Day - Curing
+807	sIVq110_prop_cons_kg_diecast	byte	Q110 - Propane - Consumption per Process in Kilograms per Day - Die Casting or W
+808	sIVq110_prop_cons_kg_dry	byte	Q110 - Propane - Consumption per Process in Kilograms per Day - Drying or Anneal
+809	sIVq110_prop_cons_kg_engload	byte	Q110 - Propane - Consumption per Process in Kilograms per Day - Engine Loading o
+810	sIVq110_prop_cons_kg_fabri	byte	Q110 - Propane - Consumption per Process in Kilograms per Day - Fabrication
+811	sIVq110_prop_cons_kg_fork	byte	Q110 - Propane - Consumption per Process in Kilograms per Day - Forklift Operati
+812	sIVq110_prop_cons_kg_heat	str10	Q110 - Propane - Consumption per Process in Kilograms per Day - Heat Treatment
+813	sIVq110_prop_cons_kg_ice	byte	Q110 - Propane - Consumption per Process in Kilograms per Day - Ice Making
+814	sIVq110_prop_cons_kg_impreg	byte	Q110 - Propane - Consumption per Process in Kilograms per Day - Impregnation
+815	sIVq110_prop_cons_kg_machinj	byte	Q110 - Propane - Consumption per Process in Kilograms per Day - Machine Injectio
+816	sIVq110_prop_cons_kg_melt	byte	Q110 - Propane - Consumption per Process in Kilograms per Day - Melting or Pre-m
+817	sIVq110_prop_cons_kg_metal	byte	Q110 - Propane - Consumption per Process in Kilograms per Day - Metal Treatment
+818	sIVq110_prop_cons_kg_paint	byte	Q110 - Propane - Consumption per Process in Kilograms per Day - Painting
+819	sIVq110_prop_cons_kg_smelt	byte	Q110 - Propane - Consumption per Process in Kilograms per Day - Smelting
+820	sIVq110_prop_cons_kg_weld	byte	Q110 - Propane - Consumption per Process in Kilograms per Day - Welding
+821	sIVq110_prop_cons_kg_stamp	byte	Q110 - Propane - Consumption per Process in Kilograms per Day - Stamping
+822	sIVq110_prop_cons_kg_aircomp	str10	Q110 - Propane - Consumption per Process in Kilograms per Day - Air Compression
+823	sIVq110_prop_cons_kg_steel	byte	Q110 - Propane - Consumption per Process in Kilograms per Day - Steel Cutting
+824	sIVq110_prop_cons_kg_thermoxi	byte	Q110 - Propane - Consumption per Process in Kilograms per Day - Thermal Oxidaati
+825	sIVq110_prop_cons_kg_transpo	byte	Q110 - Propane - Consumption per Process in Kilograms per Day - Transportation a
+826	sIVq110_prop_cons_kg_other	byte	Q110 - Propane - Consumption per Process in Kilograms per Day - Others
+827	sIVq111_prop_exp_php_airgas	byte	Q111 - Propane - Expenditure per Process in Pesos per Month - Air/Gas Mixing
+828	sIVq111_prop_exp_php_baking	byte	Q111 - Propane - Expenditure per Process in Pesos per Month - Baking
+829	sIVq111_prop_exp_php_boiler	byte	Q111 - Propane - Expenditure per Process in Pesos per Month - Boiler Operation
+830	sIVq111_prop_exp_php_burn	byte	Q111 - Propane - Expenditure per Process in Pesos per Month - Burning
+831	sIVq111_prop_exp_php_curing	byte	Q111 - Propane - Expenditure per Process in Pesos per Month - Curing
+832	sIVq111_prop_exp_php_diecast	byte	Q111 - Propane - Expenditure per Process in Pesos per Month - Die Casting or Wir
+833	sIVq111_prop_exp_php_dry	byte	Q111 - Propane - Expenditure per Process in Pesos per Month - Drying or Annealin
+834	sIVq111_prop_exp_php_engload	byte	Q111 - Propane - Expenditure per Process in Pesos per Month - Engine Loading or
+835	sIVq111_prop_exp_php_fabri	byte	Q111 - Propane - Expenditure per Process in Pesos per Month - Fabrication
+836	sIVq111_prop_exp_php_fork	byte	Q111 - Propane - Expenditure per Process in Pesos per Month - Forklift Operation
+837	sIVq111_prop_exp_php_heat	str13	Q111 - Propane - Expenditure per Process in Pesos per Month - Heat Treatment
+838	sIVq111_prop_exp_php_ice	byte	Q111 - Propane - Expenditure per Process in Pesos per Month - Ice Making
+839	sIVq111_prop_exp_php_impreg	byte	Q111 - Propane - Expenditure per Process in Pesos per Month - Impregnation
+840	sIVq111_prop_exp_php_machinj	byte	Q111 - Propane - Expenditure per Process in Pesos per Month - Machine Injection
+841	sIVq111_prop_exp_php_melt	byte	Q111 - Propane - Expenditure per Process in Pesos per Month - Melting or Pre-mel
+842	sIVq111_prop_exp_php_metal	byte	Q111 - Propane - Expenditure per Process in Pesos per Month - Metal Treatment or
+843	sIVq111_prop_exp_php_paint	byte	Q111 - Propane - Expenditure per Process in Pesos per Month - Painting
+844	sIVq111_prop_exp_php_smelt	byte	Q111 - Propane - Expenditure per Process in Pesos per Month - Smelting
+845	sIVq111_prop_exp_php_weld	byte	Q111 - Propane - Expenditure per Process in Pesos per Month - Welding
+846	sIVq111_prop_exp_php_stamp	byte	Q111 - Propane - Expenditure per Process in Pesos per Month - Stamping
+847	sIVq111_prop_exp_php_aircomp	str13	Q111 - Propane - Expenditure per Process in Pesos per Month - Air Compression /
+848	sIVq111_prop_exp_php_steel	byte	Q111 - Propane - Expenditure per Process in Pesos per Month - Steel Cutting
+849	sIVq111_prop_exp_php_thermoxi	byte	Q111 - Propane - Expenditure per Process in Pesos per Month - Thermal Oxidaation
+850	sIVq111_prop_exp_php_transpo	byte	Q111 - Propane - Expenditure per Process in Pesos per Month - Transportation and
+851	sIVq111_prop_exp_php_other	byte	Q111 - Propane - Expenditure per Process in Pesos per Month - Others
+852	sIVq112_prop_procmode	str16	Q112 - Propane - Mode of Procuring Fuel
+853	sIVq112_prop_procmode_other	byte	Q112 - Propane - Other Mode of Procuring Fuel
+854	sIVq113_other1_use	str3	Q113 - Use of Other Fuel (1)
+855	sIVq113_other1_use_fuel	str13	Q113 - Name of Other Fuel (1)
+856	sIVq114_other1_impor	str16	Q114 - Importance of Other Fuel (1)
+857	sIVq115_other1_airgas	byte	Q115 - Other Fuel (1) - Process in Production that Use Fuel - Air/Gas Mixing
+858	sIVq115_other1_baking	byte	Q115 - Other Fuel (1) - Process in Production that Use Fuel - Baking
+859	sIVq115_other1_boiler	str50	Q115 - Other Fuel (1) - Process in Production that Use Fuel - Boiler Operation
+860	sIVq115_other1_burn	byte	Q115 - Other Fuel (1) - Process in Production that Use Fuel - Burning
+861	sIVq115_other1_curing	byte	Q115 - Other Fuel (1) - Process in Production that Use Fuel - Curing
+862	sIVq115_other1_diecast	byte	Q115 - Other Fuel (1) - Process in Production that Use Fuel - Die Casting or Wir
+863	sIVq115_other1_dry	str84	Q115 - Other Fuel (1) - Process in Production that Use Fuel - Drying or Annealin
+864	sIVq115_other1_engload	byte	Q115 - Other Fuel (1) - Process in Production that Use Fuel - Engine Loading or
+865	sIVq115_other1_fabri	str11	Q115 - Other Fuel (1) - Process in Production that Use Fuel - Fabrication
+866	sIVq115_other1_fork	str18	Q115 - Other Fuel (1) - Process in Production that Use Fuel - Forklift Operation
+867	sIVq115_other1_heat	byte	Q115 - Other Fuel (1) - Process in Production that Use Fuel - Heat Treatment
+868	sIVq115_other1_ice	byte	Q115 - Other Fuel (1) - Process in Production that Use Fuel - Ice Making
+869	sIVq115_other1_impreg	byte	Q115 - Other Fuel (1) - Process in Production that Use Fuel - Impregnation
+870	sIVq115_other1_machinj	str28	Q115 - Other Fuel (1) - Process in Production that Use Fuel - Machine Injection
+871	sIVq115_other1_melt	byte	Q115 - Other Fuel (1) - Process in Production that Use Fuel - Melting or Pre-mel
+872	sIVq115_other1_metal	byte	Q115 - Other Fuel (1) - Process in Production that Use Fuel - Metal Treatment or
+873	sIVq115_other1_paint	byte	Q115 - Other Fuel (1) - Process in Production that Use Fuel - Painting
+874	sIVq115_other1_smelt	byte	Q115 - Other Fuel (1) - Process in Production that Use Fuel - Smelting
+875	sIVq115_other1_steel	byte	Q115 - Other Fuel (1) - Process in Production that Use Fuel - Steel Cutting
+876	sIVq115_other1_thermoxi	byte	Q115 - Other Fuel (1) - Process in Production that Use Fuel - Thermal Oxidaation
+877	sIVq115_other1_transpo	byte	Q115 - Other Fuel (1) - Process in Production that Use Fuel - Transportation and
+878	sIVq115_other1_weld	byte	Q115 - Other Fuel (1) - Process in Production that Use Fuel - Welding
+879	sIVq115_other1_stamp	byte	Q115 - Other Fuel (1) - Process in Production that Use Fuel - Stamping
+880	sIVq115_other1_aircomp	str25	Q115 - Other Fuel (1) - Process in Production that Use Fuel - Air Compression /
+881	sIVq115_other1_other	str10	Q115 - Other Fuel (1) - Process in Production that Use Fuel - Others
+882	sIVq116_other1_cons_airgas	byte	Q116 - Other Fuel (1) - Consumption per Process per Day - Air/Gas Mixing
+883	sIVq116_other1_cons_baking	byte	Q116 - Other Fuel (1) - Consumption per Process per Day - Baking
+884	sIVq116_other1_cons_boiler	str14	Q116 - Other Fuel (1) - Consumption per Process per Day - Boiler Operation
+885	sIVq116_other1_cons_burn	byte	Q116 - Other Fuel (1) - Consumption per Process per Day - Burning
+886	sIVq116_other1_cons_curing	byte	Q116 - Other Fuel (1) - Consumption per Process per Day - Curing
+887	sIVq116_other1_cons_diecast	byte	Q116 - Other Fuel (1) - Consumption per Process per Day - Die Casting or Wire Bo
+888	sIVq116_other1_cons_dry	str16	Q116 - Other Fuel (1) - Consumption per Process per Day - Drying or Annealing
+889	sIVq116_other1_cons_engload	byte	Q116 - Other Fuel (1) - Consumption per Process per Day - Engine Loading or Prep
+890	sIVq116_other1_cons_fabri	int	Q116 - Other Fuel (1) - Consumption per Process per Day - Fabrication
+891	sIVq116_other1_cons_fork	str9	Q116 - Other Fuel (1) - Consumption per Process per Day - Forklift Operation
+892	sIVq116_other1_cons_heat	byte	Q116 - Other Fuel (1) - Consumption per Process per Day - Heat Treatment
+893	sIVq116_other1_cons_ice	byte	Q116 - Other Fuel (1) - Consumption per Process per Day - Ice Making
+894	sIVq116_other1_cons_impreg	byte	Q116 - Other Fuel (1) - Consumption per Process per Day - Impregnation
+895	sIVq116_other1_cons_machinj	str8	Q116 - Other Fuel (1) - Consumption per Process per Day - Machine Injection or M
+896	sIVq116_other1_cons_melt	byte	Q116 - Other Fuel (1) - Consumption per Process per Day - Melting or Pre-melting
+897	sIVq116_other1_cons_metal	byte	Q116 - Other Fuel (1) - Consumption per Process per Day - Metal Treatment or Pre
+898	sIVq116_other1_cons_paint	byte	Q116 - Other Fuel (1) - Consumption per Process per Day - Painting
+899	sIVq116_other1_cons_smelt	byte	Q116 - Other Fuel (1) - Consumption per Process per Day - Smelting
+900	sIVq116_other1_cons_weld	byte	Q116 - Other Fuel (1) - Consumption per Process per Day - Welding
+901	sIVq116_other1_cons_stamp	byte	Q116 - Other Fuel (1) - Consumption per Process per Day - Stamping
+902	sIVq116_other1_cons_aircomp	str9	Q116 - Other Fuel (1) - Consumption per Process per Day - Air Compression / Vacu
+903	sIVq116_other1_cons_steel	byte	Q116 - Other Fuel (1) - Consumption per Process per Day - Steel Cutting
+904	sIVq116_other1_cons_thermoxi	byte	Q116 - Other Fuel (1) - Consumption per Process per Day - Thermal Oxidaation
+905	sIVq116_other1_cons_transpo	byte	Q116 - Other Fuel (1) - Consumption per Process per Day - Transportation and Log
+906	sIVq116_other1_cons_other	str10	Q116 - Other Fuel (1) - Consumption per Process per Day - Others
+907	sIVq117_other1_exp_php_airgas	byte	Q117 - Other Fuel (1) - Expenditure per Process in Pesos per Month - Air/Gas Mix
+908	sIVq117_other1_exp_php_baking	byte	Q117 - Other Fuel (1) - Expenditure per Process in Pesos per Month - Baking
+909	sIVq117_other1_exp_php_boiler	long	Q117 - Other Fuel (1) - Expenditure per Process in Pesos per Month - Boiler Oper
+910	sIVq117_other1_exp_php_burn	byte	Q117 - Other Fuel (1) - Expenditure per Process in Pesos per Month - Burning
+911	sIVq117_other1_exp_php_curing	byte	Q117 - Other Fuel (1) - Expenditure per Process in Pesos per Month - Curing
+912	sIVq117_other1_exp_php_diecast	byte	Q117 - Other Fuel (1) - Expenditure per Process in Pesos per Month - Die Casting
+913	sIVq117_other1_exp_php_dry	long	Q117 - Other Fuel (1) - Expenditure per Process in Pesos per Month - Drying or A
+914	sIVq117_other1_exp_php_engload	byte	Q117 - Other Fuel (1) - Expenditure per Process in Pesos per Month - Engine Load
+915	sIVq117_other1_exp_php_fabri	long	Q117 - Other Fuel (1) - Expenditure per Process in Pesos per Month - Fabrication
+916	sIVq117_other1_exp_php_fork	int	Q117 - Other Fuel (1) - Expenditure per Process in Pesos per Month - Forklift Op
+917	sIVq117_other1_exp_php_heat	byte	Q117 - Other Fuel (1) - Expenditure per Process in Pesos per Month - Heat Treatm
+918	sIVq117_other1_exp_php_ice	byte	Q117 - Other Fuel (1) - Expenditure per Process in Pesos per Month - Ice Making
+919	sIVq117_other1_exp_php_impreg	byte	Q117 - Other Fuel (1) - Expenditure per Process in Pesos per Month - Impregnatio
+920	sIVq117_other1_exp_php_machinj	int	Q117 - Other Fuel (1) - Expenditure per Process in Pesos per Month - Machine Inj
+921	sIVq117_other1_exp_php_melt	byte	Q117 - Other Fuel (1) - Expenditure per Process in Pesos per Month - Melting or
+922	sIVq117_other1_exp_php_metal	byte	Q117 - Other Fuel (1) - Expenditure per Process in Pesos per Month - Metal Treat
+923	sIVq117_other1_exp_php_paint	byte	Q117 - Other Fuel (1) - Expenditure per Process in Pesos per Month - Painting
+924	sIVq117_other1_exp_php_smelt	byte	Q117 - Other Fuel (1) - Expenditure per Process in Pesos per Month - Smelting
+925	sIVq117_other1_exp_php_weld	byte	Q117 - Other Fuel (1) - Expenditure per Process in Pesos per Month - Welding
+926	sIVq117_other1_exp_php_stamp	byte	Q117 - Other Fuel (1) - Expenditure per Process in Pesos per Month - Stamping
+927	sIVq117_other1_exp_php_aircomp	int	Q117 - Other Fuel (1) - Expenditure per Process in Pesos per Month - Air Compres
+928	sIVq117_other1_exp_php_steel	byte	Q117 - Other Fuel (1) - Expenditure per Process in Pesos per Month - Steel Cutti
+929	sIVq117_other1_exp_php_thermoxi	byte	Q117 - Other Fuel (1) - Expenditure per Process in Pesos per Month - Thermal Oxi
+930	sIVq117_other1_exp_php_transpo	byte	Q117 - Other Fuel (1) - Expenditure per Process in Pesos per Month - Transportat
+931	sIVq117_other1_other	int	Q117 - Other Fuel (1) - Expenditure per Process in Pesos per Month - Others
+932	sIVq118_other1_procmode	str22	Q118 - Other Fuel (1) - Mode of Procuring Fuel
+933	sIVq118_other1_procmode_other	str21	Q118 - Other Fuel (1) - Other Mode of Procuring Fuel
+934	sIVq119_other2_use	str3	Q119 - Use of Other Fuel (2)
+935	sIVq119_other2_use_fuel	str6	Q119 - Name of Other Fuel (2)
+936	sIVq120_other2_impor	str9	Q120 - Importance of Other Fuel (2)
+937	sIVq121_other2_airgas	byte	Q121 - Other Fuel (2) - Process in Production that Use Fuel - Air/Gas Mixing
+938	sIVq121_other2_baking	byte	Q121 - Other Fuel (2) - Process in Production that Use Fuel - Baking
+939	sIVq121_other2_boiler	byte	Q121 - Other Fuel (2) - Process in Production that Use Fuel - Boiler Operation
+940	sIVq121_other2_burn	byte	Q121 - Other Fuel (2) - Process in Production that Use Fuel - Burning
+941	sIVq121_other2_curing	byte	Q121 - Other Fuel (2) - Process in Production that Use Fuel - Curing
+942	sIVq121_other2_diecast	byte	Q121 - Other Fuel (2) - Process in Production that Use Fuel - Die Casting or Wir
+943	sIVq121_other2_dry	byte	Q121 - Other Fuel (2) - Process in Production that Use Fuel - Drying or Annealin
+944	sIVq121_other2_engload	byte	Q121 - Other Fuel (2) - Process in Production that Use Fuel - Engine Loading or
+945	sIVq121_other2_fabri	byte	Q121 - Other Fuel (2) - Process in Production that Use Fuel - Fabrication
+946	sIVq121_other2_fork	str18	Q121 - Other Fuel (2) - Process in Production that Use Fuel - Forklift Operation
+947	sIVq121_other2_heat	byte	Q121 - Other Fuel (2) - Process in Production that Use Fuel - Heat Treatment
+948	sIVq121_other2_ice	byte	Q121 - Other Fuel (2) - Process in Production that Use Fuel - Ice Making
+949	sIVq121_other2_impreg	byte	Q121 - Other Fuel (2) - Process in Production that Use Fuel - Impregnation
+950	sIVq121_other2_machinj	byte	Q121 - Other Fuel (2) - Process in Production that Use Fuel - Machine Injection
+951	sIVq121_other2_melt	byte	Q121 - Other Fuel (2) - Process in Production that Use Fuel - Melting or Pre-mel
+952	sIVq121_other2_metal	byte	Q121 - Other Fuel (2) - Process in Production that Use Fuel - Metal Treatment or
+953	sIVq121_other2_paint	byte	Q121 - Other Fuel (2) - Process in Production that Use Fuel - Painting
+954	sIVq121_other2_smelt	byte	Q121 - Other Fuel (2) - Process in Production that Use Fuel - Smelting
+955	sIVq121_other2_steel	byte	Q121 - Other Fuel (2) - Process in Production that Use Fuel - Steel Cutting
+956	sIVq121_other2_thermoxi	byte	Q121 - Other Fuel (2) - Process in Production that Use Fuel - Thermal Oxidaation
+957	sIVq121_other2_transpo	byte	Q121 - Other Fuel (2) - Process in Production that Use Fuel - Transportation and
+958	sIVq121_other2_weld	byte	Q121 - Other Fuel (2) - Process in Production that Use Fuel - Welding
+959	sIVq121_other2_stamp	byte	Q121 - Other Fuel (2) - Process in Production that Use Fuel - Stamping
+960	sIVq121_other2_aircomp	byte	Q121 - Other Fuel (2) - Process in Production that Use Fuel - Air Compression /
+961	sIVq121_other2_other	str23	Q121 - Other Fuel (2) - Process in Production that Use Fuel - Others
+962	sIVq122_other2_cons_airgas	byte	Q122 - Other Fuel (2) - Consumption per Process per Day - Air/Gas Mixing
+963	sIVq122_other2_cons_baking	byte	Q122 - Other Fuel (2) - Consumption per Process per Day - Baking
+964	sIVq122_other2_cons_boiler	byte	Q122 - Other Fuel (2) - Consumption per Process per Day - Boiler Operation
+965	sIVq122_other2_cons_burn	byte	Q122 - Other Fuel (2) - Consumption per Process per Day - Burning
+966	sIVq122_other2_cons_curing	byte	Q122 - Other Fuel (2) - Consumption per Process per Day - Curing
+967	sIVq122_other2_cons_diecast	byte	Q122 - Other Fuel (2) - Consumption per Process per Day - Die Casting or Wire Bo
+968	sIVq122_other2_cons_dry	byte	Q122 - Other Fuel (2) - Consumption per Process per Day - Drying or Annealing
+969	sIVq122_other2_cons_engload	byte	Q122 - Other Fuel (2) - Consumption per Process per Day - Engine Loading or Prep
+970	sIVq122_other2_cons_fabri	byte	Q122 - Other Fuel (2) - Consumption per Process per Day - Fabrication
+971	sIVq122_other2_cons_fork	str10	Q122 - Other Fuel (2) - Consumption per Process per Day - Forklift Operation
+972	sIVq122_other2_cons_heat	byte	Q122 - Other Fuel (2) - Consumption per Process per Day - Heat Treatment
+973	sIVq122_other2_cons_ice	byte	Q122 - Other Fuel (2) - Consumption per Process per Day - Ice Making
+974	sIVq122_other2_cons_impreg	byte	Q122 - Other Fuel (2) - Consumption per Process per Day - Impregnation
+975	sIVq122_other2_cons_machinj	byte	Q122 - Other Fuel (2) - Consumption per Process per Day - Machine Injection or M
+976	sIVq122_other2_cons_melt	byte	Q122 - Other Fuel (2) - Consumption per Process per Day - Melting or Pre-melting
+977	sIVq122_other2_cons_metal	byte	Q122 - Other Fuel (2) - Consumption per Process per Day - Metal Treatment or Pre
+978	sIVq122_other2_cons_paint	byte	Q122 - Other Fuel (2) - Consumption per Process per Day - Painting
+979	sIVq122_other2_cons_smelt	byte	Q122 - Other Fuel (2) - Consumption per Process per Day - Smelting
+980	sIVq122_other2_cons_weld	byte	Q122 - Other Fuel (2) - Consumption per Process per Day - Welding
+981	sIVq122_other2_cons_stamp	byte	Q122 - Other Fuel (2) - Consumption per Process per Day - Stamping
+982	sIVq122_other2_cons_aircomp	byte	Q122 - Other Fuel (2) - Consumption per Process per Day - Air Compression / Vacu
+983	sIVq122_other2_cons_steel	byte	Q122 - Other Fuel (2) - Consumption per Process per Day - Steel Cutting
+984	sIVq122_other2_cons_thermoxi	byte	Q122 - Other Fuel (2) - Consumption per Process per Day - Thermal Oxidaation
+985	sIVq122_other2_cons_transpo	byte	Q122 - Other Fuel (2) - Consumption per Process per Day - Transportation and Log
+986	sIVq122_other2_cons_other	str10	Q122 - Other Fuel (2) - Consumption per Process per Day - Others
+987	sIVq123_other2_exp_php_airgas	byte	Q123 - Other Fuel (2) - Expenditure per Process in Pesos per Month - Air/Gas Mix
+988	sIVq123_other2_exp_php_baking	byte	Q123 - Other Fuel (2) - Expenditure per Process in Pesos per Month - Baking
+989	sIVq123_other2_exp_php_boiler	byte	Q123 - Other Fuel (2) - Expenditure per Process in Pesos per Month - Boiler Oper
+990	sIVq123_other2_exp_php_burn	byte	Q123 - Other Fuel (2) - Expenditure per Process in Pesos per Month - Burning
+991	sIVq123_other2_exp_php_curing	byte	Q123 - Other Fuel (2) - Expenditure per Process in Pesos per Month - Curing
+992	sIVq123_other2_exp_php_diecast	byte	Q123 - Other Fuel (2) - Expenditure per Process in Pesos per Month - Die Casting
+993	sIVq123_other2_exp_php_dry	byte	Q123 - Other Fuel (2) - Expenditure per Process in Pesos per Month - Drying or A
+994	sIVq123_other2_exp_php_engload	byte	Q123 - Other Fuel (2) - Expenditure per Process in Pesos per Month - Engine Load
+995	sIVq123_other2_exp_php_fabri	byte	Q123 - Other Fuel (2) - Expenditure per Process in Pesos per Month - Fabrication
+996	sIVq123_other2_exp_php_fork	int	Q123 - Other Fuel (2) - Expenditure per Process in Pesos per Month - Forklift Op
+997	sIVq123_other2_exp_php_heat	byte	Q123 - Other Fuel (2) - Expenditure per Process in Pesos per Month - Heat Treatm
+998	sIVq123_other2_exp_php_ice	byte	Q123 - Other Fuel (2) - Expenditure per Process in Pesos per Month - Ice Making
+999	sIVq123_other2_exp_php_impreg	byte	Q123 - Other Fuel (2) - Expenditure per Process in Pesos per Month - Impregnatio
+1000	sIVq123_other2_exp_php_machinj	byte	Q123 - Other Fuel (2) - Expenditure per Process in Pesos per Month - Machine Inj
+1001	sIVq123_other2_exp_php_melt	byte	Q123 - Other Fuel (2) - Expenditure per Process in Pesos per Month - Melting or
+1002	sIVq123_other2_exp_php_metal	byte	Q123 - Other Fuel (2) - Expenditure per Process in Pesos per Month - Metal Treat
+1003	sIVq123_other2_exp_php_paint	byte	Q123 - Other Fuel (2) - Expenditure per Process in Pesos per Month - Painting
+1004	sIVq123_other2_exp_php_smelt	byte	Q123 - Other Fuel (2) - Expenditure per Process in Pesos per Month - Smelting
+1005	sIVq123_other2_exp_php_weld	byte	Q123 - Other Fuel (2) - Expenditure per Process in Pesos per Month - Welding
+1006	sIVq123_other2_exp_php_stamp	byte	Q123 - Other Fuel (2) - Expenditure per Process in Pesos per Month - Stamping
+1007	sIVq123_other2_exp_php_aircomp	byte	Q123 - Other Fuel (2) - Expenditure per Process in Pesos per Month - Air Compres
+1008	sIVq123_other2_exp_php_steel	byte	Q123 - Other Fuel (2) - Expenditure per Process in Pesos per Month - Steel Cutti
+1009	sIVq123_other2_exp_php_thermoxi	byte	Q123 - Other Fuel (2) - Expenditure per Process in Pesos per Month - Thermal Oxi
+1010	sIVq123_other2_exp_php_transpo	byte	Q123 - Other Fuel (2) - Expenditure per Process in Pesos per Month - Transportat
+1011	sIVq123_other2_other	int	Q123 - Other Fuel (2) - Expenditure per Process in Pesos per Month - Others
+1012	sIVq124_other2_procmode	str16	Q124 - Other Fuel (2) - Mode of Procuring Fuel
+1013	sIVq124_other2_procmode_other	byte	Q124 - Other Fuel (2) - Other Mode of Procuring Fuel
+1014	sIVq125_other3_use	str3	Q125 - Use of Other Fuel (3)
+1015	sIVq125_other3_use_fuel	str9	Q125 - Name of Other Fuel (3)
+1016	sIVq126_other3_impor	str9	Q126 - Importance of Other Fuel (3)
+1017	sIVq127_other3_airgas	byte	Q127 - Other Fuel (3) - Process in Production that Use Fuel - Air/Gas Mixing
+1018	sIVq127_other3_baking	byte	Q127 - Other Fuel (3) - Process in Production that Use Fuel - Baking
+1019	sIVq127_other3_boiler	byte	Q127 - Other Fuel (3) - Process in Production that Use Fuel - Boiler Operation
+1020	sIVq127_other3_burn	byte	Q127 - Other Fuel (3) - Process in Production that Use Fuel - Burning
+1021	sIVq127_other3_curing	byte	Q127 - Other Fuel (3) - Process in Production that Use Fuel - Curing
+1022	sIVq127_other3_diecast	byte	Q127 - Other Fuel (3) - Process in Production that Use Fuel - Die Casting or Wir
+1023	sIVq127_other3_dry	byte	Q127 - Other Fuel (3) - Process in Production that Use Fuel - Drying or Annealin
+1024	sIVq127_other3_engload	byte	Q127 - Other Fuel (3) - Process in Production that Use Fuel - Engine Loading or
+1025	sIVq127_other3_fabri	byte	Q127 - Other Fuel (3) - Process in Production that Use Fuel - Fabrication
+1026	sIVq127_other3_fork	str18	Q127 - Other Fuel (3) - Process in Production that Use Fuel - Forklift Operation
+1027	sIVq127_other3_heat	byte	Q127 - Other Fuel (3) - Process in Production that Use Fuel - Heat Treatment
+1028	sIVq127_other3_ice	byte	Q127 - Other Fuel (3) - Process in Production that Use Fuel - Ice Making
+1029	sIVq127_other3_impreg	byte	Q127 - Other Fuel (3) - Process in Production that Use Fuel - Impregnation
+1030	sIVq127_other3_machinj	byte	Q127 - Other Fuel (3) - Process in Production that Use Fuel - Machine Injection
+1031	sIVq127_other3_melt	byte	Q127 - Other Fuel (3) - Process in Production that Use Fuel - Melting or Pre-mel
+1032	sIVq127_other3_metal	byte	Q127 - Other Fuel (3) - Process in Production that Use Fuel - Metal Treatment or
+1033	sIVq127_other3_paint	byte	Q127 - Other Fuel (3) - Process in Production that Use Fuel - Painting
+1034	sIVq127_other3_smelt	byte	Q127 - Other Fuel (3) - Process in Production that Use Fuel - Smelting
+1035	sIVq127_other3_steel	byte	Q127 - Other Fuel (3) - Process in Production that Use Fuel - Steel Cutting
+1036	sIVq127_other3_thermoxi	byte	Q127 - Other Fuel (3) - Process in Production that Use Fuel - Thermal Oxidaation
+1037	sIVq127_other3_transpo	byte	Q127 - Other Fuel (3) - Process in Production that Use Fuel - Transportation and
+1038	sIVq127_other3_weld	byte	Q127 - Other Fuel (3) - Process in Production that Use Fuel - Welding
+1039	sIVq127_other3_stamp	byte	Q127 - Other Fuel (3) - Process in Production that Use Fuel - Stamping
+1040	sIVq127_other3_aircomp	byte	Q127 - Other Fuel (3) - Process in Production that Use Fuel - Air Compression /
+1041	sIVq127_other3_other	str50	Q127 - Other Fuel (3) - Process in Production that Use Fuel - Others
+1042	sIVq128_other3_cons_airgas	byte	Q128 - Other Fuel (3) - Consumption per Process per Day - Air/Gas Mixing
+1043	sIVq128_other3_cons_baking	byte	Q128 - Other Fuel (3) - Consumption per Process per Day - Baking
+1044	sIVq128_other3_cons_boiler	byte	Q128 - Other Fuel (3) - Consumption per Process per Day - Boiler Operation
+1045	sIVq128_other3_cons_burn	byte	Q128 - Other Fuel (3) - Consumption per Process per Day - Burning
+1046	sIVq128_other3_cons_curing	byte	Q128 - Other Fuel (3) - Consumption per Process per Day - Curing
+1047	sIVq128_other3_cons_diecast	byte	Q128 - Other Fuel (3) - Consumption per Process per Day - Die Casting or Wire Bo
+1048	sIVq128_other3_cons_dry	byte	Q128 - Other Fuel (3) - Consumption per Process per Day - Drying or Annealing
+1049	sIVq128_other3_cons_engload	byte	Q128 - Other Fuel (3) - Consumption per Process per Day - Engine Loading or Prep
+1050	sIVq128_other3_cons_fabri	byte	Q128 - Other Fuel (3) - Consumption per Process per Day - Fabrication
+1051	sIVq128_other3_cons_fork	str9	Q128 - Other Fuel (3) - Consumption per Process per Day - Forklift Operation
+1052	sIVq128_other3_cons_heat	byte	Q128 - Other Fuel (3) - Consumption per Process per Day - Heat Treatment
+1053	sIVq128_other3_cons_ice	byte	Q128 - Other Fuel (3) - Consumption per Process per Day - Ice Making
+1054	sIVq128_other3_cons_impreg	byte	Q128 - Other Fuel (3) - Consumption per Process per Day - Impregnation
+1055	sIVq128_other3_cons_machinj	byte	Q128 - Other Fuel (3) - Consumption per Process per Day - Machine Injection or M
+1056	sIVq128_other3_cons_melt	byte	Q128 - Other Fuel (3) - Consumption per Process per Day - Melting or Pre-melting
+1057	sIVq128_other3_cons_metal	byte	Q128 - Other Fuel (3) - Consumption per Process per Day - Metal Treatment or Pre
+1058	sIVq128_other3_cons_paint	byte	Q128 - Other Fuel (3) - Consumption per Process per Day - Painting
+1059	sIVq128_other3_cons_smelt	byte	Q128 - Other Fuel (3) - Consumption per Process per Day - Smelting
+1060	sIVq128_other3_cons_weld	byte	Q128 - Other Fuel (3) - Consumption per Process per Day - Welding
+1061	sIVq128_other3_cons_stamp	byte	Q128 - Other Fuel (3) - Consumption per Process per Day - Stamping
+1062	sIVq128_other3_cons_aircomp	byte	Q128 - Other Fuel (3) - Consumption per Process per Day - Air Compression / Vacu
+1063	sIVq128_other3_cons_steel	byte	Q128 - Other Fuel (3) - Consumption per Process per Day - Steel Cutting
+1064	sIVq128_other3_cons_thermoxi	byte	Q128 - Other Fuel (3) - Consumption per Process per Day - Thermal Oxidaation
+1065	sIVq128_other3_cons_transpo	byte	Q128 - Other Fuel (3) - Consumption per Process per Day - Transportation and Log
+1066	sIVq128_other3_cons_other	str10	Q128 - Other Fuel (3) - Consumption per Process per Day - Others
+1067	sIVq129_other3_exp_php_airgas	byte	Q129 - Other Fuel (3) - Expenditure per Process in Pesos per Month - Air/Gas Mix
+1068	sIVq129_other3_exp_php_baking	byte	Q129 - Other Fuel (3) - Expenditure per Process in Pesos per Month - Baking
+1069	sIVq129_other3_exp_php_boiler	byte	Q129 - Other Fuel (3) - Expenditure per Process in Pesos per Month - Boiler Oper
+1070	sIVq129_other3_exp_php_burn	byte	Q129 - Other Fuel (3) - Expenditure per Process in Pesos per Month - Burning
+1071	sIVq129_other3_exp_php_curing	byte	Q129 - Other Fuel (3) - Expenditure per Process in Pesos per Month - Curing
+1072	sIVq129_other3_exp_php_diecast	byte	Q129 - Other Fuel (3) - Expenditure per Process in Pesos per Month - Die Casting
+1073	sIVq129_other3_exp_php_dry	byte	Q129 - Other Fuel (3) - Expenditure per Process in Pesos per Month - Drying or A
+1074	sIVq129_other3_exp_php_engload	byte	Q129 - Other Fuel (3) - Expenditure per Process in Pesos per Month - Engine Load
+1075	sIVq129_other3_exp_php_fabri	byte	Q129 - Other Fuel (3) - Expenditure per Process in Pesos per Month - Fabrication
+1076	sIVq129_other3_exp_php_fork	int	Q129 - Other Fuel (3) - Expenditure per Process in Pesos per Month - Forklift Op
+1077	sIVq129_other3_exp_php_heat	byte	Q129 - Other Fuel (3) - Expenditure per Process in Pesos per Month - Heat Treatm
+1078	sIVq129_other3_exp_php_ice	byte	Q129 - Other Fuel (3) - Expenditure per Process in Pesos per Month - Ice Making
+1079	sIVq129_other3_exp_php_impreg	byte	Q129 - Other Fuel (3) - Expenditure per Process in Pesos per Month - Impregnatio
+1080	sIVq129_other3_exp_php_machinj	byte	Q129 - Other Fuel (3) - Expenditure per Process in Pesos per Month - Machine Inj
+1081	sIVq129_other3_exp_php_melt	byte	Q129 - Other Fuel (3) - Expenditure per Process in Pesos per Month - Melting or
+1082	sIVq129_other3_exp_php_metal	byte	Q129 - Other Fuel (3) - Expenditure per Process in Pesos per Month - Metal Treat
+1083	sIVq129_other3_exp_php_paint	byte	Q129 - Other Fuel (3) - Expenditure per Process in Pesos per Month - Painting
+1084	sIVq129_other3_exp_php_smelt	byte	Q129 - Other Fuel (3) - Expenditure per Process in Pesos per Month - Smelting
+1085	sIVq129_other3_exp_php_weld	byte	Q129 - Other Fuel (3) - Expenditure per Process in Pesos per Month - Welding
+1086	sIVq129_other3_exp_php_stamp	byte	Q129 - Other Fuel (3) - Expenditure per Process in Pesos per Month - Stamping
+1087	sIVq129_other3_exp_php_aircomp	byte	Q129 - Other Fuel (3) - Expenditure per Process in Pesos per Month - Air Compres
+1088	sIVq129_other3_exp_php_steel	byte	Q129 - Other Fuel (3) - Expenditure per Process in Pesos per Month - Steel Cutti
+1089	sIVq129_other3_exp_php_thermoxi	byte	Q129 - Other Fuel (3) - Expenditure per Process in Pesos per Month - Thermal Oxi
+1090	sIVq129_other3_exp_php_transpo	byte	Q129 - Other Fuel (3) - Expenditure per Process in Pesos per Month - Transportat
+1091	sIVq129_other3_other	int	Q129 - Other Fuel (3) - Expenditure per Process in Pesos per Month - Others
+1092	sIVq130_other3_procmode	str16	Q130 - Other Fuel (3) - Mode of Procuring Fuel
+1093	sIVq130_other3_procmode_other	byte	Q130 - Other Fuel (3) - Other Mode of Procuring Fuel
+1094	sVq131_natgas_know	byte	Q131 - Natural Gas - Extent of Knowledge
+1095	sVq132_natgas_safe	float	Q132 - Natural Gas - Safe to Use
+1096	sVq133_natgas_costcomp	float	Q133 - Natural Gas - Cost-competitive Relative to Fuels/Primary Energies Using
+1097	sVq134_natgas_saving	float	Q134 - Natural Gas - Savings
+1098	sVq135_natgas_consid_price	byte	Q135 - Natural Gas - Consideration in Using - Price
+1099	sVq135_natgas_consid_supply	byte	"Q135 - Natural Gas - Consideration in Using - Supply Stability, and Reliability"
+1100	sVq135_natgas_consid_safe	byte	Q135 - Natural Gas - Consideration in Using - Safety and Security
+1101	sVq135_natgas_consid_envi	byte	Q135 - Natural Gas - Consideration in Using - Environmental Concerns
+1102	sVq135_natgas_consid_compa	byte	Q135 - Natural Gas - Consideration in Using - Compatibility of Machines and Equi
+1103	sVq135_natgas_consid_retro	byte	Q135 - Natural Gas - Consideration in Using - Retrofitting Costs of Equipment
+1104	sVq136_natgas_retrocost_php	float	Q136 - Natural Gas - Retrofitting Costs of Equipment in PHP (Average)
+1105	sVq137_natgas_openswit	float	Q137 - Natural Gas - Openness to Switch
+1106	sVq138_natgas_swit_prod_biod	str9	Q138 - Natural Gas - Fuels Likely to Replace with in Production - Biodiesel
+1107	sVq138_natgas_swit_prod_bunk	str6	Q138 - Natural Gas - Fuels Likely to Replace with in Production - Bunker
+1108	sVq138_natgas_swit_prod_coal	str4	Q138 - Natural Gas - Fuels Likely to Replace with in Production - Coal
+1109	sVq138_natgas_swit_prod_dies	str6	Q138 - Natural Gas - Fuels Likely to Replace with in Production - Diesel
+1110	sVq138_natgas_swit_prod_gaso	str8	Q138 - Natural Gas - Fuels Likely to Replace with in Production - Gasoline
+1111	sVq138_natgas_swit_prod_kero	str8	Q138 - Natural Gas - Fuels Likely to Replace with in Production - Kerosene
+1112	sVq138_natgas_swit_prod_lpg	str3	Q138 - Natural Gas - Fuels Likely to Replace with in Production - LPG
+1113	sVq138_natgas_swit_prod_prop	str7	Q138 - Natural Gas - Fuels Likely to Replace with in Production - Propane
+1114	sVq138_natgas_swit_prod_oth	str96	Q138 - Natural Gas - Fuels Likely to Replace with in Production - Others
+1115	sVq139_natgas_swit_self_biod	str9	Q139 - Natural Gas - Fuels Likely to Replace with in Self-generation - Biodiesel
+1116	sVq139_natgas_swit_self_bunk	str6	Q139 - Natural Gas - Fuels Likely to Replace with in Self-generation - Bunker
+1117	sVq139_natgas_swit_self_coal	str4	Q139 - Natural Gas - Fuels Likely to Replace with in Self-generation - Coal
+1118	sVq139_natgas_swit_self_dies	str6	Q139 - Natural Gas - Fuels Likely to Replace with in Self-generation - Diesel
+1119	sVq139_natgas_swit_self_gaso	str8	Q139 - Natural Gas - Fuels Likely to Replace with in Self-generation - Gasoline
+1120	sVq139_natgas_swit_self_kero	str8	Q139 - Natural Gas - Fuels Likely to Replace with in Self-generation - Kerosene
+1121	sVq139_natgas_swit_self_lpg	str3	Q139 - Natural Gas - Fuels Likely to Replace with in Self-generation - LPG
+1122	sVq139_natgas_swit_self_prop	str7	Q139 - Natural Gas - Fuels Likely to Replace with in Self-generation - Propane
+1123	sVq139_natgas_swit_self_sol	str5	Q139 - Natural Gas - Fuels Likely to Replace with in Self-generation - Solar
+1124	sVq139_natgas_swit_self_wind	str4	Q139 - Natural Gas - Fuels Likely to Replace with in Self-generation - Wind
+1125	sVq139_natgas_swit_self_oth	str44	Q139 - Natural Gas - Fuels Likely to Replace with in Self-generation - Others
+1126	sVq140_natgas_swit_back_biod	str9	Q140 - Natural Gas - Fuels Likely to Replace with in Back-up Power Gen - Biodies
+1127	sVq140_natgas_swit_back_bunk	str6	Q140 - Natural Gas - Fuels Likely to Replace with in Back-up Power Gen - Bunker
+1128	sVq140_natgas_swit_back_coal	str4	Q140 - Natural Gas - Fuels Likely to Replace with in Back-up Power Gen - Coal
+1129	sVq140_natgas_swit_back_dies	str6	Q140 - Natural Gas - Fuels Likely to Replace with in Back-up Power Gen - Diesel
+1130	sVq140_natgas_swit_back_gaso	str8	Q140 - Natural Gas - Fuels Likely to Replace with in Back-up Power Gen - Gasolin
+1131	sVq140_natgas_swit_back_kero	str8	Q140 - Natural Gas - Fuels Likely to Replace with in Back-up Power Gen - Kerosen
+1132	sVq140_natgas_swit_back_lpg	str3	Q140 - Natural Gas - Fuels Likely to Replace with in Back-up Power Gen - LPG
+1133	sVq140_natgas_swit_back_prop	str7	Q140 - Natural Gas - Fuels Likely to Replace with in Back-up Power Gen - Propane
+1134	sVq140_natgas_swit_back_sol	str5	Q140 - Natural Gas - Fuels Likely to Replace with in Back-up Power Gen - Solar
+1135	sVq140_natgas_swit_back_wind	str4	Q140 - Natural Gas - Fuels Likely to Replace with in Back-up Power Gen - Wind
+1136	sVq140_natgas_swit_back_oth	str84	Q140 - Natural Gas - Fuels Likely to Replace with in Back-up Power Gen - Others
+1137	sVq141_natgas_reqt_mmscfd	str9	Q141 - Natural Gas - Requirement in MMSCFD
+1138	sVq142_subsidiary	str3	Q142 - Subsidiary / Parent Company
+1139	sVq143_subsidiary_natgasexp	str3	Q143 - Subsidiary / Parent Company with Experience on Natural Gas
+1140	sVq144_solar_know	byte	Q144 - Solar - Extent of Knowledge
+1141	sVq145_solar_safe	str3	Q145 - Solar - Safe to Use
+1142	sVq146_solar_costcomp	str3	Q146 - Solar - Cost-competitive Relative to Fuels/Primary Energies Using
+1143	sVq147_solar_saving	str20	Q147 - Solar - Savings
+1144	sVq148_solar_consid_price	byte	Q148 - Solar - Consideration in Using - Price
+1145	sVq148_solar_consid_supply	byte	"Q148 - Solar - Consideration in Using - Supply Stability, and Reliability"
+1146	sVq148_solar_consid_safe	byte	Q148 - Solar - Consideration in Using - Safety and Security
+1147	sVq148_solar_consid_envi	byte	Q148 - Solar - Consideration in Using - Environmental Concerns
+1148	sVq148_solar_consid_compa	byte	Q148 - Solar - Consideration in Using - Compatibility of Machines and Equipment
+1149	sVq148_solar_consid_retro	byte	Q148 - Solar - Consideration in Using - Retrofitting Costs of Equipment
+1150	sVq149_solar_retrocost_php	str20	Q149 - Solar - Retrofitting Costs of Equipment in PHP
+1151	sVq150_solar_openswit	str3	Q150 - Solar - Openness to Switch
+1152	sVq151_solar_swit_prod_biod	str9	Q151 - Solar - Fuels Likely to Replace with in Production - Biodiesel
+1153	sVq151_solar_swit_prod_bunk	str6	Q151 - Solar - Fuels Likely to Replace with in Production - Bunker
+1154	sVq151_solar_swit_prod_coal	str4	Q151 - Solar - Fuels Likely to Replace with in Production - Coal
+1155	sVq151_solar_swit_prod_dies	str6	Q151 - Solar - Fuels Likely to Replace with in Production - Diesel
+1156	sVq151_solar_swit_prod_gaso	str8	Q151 - Solar - Fuels Likely to Replace with in Production - Gasoline
+1157	sVq151_solar_swit_prod_kero	str8	Q151 - Solar - Fuels Likely to Replace with in Production - Kerosene
+1158	sVq151_solar_swit_prod_lpg	str3	Q151 - Solar - Fuels Likely to Replace with in Production - LPG
+1159	sVq151_solar_swit_prod_prop	str7	Q151 - Solar - Fuels Likely to Replace with in Production - Propane
+1160	sVq151_solar_swit_prod_oth	str64	Q151 - Solar - Fuels Likely to Replace with in Production - Others
+1161	sVq152_solar_swit_self_biod	str9	Q152 - Solar - Fuels Likely to Replace with in Self-generation - Biodiesel
+1162	sVq152_solar_swit_self_bunk	str6	Q152 - Solar - Fuels Likely to Replace with in Self-generation - Bunker
+1163	sVq152_solar_swit_self_coal	str4	Q152 - Solar - Fuels Likely to Replace with in Self-generation - Coal
+1164	sVq152_solar_swit_self_dies	str6	Q152 - Solar - Fuels Likely to Replace with in Self-generation - Diesel
+1165	sVq152_solar_swit_self_gaso	str8	Q152 - Solar - Fuels Likely to Replace with in Self-generation - Gasoline
+1166	sVq152_solar_swit_self_kero	str8	Q152 - Solar - Fuels Likely to Replace with in Self-generation - Kerosene
+1167	sVq152_solar_swit_self_lpg	str3	Q152 - Solar - Fuels Likely to Replace with in Self-generation - LPG
+1168	sVq152_solar_swit_self_ngas	str11	Q152 - Solar - Fuels Likely to Replace with in Self-generation - Natural Gas
+1169	sVq152_solar_swit_self_prop	str7	Q152 - Solar - Fuels Likely to Replace with in Self-generation - Propane
+1170	sVq152_solar_swit_self_wind	str4	Q152 - Solar - Fuels Likely to Replace with in Self-generation - Wind
+1171	sVq152_solar_swit_self_oth	str41	Q152 - Solar - Fuels Likely to Replace with in Self-generation - Others
+1172	sVq153_solar_swit_back_biod	str9	Q153 - Solar - Fuels Likely to Replace with in Back-up Power Gen - Biodiesel
+1173	sVq153_solar_swit_back_bunk	str6	Q153 - Solar - Fuels Likely to Replace with in Back-up Power Gen - Bunker
+1174	sVq153_solar_swit_back_coal	str4	Q153 - Solar - Fuels Likely to Replace with in Back-up Power Gen - Coal
+1175	sVq153_solar_swit_back_dies	str6	Q153 - Solar - Fuels Likely to Replace with in Back-up Power Gen - Diesel
+1176	sVq153_solar_swit_back_gaso	str8	Q153 - Solar - Fuels Likely to Replace with in Back-up Power Gen - Gasoline
+1177	sVq153_solar_swit_back_kero	str8	Q153 - Solar - Fuels Likely to Replace with in Back-up Power Gen - Kerosene
+1178	sVq153_solar_swit_back_lpg	str3	Q153 - Solar - Fuels Likely to Replace with in Back-up Power Gen - LPG
+1179	sVq153_solar_swit_back_ngas	str11	Q153 - Solar - Fuels Likely to Replace with in Back-up Power Gen - Natural Gas
+1180	sVq153_solar_swit_back_prop	str7	Q153 - Solar - Fuels Likely to Replace with in Back-up Power Gen - Propane
+1181	sVq153_solar_swit_back_wind	str4	Q153 - Solar - Fuels Likely to Replace with in Back-up Power Gen - Wind
+1182	sVq153_solar_swit_back_oth	str41	Q153 - Solar - Fuels Likely to Replace with in Back-up Power Gen - Others
+1183	sVq154_solar_reqt_kwh	str16	Q154 - Solar - Requirement in kWh
+1184	sVq155_subsidiary	str3	Q155 - Subsidiary / Parent Company
+1185	sVq156_subsidiary_solarexp	str3	Q156 - Subsidiary / Parent Company with Experience on Solar
+1186	sVq157_wind_know	byte	Q157 - Wind - Extent of Knowledge
+1187	sVq158_wind_safe	str3	Q158 - Wind - Safe to Use
+1188	sVq159_wind_costcomp	str3	Q159 - Wind - Cost-competitive Relative to Fuels/Primary Energies Using
+1189	sVq160_wind_saving	str20	Q160 - Wind - Savings
+1190	sVq161_wind_consid_price	byte	Q161 - Wind - Consideration in Using - Price
+1191	sVq161_wind_consid_supply	byte	"Q161 - Wind - Consideration in Using - Supply Stability, and Reliability"
+1192	sVq161_wind_consid_safe	byte	Q161 - Wind - Consideration in Using - Safety and Security
+1193	sVq161_wind_consid_envi	byte	Q161 - Wind - Consideration in Using - Environmental Concerns
+1194	sVq161_wind_consid_compa	byte	Q161 - Wind - Consideration in Using - Compatibility of Machines and Equipment
+1195	sVq161_wind_consid_retro	byte	Q161 - Wind - Consideration in Using - Retrofitting Costs of Equipment
+1196	sVq162_wind_retrocost_php	str20	Q162 - Wind - Retrofitting Costs of Equipment
+1197	sVq163_wind_openswit	str3	Q163 - Wind - Openness to Switch
+1198	sVq164_wind_swit_prod_biod	str9	Q164 - Wind - Fuels Likely to Replace with in Production - Biodiesel
+1199	sVq164_wind_swit_prod_bunk	str6	Q164 - Wind - Fuels Likely to Replace with in Production - Bunker
+1200	sVq164_wind_swit_prod_coal	str4	Q164 - Wind - Fuels Likely to Replace with in Production - Coal
+1201	sVq164_wind_swit_prod_dies	str6	Q164 - Wind - Fuels Likely to Replace with in Production - Diesel
+1202	sVq164_wind_swit_prod_gaso	str8	Q164 - Wind - Fuels Likely to Replace with in Production - Gasoline
+1203	sVq164_wind_swit_prod_kero	str8	Q164 - Wind - Fuels Likely to Replace with in Production - Kerosene
+1204	sVq164_wind_swit_prod_lpg	str3	Q164 - Wind - Fuels Likely to Replace with in Production - LPG
+1205	sVq164_wind_swit_prod_prop	str7	Q164 - Wind - Fuels Likely to Replace with in Production - Propane
+1206	sVq164_wind_swit_prod_oth	str47	Q164 - Wind - Fuels Likely to Replace with in Production - Others
+1207	sVq165_wind_swit_self_biod	str9	Q165 - Wind - Fuels Likely to Replace with in Self-generation - Biodiesel
+1208	sVq165_wind_swit_self_bunk	byte	Q165 - Wind - Fuels Likely to Replace with in Self-generation - Bunker
+1209	sVq165_wind_swit_self_coal	str4	Q165 - Wind - Fuels Likely to Replace with in Self-generation - Coal
+1210	sVq165_wind_swit_self_dies	str6	Q165 - Wind - Fuels Likely to Replace with in Self-generation - Diesel
+1211	sVq165_wind_swit_self_gaso	str8	Q165 - Wind - Fuels Likely to Replace with in Self-generation - Gasoline
+1212	sVq165_wind_swit_self_kero	str8	Q165 - Wind - Fuels Likely to Replace with in Self-generation - Kerosene
+1213	sVq165_wind_swit_self_lpg	str3	Q165 - Wind - Fuels Likely to Replace with in Self-generation - LPG
+1214	sVq165_wind_swit_self_ngas	str11	Q165 - Wind - Fuels Likely to Replace with in Self-generation - Natural Gas
+1215	sVq165_wind_swit_self_prop	str7	Q165 - Wind - Fuels Likely to Replace with in Self-generation - Propane
+1216	sVq165_wind_swit_self_sol	str5	Q165 - Wind - Fuels Likely to Replace with in Self-generation - Solar
+1217	sVq165_wind_swit_self_oth	str14	Q165 - Wind - Fuels Likely to Replace with in Self-generation - Others
+1218	sVq166_wind_swit_back_biod	str9	Q166 - Wind - Fuels Likely to Replace with in Back-up Power Gen - Biodiesel
+1219	sVq166_wind_swit_back_bunk	byte	Q166 - Wind - Fuels Likely to Replace with in Back-up Power Gen - Bunker
+1220	sVq166_wind_swit_back_coal	str4	Q166 - Wind - Fuels Likely to Replace with in Back-up Power Gen - Coal
+1221	sVq166_wind_swit_back_dies	str6	Q166 - Wind - Fuels Likely to Replace with in Back-up Power Gen - Diesel
+1222	sVq166_wind_swit_back_gaso	str8	Q166 - Wind - Fuels Likely to Replace with in Back-up Power Gen - Gasoline
+1223	sVq166_wind_swit_back_kero	str8	Q166 - Wind - Fuels Likely to Replace with in Back-up Power Gen - Kerosene
+1224	sVq166_wind_swit_back_lpg	str3	Q166 - Wind - Fuels Likely to Replace with in Back-up Power Gen - LPG
+1225	sVq166_wind_swit_back_ngas	str11	Q166 - Wind - Fuels Likely to Replace with in Back-up Power Gen - Natural Gas
+1226	sVq166_wind_swit_back_prop	str7	Q166 - Wind - Fuels Likely to Replace with in Back-up Power Gen - Propane
+1227	sVq166_wind_swit_back_sol	str5	Q166 - Wind - Fuels Likely to Replace with in Back-up Power Gen - Solar
+1228	sVq166_wind_swit_back_oth	str14	Q166 - Wind - Fuels Likely to Replace with in Back-up Power Gen - Others
+1229	sVq167_wind_reqt_kwh	str16	Q167 - Wind - Requirement in kWh
+1230	sVq168_subsidiary	str3	Q168 - Subsidiary / Parent Company
+1231	sVq169_subsidiary_windexp	str3	Q169 - Subsidiary / Parent Company with Experience on Wind
+1232	sVIq170_expan_consid_costmanpow	byte	Q170 - Consideration in Expanding Business - Cost of Manpower
+1233	sVIq170_expan_consid_costrawmat	byte	Q170 - Consideration in Expanding Business - Cost of Raw Materials
+1234	sVIq170_expan_consid_eleccost	byte	Q170 - Consideration in Expanding Business - Cost of Electricity
+1235	sVIq170_expan_consid_fuelcost	byte	Q170 - Consideration in Expanding Business - Cost of Fuel
+1236	totalexp_allfuels	float	Fuel Expenditure in PHP (Average) - Total
+1237	totalexp_biodiesel	float	Fuel Expenditure in PHP (Average) - Biodiesel
+1238	totalexp_bunker	float	Fuel Expenditure in PHP (Average) - Bunker
+1239	totalexp_coal	float	Fuel Expenditure in PHP (Average) - Coal
+1240	totalexp_diesel	float	Fuel Expenditure in PHP (Average) - Diesel
+1241	totalexp_gasoline	float	Fuel Expenditure in PHP (Average) - Gasoline
+1242	totalexp_kerosene	float	Fuel Expenditure in PHP (Average) - Kerosene
+1243	totalexp_lpg	float	Fuel Expenditure in PHP (Average) - LPG
+1244	totalexp_natgas	float	Fuel Expenditure in PHP (Average) - Natural Gas
+1245	totalexp_propane	float	Fuel Expenditure in PHP (Average) - Propane
+1246	totalexp_other1	float	Fuel Expenditure in PHP (Average) - Other Fuel (1)
+1247	totalexp_other2	float	Fuel Expenditure in PHP (Average) - Other Fuel (2)
+1248	totalexp_other3	float	Fuel Expenditure in PHP (Average) - Other Fuel (3)
+1249	totalconsump_biodiesel	float	Fuel Consumption in Liter (Average) - Biodiesel
+1250	totalconsump_bunker	float	Fuel Consumption in Liter (Average) - Bunker
+1251	totalconsump_coal	float	Fuel Consumption in Metric Ton (Average) - Coal
+1252	totalconsump_diesel	float	Fuel Consumption in Liter (Average) - Diesel
+1253	totalconsump_gasoline	float	Fuel Consumption in Liter (Average) - Gasoline
+1254	totalconsump_kerosene	float	Fuel Consumption in Liter (Average) - Kerosene
+1255	totalconsump_lpg	float	Fuel Consumption in Kilogram (Average) - LPG
+1256	totalconsump_natgas	float	Fuel Consumption in MMSCFD (Average) - Natural Gas
+1257	totalconsump_propane	float	Fuel Consumption in Kilogram (Average) - Propane

@@ -50,6 +50,7 @@ Country chosen: **Philippines**
 |---------|--------|--------|--------|
 | PEZA Manufacturing Zones (74) | peza.gov.ph/sites/default/files/1.xls | Excel (.xls) | WORKING — complete list with names, locations, area, developer, investments (Nov 2017) |
 | PEZA Agro-Industrial Zones (22+6) | peza.gov.ph/sites/default/files/3.xls | Excel (.xls) | WORKING — includes locator enterprises and PEZA approval/registration dates |
+| Ravago et al. (2021) firm survey | Mendeley Data DOI: 10.17632/88t45xbn59.2 | CSV + TXT dict | CC-BY 4.0 — 115 firms in 26 ecozones, locatorid encodes province-city-zone-firm |
 | Zone list (Wikipedia) | en.wikipedia.org/wiki/List_of_economic_zones_in_the_Philippines | HTML tables | Supplementary — 22 agro-industrial + 11 freeports listed |
 | Admin boundaries | github.com/faeldon/philippines-json-maps | GeoJSON | Verified accessible |
 | Admin boundaries | gadm.org (PHL) | SHP/GPKG | Verified accessible |
@@ -62,6 +63,35 @@ Country chosen: **Philippines**
 | Country-level indicators | World Bank | CSV/Excel | Free |
 
 See `Difficulties_Claude.txt` for datasets that could NOT be accessed and workarounds.
+
+## Locatorid Encoding (from Ravago et al. 2021 Mendeley dataset)
+
+The `locatorid` is a 9-digit standardized identifier encoding spatial location:
+
+```
+Format: PP-CC-EE-FFF
+  PP  = Province code (2 digits)
+  CC  = City/Municipality code (2 digits)
+  EE  = Economic Zone code within that city (2 digits)
+  FFF = Firm number within that zone (3 digits)
+```
+
+Province codes found in the dataset:
+| Code | Province     |
+|------|-------------|
+| 01   | Batangas     |
+| 02   | Benguet      |
+| 03   | Bulacan      |
+| 04   | Cavite       |
+| 05   | Cebu         |
+| 06   | Laguna       |
+| 07   | Metro Manila |
+| 08   | Pampanga     |
+
+This encoding links firms to specific municipalities and zones, enabling spatial joins without coordinates. The dataset covers 26 ecozones across 8 provinces (115 firms total). Use this to cross-validate zone-municipality assignments from the PEZA Excel files.
+
+Source: `raw datasets/mendeley_ravago/Supplementary Appendix 1 DIB Energy Ravago et al 2021_Data.csv`
+Dictionary: `raw datasets/mendeley_ravago/Supplementary Appendix 2 DIB Energy Ravago et al 2021_Dictionary.txt`
 
 ## Coding Style Rules
 
@@ -107,7 +137,13 @@ SEZ-Spatial-Data-Research/
 ├── Difficulties_Claude.txt            # Dataset access difficulties documented
 ├── raw datasets/
 │   ├── peza_zones_raw.xls             # PEZA manufacturing zones (74) — from peza.gov.ph/sites/default/files/1.xls
-│   └── peza_locators_raw.xls          # PEZA agro-industrial zones (22+6) with locators — from peza.gov.ph/sites/default/files/3.xls
+│   ├── peza_locators_raw.xls          # PEZA agro-industrial zones (22+6) with locators — from peza.gov.ph/sites/default/files/3.xls
+│   └── mendeley_ravago/               # Ravago et al. (2021) firm survey dataset — CC-BY 4.0
+│       ├── Supplementary Appendix 1 ... _Data.csv          # 115 firms, 1257 variables, locatorid encoded
+│       ├── Supplementary Appendix 2 ... _Dictionary.txt    # Variable names, types, labels
+│       ├── Supplementary Appendix 3 ... _FGD Questionnaire.pdf
+│       ├── Supplementary Appendix 4 ... _Survey Questionnaire.pdf
+│       └── Supplementary Appendix 5 ... General results.pdf
 ├── Assignment Instructions/
 │   ├── Written Assignment.pdf         # Official assignment instructions
 │   └── My Insights and Questions/     # Handwritten notes, screenshots
