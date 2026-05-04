@@ -1,12 +1,19 @@
 # macOS
 .DS_Store
 
-# Large raster files (download locally, do not push)
+# Raw datasets (downloaded locally, documented in sources.csv and DOWNLOAD_NOTES.txt)
 raw datasets/jrc_water/
 raw datasets/hansen_forest/
 raw datasets/ghsl/
 raw datasets/worldpop/
 raw datasets/viirs/
+raw datasets/philippines-260503-free/
+raw datasets/philippines-json-maps-master/
+raw datasets/API_PHL_DS2_en_csv_v2_2199/
+raw datasets/*.csv
+raw datasets/*.geojson
+raw datasets/*.xlsx
+raw datasets/airports.csv
 
 # Excluded reference materials (kept local)
 Gold Standard_JMP_TG.pdf
