@@ -176,30 +176,59 @@ Workarounds:
 Status: PARTIALLY AVAILABLE — requires compilation from multiple sources.
 
 ================================================================================
-6. DATASETS THAT ARE FREELY ACCESSIBLE AND VERIFIED
+6. DATASETS THAT ARE FREELY ACCESSIBLE AND VERIFIED (WORKING LINKS)
 ================================================================================
 
 The following datasets were confirmed as downloadable and suitable:
 
-| Dataset                        | URL / Source                                      | Format       | Access     |
-|-------------------------------|--------------------------------------------------|-------------|------------|
-| Philippine admin boundaries    | github.com/faeldon/philippines-json-maps          | GeoJSON      | Free, open |
-| GADM admin boundaries (PHL)    | gadm.org/download_country.html                    | SHP/GPKG/R   | Free       |
-| OpenStreetMap Philippines       | download.geofabrik.de/asia/philippines.html       | PBF/SHP/GPKG | Free, 568MB-1.3GB |
-| WorldPop population density    | hub.worldpop.org (Philippines, 1km res, 2000-2020)| GeoTIFF      | CC-BY 4.0  |
-| VIIRS nighttime lights         | eogdata.mines.edu/products/vnl/                   | GeoTIFF      | CC-BY 4.0  |
-| GHSL built-up/urban extent     | human-settlement.emergency.copernicus.eu          | GeoTIFF tiles| Open/free  |
-| Natural Earth coastline/rivers | naturalearthdata.com (10m vectors)                | Shapefile    | Public domain |
-| OurAirports                    | ourairports.com/data/                             | CSV          | Public domain |
-| World Bank Philippines         | data.worldbank.org/country/philippines             | CSV/Excel    | Free       |
-| Wikipedia zone lists           | en.wikipedia.org/wiki/List_of_economic_zones_in_the_Philippines | HTML tables | Open |
+| Dataset                        | URL                                                                          | Format       | Access     | Link Status |
+|-------------------------------|------------------------------------------------------------------------------|-------------|------------|-------------|
+| Philippine admin boundaries    | https://github.com/faeldon/philippines-json-maps                             | GeoJSON      | Free, open | WORKING     |
+| GADM admin boundaries (PHL)    | https://gadm.org/download_country.html                                       | SHP/GPKG/R   | Free       | WORKING     |
+| OpenStreetMap Philippines       | https://download.geofabrik.de/asia/philippines.html                          | PBF/SHP/GPKG | Free       | WORKING     |
+| WorldPop population density    | https://hub.worldpop.org/geodata/listing?id=76                               | GeoTIFF, 1km | CC-BY 4.0  | WORKING     |
+| VIIRS nighttime lights         | https://eogdata.mines.edu/products/vnl/                                      | GeoTIFF      | CC-BY 4.0  | WORKING     |
+| GHSL built-up/urban extent     | https://human-settlement.emergency.copernicus.eu/download.php                | GeoTIFF tiles| Open/free  | WORKING     |
+| Natural Earth coastline/rivers | https://www.naturalearthdata.com/downloads/10m-physical-vectors/             | Shapefile    | Public dom.| WORKING     |
+| OurAirports                    | https://ourairports.com/data/                                                | CSV          | Public dom.| WORKING     |
+| World Bank Philippines         | https://data.worldbank.org/country/philippines                               | CSV/Excel    | Free       | WORKING     |
+| Wikipedia zone lists           | https://en.wikipedia.org/wiki/List_of_economic_zones_in_the_Philippines      | HTML tables  | Open       | WORKING     |
 
 These sources collectively cover: administrative boundaries, population
 density, nighttime lights, built-up area, coastlines, rivers, airports,
 roads (via OSM), and partial zone information.
 
 ================================================================================
-7. SUMMARY OF FEASIBILITY ASSESSMENT
+7. LINKS THAT COULD NOT BE ACCESSED (NOT WORKING)
+================================================================================
+
+The following URLs were attempted but returned errors or were inaccessible
+during automated verification on 2026-05-03:
+
+| Source                              | URL Attempted                                                  | Error / Issue                          | Notes                                         |
+|-------------------------------------|----------------------------------------------------------------|----------------------------------------|-----------------------------------------------|
+| PEZA Operating Economic Zones       | https://www.peza.gov.ph/operating-economic-zones               | SSL certificate error (expired cert)   | Site loads in browser with cert warning; no downloadable data found |
+| PEZA Manufacturing Zones            | https://www.peza.gov.ph/economic-zones/manufacturing           | Timeout (>60s)                         | Page likely exists but loads too slowly or uses heavy JS rendering |
+| PEZA Economic Zone Locator          | https://www.peza.gov.ph/getting-started-category/economic-zone-locator | SSL certificate error           | Interactive map tool, not a data download      |
+| PSA Main Portal                     | https://psa.gov.ph                                             | HTTP 403 (Forbidden)                   | Blocked automated/programmatic access          |
+| PSA OpenStat                        | https://openstat.psa.gov.ph                                    | HTTP 403 (Forbidden)                   | Open data portal blocked automated access      |
+| PSA Census Page                     | https://psa.gov.ph/statistics/census/philippine-census-population-and-housing | HTTP 403 (Forbidden)    | Census data page blocked                       |
+| HDX Philippines Population          | https://data.humdata.org/dataset/cod-ps-phl                    | HTTP 403 (Forbidden)                   | Humanitarian Data Exchange blocked access      |
+| HDX Philippines Search              | https://data.humdata.org/dataset?q=philippines+population      | HTTP 403 (Forbidden)                   | Search endpoint also blocked                   |
+| Hansen Global Forest Change         | https://earthenginepartners.appspot.com/science-2013-global-forest | Page loaded but no content rendered | JS-heavy Google Earth Engine app; data accessible via GEE platform |
+| Global Surface Water (sample tile)  | https://storage.googleapis.com/global-surface-water/downloads_v1_4_2021/occurrence/occurrence_120E_10Nv1_4_2021.tif | HTTP 404 (Not Found) | Specific tile URL may have changed; check via JRC portal |
+
+NOTES ON ACCESS PATTERNS:
+  - Philippine government sites (psa.gov.ph, peza.gov.ph) generally block
+    automated/programmatic access but work in a web browser.
+  - PEZA's SSL certificate is expired, causing strict HTTP clients to reject
+    connections. Using -k (insecure) flag with curl confirms the site is up.
+  - HDX (data.humdata.org) returned 403 on all attempted endpoints.
+  - Google Earth Engine datasets (Hansen forest, Global Surface Water) require
+    the GEE platform interface rather than direct HTTP downloads.
+
+================================================================================
+8. SUMMARY OF FEASIBILITY ASSESSMENT
 ================================================================================
 
 FEASIBLE with available data:
