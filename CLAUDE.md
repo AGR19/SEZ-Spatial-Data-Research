@@ -51,6 +51,7 @@ Country chosen: **Philippines**
 | PEZA Manufacturing Zones (74) | peza.gov.ph/sites/default/files/1.xls | Excel (.xls) | WORKING — complete list with names, locations, area, developer, investments (Nov 2017) |
 | PEZA Agro-Industrial Zones (22+6) | peza.gov.ph/sites/default/files/3.xls | Excel (.xls) | WORKING — includes locator enterprises and PEZA approval/registration dates |
 | Ravago et al. (2021) firm survey | Mendeley Data DOI: 10.17632/88t45xbn59.2 | CSV + TXT dict | CC-BY 4.0 — 115 firms in 26 ecozones, locatorid encodes province-city-zone-firm |
+| JRC Global Surface Water (occurrence) | storage.googleapis.com/global-surface-water/downloads2021/ | GeoTIFF (6 tiles, 317MB) | Downloaded locally — NOT in git (too large). Tiles: 110E/120E × 0N/10N/20N |
 | Zone list (Wikipedia) | en.wikipedia.org/wiki/List_of_economic_zones_in_the_Philippines | HTML tables | Supplementary — 22 agro-industrial + 11 freeports listed |
 | Admin boundaries | github.com/faeldon/philippines-json-maps | GeoJSON | Verified accessible |
 | Admin boundaries | gadm.org (PHL) | SHP/GPKG | Verified accessible |

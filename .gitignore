@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+
+# Large raster files (download locally, do not push)
+raw datasets/jrc_water/
+
+# Excluded reference materials (kept local)
+Gold Standard_JMP_TG.pdf
+Assignment Instructions/
+Fireline_DataScience/ARC-GIS-datascience-main/
+Fireline_DataScience/Learning flow simulator/
+Fireline_DataScience/koch_research-consolidate/
+Fireline_DataScience/.DS_Store

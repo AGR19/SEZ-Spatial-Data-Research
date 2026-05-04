@@ -333,7 +333,7 @@ during automated verification on 2026-05-03:
 | HDX Philippines Population          | https://data.humdata.org/dataset/cod-ps-phl                    | HTTP 403 (Forbidden)                   | Humanitarian Data Exchange blocked access      |
 | HDX Philippines Search              | https://data.humdata.org/dataset?q=philippines+population      | HTTP 403 (Forbidden)                   | Search endpoint also blocked                   |
 | Hansen Global Forest Change         | https://earthenginepartners.appspot.com/science-2013-global-forest | Page loaded but no content rendered | JS-heavy Google Earth Engine app; data accessible via GEE platform |
-| Global Surface Water (sample tile)  | https://storage.googleapis.com/global-surface-water/downloads_v1_4_2021/occurrence/occurrence_120E_10Nv1_4_2021.tif | HTTP 404 (Not Found) | Specific tile URL may have changed; check via JRC portal |
+| Global Surface Water (sample tile)  | https://storage.googleapis.com/global-surface-water/downloads_v1_4_2021/occurrence/occurrence_120E_10Nv1_4_2021.tif | HTTP 404 (Not Found) | RESOLVED: Correct URL pattern uses downloads2021/ — 6 Philippines tiles now downloaded |
 | Frick et al. SEZ database (SSRN)    | https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3148037   | HTTP 403 (Forbidden)                   | 346 geocoded SEZs in 22 countries; PH coverage unconfirmed; paywall |
 | Frick et al. (Taylor & Francis)     | https://www.tandfonline.com/doi/full/10.1080/00130095.2018.1462774 | HTTP 403 (Forbidden)            | Same paper, journal version; no public replication data found |
 | World Bank SEZ database (S3)        | https://development-data-hub-s3-public.s3.amazonaws.com/ddhfiles/94641/sez-database.zip | HTTP 403 (Forbidden) | 553 SEZs in 51 countries; download blocked |
@@ -386,7 +386,7 @@ All sources ordered by importance to the assignment. Priority groups:
 | 16| 5. Raster: Night Lights               | VIIRS DNB Annual Composites          | https://eogdata.mines.edu/products/vnl/                                                    | GeoTIFF       | WORKING      | CC-BY 4.0; ~500m resolution; 2012+      |
 | 17| 5. Raster: Built-up / Urban Extent    | GHSL (Copernicus)                    | https://human-settlement.emergency.copernicus.eu/download.php                              | GeoTIFF tiles | WORKING      | Open/free; tile-based download           |
 | 18| 5. Raster: Forest Cover               | Hansen Global Forest Change          | https://earthenginepartners.appspot.com/science-2013-global-forest                         | GeoTIFF (GEE) | NOT WORKING  | JS-only app; requires Google Earth Engine|
-| 19| 5. Raster: Surface Water              | JRC Global Surface Water             | https://storage.googleapis.com/global-surface-water/downloads_v1_4_2021/occurrence/occurrence_120E_10Nv1_4_2021.tif | GeoTIFF | NOT WORKING | HTTP 404; tile URL may have changed |
+| 19| 5. Raster: Surface Water              | JRC Global Surface Water (occurrence)| http://storage.googleapis.com/global-surface-water/downloads2021/occurrence/  | GeoTIFF | WORKING      | 6 PH tiles downloaded (317MB). Correct URL uses downloads2021/ not downloads_v1_4_2021/. Stored locally, NOT in git. |
 | 20| 6. Economic: National Indicators      | World Bank Philippines               | https://data.worldbank.org/country/philippines                                             | CSV/Excel     | WORKING      | Country-level only; no subnational       |
 | 21| 6. Economic: Census / Business Stats  | PSA Main Portal                      | https://psa.gov.ph                                                                         | Various       | NOT WORKING  | HTTP 403; blocks programmatic access     |
 | 22| 6. Economic: Census / Business Stats  | PSA OpenStat                         | https://openstat.psa.gov.ph                                                                | Various       | NOT WORKING  | HTTP 403; blocks programmatic access     |
@@ -402,7 +402,7 @@ All sources ordered by importance to the assignment. Priority groups:
 | 32| 7. Academic: Data Repositories        | World Bank Data Catalog (SEZ search) | https://datacatalog.worldbank.org/search?q=special+economic+zones                           | Various       | NOT WORKING  | Returned 0 results                       |
 | 33| 7. Academic: Data Repositories        | World Bank Open Knowledge (SEZ)      | https://openknowledge.worldbank.org/search?query=special+economic+zones+database            | Various       | NOT WORKING  | HTTP 403                                 |
 
-SUMMARY:  14 WORKING  /  19 NOT WORKING  (33 total sources checked)
+SUMMARY:  15 WORKING  /  18 NOT WORKING  (33 total sources checked)
 
 Key takeaways:
   1. The two most critical datasets are available:
