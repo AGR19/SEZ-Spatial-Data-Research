@@ -1,0 +1,373 @@
+================================================================================
+RASTER DATA DOWNLOAD NOTES — Philippines Industrial Zones Project
+================================================================================
+
+Date: 2026-05-04
+Purpose: Detailed documentation of every raster/spatial dataset downloaded,
+including exact URLs, tile dimensions, issues encountered, and resolution.
+All files stored locally under "raw datasets/" — NOT pushed to GitHub
+(too large; excluded via .gitignore).
+
+================================================================================
+1. JRC GLOBAL SURFACE WATER — Occurrence Layer (v1.4, 2021)
+================================================================================
+
+Source: European Commission Joint Research Centre (JRC)
+Product: Global Surface Water Explorer — Occurrence dataset
+URL base: http://storage.googleapis.com/global-surface-water/downloads2021/occurrence/
+License: Free to use with attribution (Pekel et al., 2016, Nature)
+Download script: /Users/adisheshravishankar/Downloads/downloadWaterData_PythonV3_2021/downloadWaterData_PythonV3.py
+
+WHAT IT MEASURES:
+  Percentage of time (1984-2021) that each pixel was classified as water.
+  Values 0-100 represent water occurrence frequency.
+  Useful for identifying permanent rivers, lakes, dams, and seasonal water.
+
+TILE GRID:
+  Global tiles are 10° × 10° in latitude/longitude.
+  Naming convention: occurrence_[LON]_[LAT]v1_4_2021.tif
+  Example: occurrence_120E_10Nv1_4_2021.tif
+  The tile name refers to the SOUTHWEST corner of the tile.
+  So "120E_10N" covers 120°E-130°E × 10°N-20°N.
+
+SPATIAL RESOLUTION: 30 meters per pixel (Landsat-derived)
+CRS: EPSG:4326 (WGS 84)
+PIXEL DEPTH: 8-bit unsigned integer (0-100, 255=no data)
+
+TILES DOWNLOADED FOR PHILIPPINES:
+  Philippines spans approximately 116°E-127°E, 5°N-21°N.
+  Required tiles (covering with buffer):
+
+  | Tile Name                          | Coverage            | File Size |
+  |------------------------------------|---------------------|-----------|
+  | occurrence_110E_0Nv1_4_2021.tif    | 110-120°E, 0-10°N   | 66.0 MB   |
+  | occurrence_110E_10Nv1_4_2021.tif   | 110-120°E, 10-20°N  | 42.7 MB   |
+  | occurrence_110E_20Nv1_4_2021.tif   | 110-120°E, 20-30°N  | 24.1 MB   |
+  | occurrence_120E_0Nv1_4_2021.tif    | 120-130°E, 0-10°N   | 73.8 MB   |
+  | occurrence_120E_10Nv1_4_2021.tif   | 120-130°E, 10-20°N  | 53.3 MB   |
+  | occurrence_120E_20Nv1_4_2021.tif   | 120-130°E, 20-30°N  | 57.0 MB   |
+  |                                    | TOTAL               | 316.9 MB  |
+
+  Local path: raw datasets/jrc_water/
+
+DOWNLOAD METHOD:
+  Python urllib.request.urlretrieve() via custom script.
+  The original JRC download script (downloadWaterData_PythonV3.py) downloads
+  ALL global tiles. We modified it to download only 6 Philippines tiles.
+
+ISSUES ENCOUNTERED:
+  - Our earlier attempt used the WRONG URL pattern:
+    WRONG: storage.googleapis.com/global-surface-water/downloads_v1_4_2021/occurrence/
+    CORRECT: storage.googleapis.com/global-surface-water/downloads2021/occurrence/
+    The URL pattern changed between versions. The original 404 error in
+    Difficulties_Claude.txt was caused by this.
+  - HTTP (not HTTPS) was used for the base URL — this is how the official
+    JRC download script specifies it.
+  - No authentication or rate limiting encountered.
+
+AVAILABLE DATASETS (not downloaded, but same tile grid):
+  - change: Net change in water occurrence
+  - seasonality: Intra-annual distribution of water
+  - recurrence: Frequency of water return after absence
+  - transitions: Categorical transitions in water state
+  - extent: Maximum water extent
+
+================================================================================
+2. HANSEN GLOBAL FOREST CHANGE (v1.12, 2024)
+================================================================================
+
+Source: University of Maryland (Hansen et al., 2013, Science)
+Product: Global Forest Change 2000-2024, version 1.12
+URL base: https://storage.googleapis.com/earthenginepartners-hansen/GFC-2024-v1.12/
+License: CC-BY 4.0
+Catalog page: https://developers.google.com/earth-engine/datasets/catalog/UMD_hansen_global_forest_change_2024_v1_12
+Direct download page: https://storage.googleapis.com/earthenginepartners-hansen/GFC-2024-v1.12/download.html
+
+TILE GRID:
+  Global tiles are 10° × 10° in latitude/longitude.
+  Naming convention: Hansen_GFC-2024-v1.12_[LAYER]_[LAT]_[LON].tif
+  Example: Hansen_GFC-2024-v1.12_treecover2000_10N_120E.tif
+  NOTE: Unlike JRC water, Hansen tile names use LAT first, then LON.
+  The tile name refers to the NORTHWEST corner of the tile.
+  So "10N_120E" covers 120°E-130°E × 0°N-10°N.
+
+SPATIAL RESOLUTION: ~30 meters per pixel (Landsat-derived)
+CRS: EPSG:4326 (WGS 84)
+
+LAYERS DOWNLOADED:
+
+  (a) treecover2000 — Baseline tree canopy cover in year 2000
+      Values: 0-100 (percentage canopy closure)
+      Pixel depth: 8-bit unsigned integer
+      Use case: Baseline forest cover for comparing zone vs non-zone areas
+
+  (b) lossyear — Year of gross forest cover loss
+      Values: 0 = no loss; 1-24 = loss detected in 2001-2024
+      Pixel depth: 8-bit unsigned integer
+      Use case: Temporal forest loss analysis near industrial zones
+
+TILES DOWNLOADED FOR PHILIPPINES:
+  Philippines spans 116°E-127°E, 5°N-21°N.
+  Required tiles (Northwest corner convention):
+
+  | Tile Name                                              | Coverage           | File Size |
+  |--------------------------------------------------------|--------------------|-----------|
+  | Hansen_GFC-2024-v1.12_treecover2000_10N_110E.tif       | 110-120°E, 0-10°N  | 263 MB    |
+  | Hansen_GFC-2024-v1.12_treecover2000_10N_120E.tif       | 120-130°E, 0-10°N  | 141 MB    |
+  | Hansen_GFC-2024-v1.12_treecover2000_20N_110E.tif       | 110-120°E, 10-20°N | 28 MB     |
+  | Hansen_GFC-2024-v1.12_treecover2000_20N_120E.tif       | 120-130°E, 10-20°N | 136 MB    |
+  | Hansen_GFC-2024-v1.12_lossyear_10N_110E.tif            | 110-120°E, 0-10°N  | 76 MB     |
+  | Hansen_GFC-2024-v1.12_lossyear_10N_120E.tif            | 120-130°E, 0-10°N  | 31 MB     |
+  | Hansen_GFC-2024-v1.12_lossyear_20N_110E.tif            | 110-120°E, 10-20°N | 16 MB     |
+  | Hansen_GFC-2024-v1.12_lossyear_20N_120E.tif            | 120-130°E, 10-20°N | 24 MB     |
+  |                                                        | TOTAL              | 715 MB    |
+
+  Local path: raw datasets/hansen_forest/
+
+DOWNLOAD METHOD:
+  curl with -skL flags (SSL bypass, follow redirects).
+  Python urllib.request failed due to SSL certificate verification error:
+    "SSL: CERTIFICATE_VERIFY_FAILED unable to get local issuer certificate"
+  This is a known macOS Python issue where the system certificate store
+  is not used by Python's ssl module. curl -k bypasses this.
+
+ISSUES ENCOUNTERED:
+  - Python urllib SSL failure (see above) — resolved by switching to curl -k.
+  - The download.html page on Google Cloud Storage provides an interactive
+    map and bulk URL text files for each layer, which is helpful.
+  - No authentication required.
+  - Each tile downloads in 10-30 seconds on broadband.
+
+LAYERS NOT DOWNLOADED (available at same base URL):
+  - gain: Forest gain 2000-2012 (binary)
+  - datamask: Land/water/nodata mask
+  - first: Circa-2000 reference imagery (RGB bands)
+  - last: Circa-2024 reference imagery (RGB bands)
+
+================================================================================
+3. GHSL — Global Human Settlement Layer (R2023A)
+================================================================================
+
+Source: European Commission Joint Research Centre (JRC) / Copernicus
+FTP base: https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/GHSL/
+Download page: https://human-settlement.emergency.copernicus.eu/download.php
+License: Open and free, with proper acknowledgment of source
+
+THREE PRODUCTS DOWNLOADED:
+
+  (a) GHS-BUILT-S — Built-up Surface Fraction (Epoch 2020)
+      File: GHS_BUILT_S_E2020_GLOBE_R2023A_4326_30ss_V1_0.zip
+      URL: https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/GHSL/GHS_BUILT_S_GLOBE_R2023A/GHS_BUILT_S_E2020_GLOBE_R2023A_4326_30ss/V1-0/GHS_BUILT_S_E2020_GLOBE_R2023A_4326_30ss_V1_0.zip
+      Size: 178 MB (compressed)
+      Resolution: 30 arc-seconds (~1 km at equator)
+      CRS: EPSG:4326 (WGS 84)
+      Coverage: Global (single file)
+      Values: Built-up surface fraction per grid cell (0-100)
+      Use case: Identifying urbanization/built-up area near industrial zones
+
+  (b) GHS-POP — Population Grid (Epoch 2020)
+      File: GHS_POP_E2020_GLOBE_R2023A_4326_30ss_V1_0.zip
+      URL: https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/GHSL/GHS_POP_GLOBE_R2023A/GHS_POP_E2020_GLOBE_R2023A_4326_30ss/V1-0/GHS_POP_E2020_GLOBE_R2023A_4326_30ss_V1_0.zip
+      Size: 460 MB (compressed)
+      Resolution: 30 arc-seconds (~1 km at equator)
+      CRS: EPSG:4326 (WGS 84)
+      Coverage: Global (single file)
+      Values: Estimated population count per grid cell
+      Use case: Population density near industrial zones
+
+  (c) GHS-SMOD — Settlement Model Grid (Epoch 2020)
+      File: GHS_SMOD_E2020_GLOBE_R2023A_54009_1000_V1_0.zip
+      URL: https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/GHSL/GHS_SMOD_GLOBE_R2023A/GHS_SMOD_E2020_GLOBE_R2023A_54009_1000/V1-0/GHS_SMOD_E2020_GLOBE_R2023A_54009_1000_V1_0.zip
+      Size: 28 MB (compressed)
+      Resolution: 1000 meters
+      CRS: EPSG:54009 (World Mollweide) — NOTE: different CRS from others!
+           Will need reprojection to EPSG:4326 for spatial joins.
+      Coverage: Global (single file)
+      Values: Settlement classification codes:
+        10 = Water grid cell
+        11 = Very low density rural
+        12 = Low density rural
+        13 = Rural cluster
+        21 = Suburban or peri-urban
+        22 = Semi-dense urban cluster
+        23 = Dense urban cluster
+        30 = Urban centre
+      Use case: Classifying zone vs non-zone locations by urban/rural type
+
+  | Product   | File Size | Resolution   | CRS        |
+  |-----------|-----------|-------------|------------|
+  | BUILT-S   | 178 MB    | 30 arcsec   | EPSG:4326  |
+  | POP       | 460 MB    | 30 arcsec   | EPSG:4326  |
+  | SMOD      | 28 MB     | 1000 m      | EPSG:54009 |
+  |           | 666 MB    |             |            |
+
+  Local path: raw datasets/ghsl/
+
+DOWNLOAD METHOD:
+  curl with -skL flags.
+
+ISSUES ENCOUNTERED:
+  - The download page (human-settlement.emergency.copernicus.eu/download.php)
+    redirects from the old ghsl.jrc.ec.europa.eu domain. WebFetch initially
+    failed due to this redirect.
+  - The interactive tile-based download interface is JavaScript-heavy and
+    not automatable. However, the FTP directory at jeodpp.jrc.ec.europa.eu
+    provides direct file access without authentication.
+  - The 30 arc-second global files are small enough to download whole-globe
+    rather than managing individual tiles. This is much simpler.
+  - GHS-SMOD uses Mollweide projection (EPSG:54009), not WGS 84. This
+    must be reprojected before spatial joins with other layers.
+  - Higher-resolution products (3 arc-second / ~100m) are available as
+    tiles but are much larger (~3 GB for global built-up surface).
+    For municipality-level analysis, 1km resolution is sufficient.
+  - "Single file download" for some products was noted as "being produced"
+    on the download page, but the FTP directory had them available.
+
+AVAILABLE BUT NOT DOWNLOADED:
+  - Higher resolution (3ss / ~100m) tile-based products
+  - Multiple epochs: 1975, 1980, 1985, 1990, 1995, 2000, 2005, 2010, 2015, 2020, 2025
+    (useful for temporal analysis in Part 4 of assignment)
+  - GHS-BUILT-H: Building height data
+  - GHS-BUILT-V: Building volume data
+  - GHS-BUILT-C: Building classification (residential/non-residential)
+
+FTP DIRECTORY STRUCTURE:
+  https://jeodpp.jrc.ec.europa.eu/ftp/jrc-opendata/GHSL/
+  └── GHS_BUILT_S_GLOBE_R2023A/
+  │   └── GHS_BUILT_S_E2020_GLOBE_R2023A_4326_30ss/
+  │       └── V1-0/
+  │           ├── GHS_BUILT_S_E2020_GLOBE_R2023A_4326_30ss_V1_0.zip  (global)
+  │           └── tiles/  (individual tiles with R[row]_C[col] naming)
+  └── GHS_POP_GLOBE_R2023A/
+  │   └── GHS_POP_E2020_GLOBE_R2023A_4326_30ss/
+  │       └── V1-0/  (same structure)
+  └── GHS_SMOD_GLOBE_R2023A/
+      └── GHS_SMOD_E2020_GLOBE_R2023A_54009_1000/
+          └── V1-0/  (same structure)
+
+GHSL TILE NAMING (for 3ss tiles, if needed later):
+  Pattern: GHS_BUILT_S_E2020_GLOBE_R2023A_4326_3ss_V1_0_R[row]_C[col].zip
+  Philippines approximate tiles: R3_C14, R3_C15, R3_C16, R4_C13, R4_C14,
+  R4_C15, R5_C13, R5_C14, R5_C15
+
+================================================================================
+4. WORLDPOP — Philippines Population Density (2020)
+================================================================================
+
+Source: WorldPop, University of Southampton
+Product: Unconstrained individual countries 2000-2020, UN adjusted, 1km
+URL: https://data.worldpop.org/GIS/Population/Global_2000_2020_1km_UNadj/2020/PHL/phl_ppp_2020_1km_Aggregated_UNadj.tif
+Catalog page: https://hub.worldpop.org/geodata/listing?id=76
+License: CC-BY 4.0
+DOI: 10.5258/SOTON/WP00647
+
+WHAT IT MEASURES:
+  Estimated number of people per ~1km grid cell, adjusted to match
+  UN national population estimates for 2020.
+
+FILE DETAILS:
+  | File | Size | Resolution | CRS |
+  |------|------|-----------|-----|
+  | phl_ppp_2020_1km_Aggregated_UNadj.tif | 1.8 MB | ~1 km (30 arcsec) | EPSG:4326 |
+
+  Local path: raw datasets/worldpop/
+
+DOWNLOAD METHOD:
+  curl -sL (standard HTTPS, no auth needed).
+
+ISSUES ENCOUNTERED:
+  - The WorldPop hub catalog (hub.worldpop.org) does not directly show the
+    download URL. Had to guess the URL pattern based on other country files:
+    https://data.worldpop.org/GIS/Population/Global_2000_2020_1km_UNadj/[YEAR]/[ISO3]/[iso3]_ppp_[YEAR]_1km_Aggregated_UNadj.tif
+    Confirmed with HTTP HEAD request (200 OK).
+  - The catalog page at hub.worldpop.org uses JavaScript to render download
+    links, making automated URL extraction difficult.
+  - An alternative file (without "UNadj") is also available:
+    https://data.worldpop.org/GIS/Population/Global_2000_2020_1km/2020/PHL/phl_ppp_2020_1km_Aggregated.tif
+    This is the unconstrained version not adjusted to UN totals.
+
+OTHER YEARS AVAILABLE (same URL pattern, replace 2020):
+  2000, 2001, 2002, ..., 2019, 2020
+  Useful for Part 4 temporal analysis.
+
+================================================================================
+5. VIIRS NIGHTTIME LIGHTS — NOT YET DOWNLOADED (requires registration)
+================================================================================
+
+Source: Earth Observation Group (EOG), Colorado School of Mines
+Product: VIIRS Nighttime Lights Annual Composite V2.2
+URL: https://eogdata.mines.edu/products/vnl/
+Registration page: https://eogdata.mines.edu/nighttime_light/annual/v22/
+  (redirects to login — create free account to access)
+License: CC-BY 4.0
+
+WHAT IT MEASURES:
+  Average radiance (nW/cm²/sr) from nighttime satellite observations,
+  filtered for clouds, moonlight, and stray light. Annual composites
+  aggregate monthly observations.
+
+SPATIAL RESOLUTION: 15 arc-seconds (~500 m at equator)
+CRS: EPSG:4326 (WGS 84)
+COVERAGE: 180°W-180°E, 75°N-65°S
+FORMAT: GeoTIFF, gzip compressed (.tif.gz)
+FILE SIZE: ~2-3 GB per annual composite (global)
+
+AVAILABLE VERSIONS:
+  - V2.0: 2012-2020
+  - V2.1: 2012-2021
+  - V2.2: 2012-2023 (latest, recommended)
+
+DOWNLOAD INSTRUCTIONS (manual):
+  1. Go to https://eogdata.mines.edu/nighttime_light/annual/v22/
+  2. Create a free account (email + password)
+  3. Log in
+  4. Navigate to the desired year folder (e.g., 2020/)
+  5. Download the .tif.gz file (the "average" or "median" composite)
+  6. Uncompress with: gunzip filename.tif.gz
+  7. Save to: raw datasets/viirs/
+
+ISSUES ENCOUNTERED:
+  - ALL versions (V2.0, V2.1, V2.2) require OAuth2 authentication.
+    HTTP requests without auth return 302 redirect to login page.
+  - No public mirror or alternative unauthenticated source found.
+  - NOAA's old NGDC page redirects to the same EOG portal.
+  - Google Cloud Storage does not host a public VIIRS bucket.
+  - This is the ONLY dataset in our collection that requires registration.
+
+USE CASE:
+  Night lights as a proxy for economic activity. Compare radiance levels
+  in municipalities with industrial zones vs without. Time-stamped annual
+  composites enable Part 4 temporal analysis.
+
+================================================================================
+6. SUMMARY OF ALL LOCAL RASTER DATA
+================================================================================
+
+| # | Dataset               | Product           | Files | Total Size | Resolution  | CRS        | Local Path              |
+|---|-----------------------|-------------------|-------|-----------|-------------|------------|-------------------------|
+| 1 | JRC Surface Water     | Occurrence        | 6     | 317 MB    | 30 m        | EPSG:4326  | raw datasets/jrc_water/ |
+| 2 | Hansen Forest Change  | treecover2000     | 4     | 568 MB    | 30 m        | EPSG:4326  | raw datasets/hansen_forest/ |
+| 3 | Hansen Forest Change  | lossyear          | 4     | 147 MB    | 30 m        | EPSG:4326  | raw datasets/hansen_forest/ |
+| 4 | GHSL                  | Built-up Surface  | 1     | 178 MB    | 30 arcsec   | EPSG:4326  | raw datasets/ghsl/      |
+| 5 | GHSL                  | Population        | 1     | 460 MB    | 30 arcsec   | EPSG:4326  | raw datasets/ghsl/      |
+| 6 | GHSL                  | Settlement Model  | 1     | 28 MB     | 1000 m      | EPSG:54009 | raw datasets/ghsl/      |
+| 7 | WorldPop              | Pop. Density PHL  | 1     | 1.8 MB    | ~1 km       | EPSG:4326  | raw datasets/worldpop/  |
+| 8 | VIIRS (pending)       | Night Lights      | TBD   | ~2-3 GB   | 15 arcsec   | EPSG:4326  | raw datasets/viirs/     |
+|   |                       | TOTAL DOWNLOADED  | 18    | 1.70 GB   |             |            |                         |
+
+CRS NOTES:
+  - Most data is in EPSG:4326 (WGS 84) — no reprojection needed.
+  - GHS-SMOD is in EPSG:54009 (Mollweide) — must reproject to 4326.
+  - For distance calculations, reproject to PRS 92 (EPSG:3123) or use
+    geodesic (haversine) distances on WGS 84 coordinates.
+
+TILE DIMENSION NOTES:
+  - JRC water + Hansen forest: 10° × 10° tiles at 30m resolution
+    = approximately 40,000 × 40,000 pixels per tile
+  - GHSL 30ss: Global raster at ~1km
+    = approximately 43,200 × 16,800 pixels
+  - WorldPop 1km: Country-specific extent (Philippines bounding box)
+
+================================================================================
+END OF DOWNLOAD NOTES
+================================================================================
