@@ -3,8 +3,106 @@ DIFFICULTIES ENCOUNTERED IN DATASET RESEARCH — Philippines Industrial Zones
 ================================================================================
 
 Document created: 2026-05-03
+Updated: 2026-05-04 (added academic/scholarly dataset search results)
 Purpose: Honest documentation of data access challenges encountered while
 researching datasets for the Philippines industrial zones spatial analysis.
+
+================================================================================
+0. ACADEMIC & SCHOLARLY DATASET SEARCH — No Pre-Built Philippines Dataset Found
+================================================================================
+
+A systematic search of Google Scholar, data repositories (Harvard Dataverse,
+Zenodo, Figshare, World Bank Data Catalog), and cross-country SEZ databases
+was conducted to determine whether any researcher has already constructed
+a geocoded dataset of Philippine industrial zones or economic zones.
+
+SEARCHES CONDUCTED:
+  - Google Scholar: "Philippines special economic zones spatial dataset GIS"
+  - Google Scholar: "industrial zones" OR "economic zones" Philippines dataset geocoded
+  - Google Scholar: "PEZA Philippines firm location employment spatial"
+  - Google Scholar: "industrial parks" OR "industrial estates" Philippines dataset coordinates
+  - Google Scholar: "place-based industrial policy" geocoded database developing countries
+  - Google Scholar: "night lights" Philippines municipalities economic zones
+  - Harvard Dataverse: "special economic zones Philippines"
+  - Zenodo: "special economic zones Philippines" (type=dataset)
+  - Figshare: "special economic zones"
+  - World Bank Data Catalog: "special economic zones"
+
+KEY FINDINGS:
+
+(a) NO pre-built geocoded dataset of Philippine industrial zones exists
+    in any public repository searched. This is a genuine data gap.
+
+(b) CROSS-COUNTRY SEZ DATABASES exist but have limitations:
+
+    - Frick, Rodriguez-Pose & Wong (2019, Economic Geography): Assembled
+      346 geocoded SEZs across 22 emerging countries. Paper accessible
+      via Taylor & Francis (DOI: 10.1080/00130095.2018.1462774). Could
+      NOT verify if Philippines is included — full paper behind paywall.
+      Replication data availability: UNKNOWN (403 on SSRN, T&F blocked).
+
+    - World Bank (2017) "Special Economic Zones: An Operational Review":
+      Database covering 553 SEZs across 51 countries. Philippines coverage
+      NOT confirmed. Data download attempted at World Bank S3 bucket —
+      returned 403 (Forbidden).
+
+    - UNCTAD World Investment Report 2019, Chapter 4: Reportedly mapped
+      ~5,400 SEZs across 147 economies. Philippines LIKELY included given
+      scope. However, UNCTAD PDF returned 403, and the underlying database
+      does not appear to be publicly downloadable as a structured file.
+
+(c) PAPERS USING PHILIPPINE SPATIAL DATA (but no downloadable zone datasets):
+
+    - Sanders & Brown (2012): "Migratory response of labor to SEZs in the
+      Philippines, 1995-2005." Used GIS techniques and "geo-spatial location
+      of SEZ" but no replication data found publicly.
+
+    - Ortega, Acielo & Hermida (2015): "Mega-regions in the Philippines:
+      Accounting for special economic zones." Analyzed spatial patterns of
+      SEZs but no downloadable dataset.
+
+    - Kleibert (2018): "Exclusive development(s): Special economic zones
+      and enclave urbanism in the Philippines." Qualitative spatial analysis.
+
+    - Habana & Choi (2024): "Impact of SEZs on intra-regional income
+      inequality in the Philippines." Used PEZA performance data 2018-2022
+      but no geocoded zone dataset.
+
+    - Garces, Jandoc & Lu (2021): "Political dynasties and economic
+      development: Evidence using nighttime light in the Philippines."
+      Built a panel of Philippine municipalities with night lights — but
+      replication data not indicated as publicly available.
+
+    - Ramel, Legaspi & Pajaron (2026): "Illuminating the land: effects of
+      nighttime lights on land values in the Philippines." Uses night lights
+      at municipality level — potential methodological reference.
+
+(d) INDUSTRIAL PARKS SPECIFICALLY:
+
+    - Garcia, Peralta et al. (2003): Used MS Access database with firm
+      coordinates in Luzon industrial estates — NOT publicly available,
+      and data is >20 years old.
+
+    - Aggarwal (2022): Consolidated data on BIMP-EAGA industrial estates
+      (Brunei-Indonesia-Malaysia-Philippines) — availability unclear.
+
+    - Cauba & Coniato (2021): GIS-based site selection for economic zones
+      in Butuan City — local study, no national dataset.
+
+CONCLUSION:
+  No researcher has published a ready-to-use geocoded dataset of Philippine
+  industrial zones. The PEZA Excel files we downloaded (1.xls with 74
+  manufacturing zones, 3.xls with 22+6 agro-industrial zones) represent
+  the best available structured data. Geocoding these zone locations from
+  their textual addresses to coordinates is original work that adds value.
+
+  The cross-country databases (Frick et al., World Bank, UNCTAD) may
+  contain Philippine entries but their underlying data is not freely
+  downloadable. These should be cited as "sources seriously considered"
+  in sources.csv with a note about access barriers.
+
+  This finding reinforces the assignment's premise: constructing the
+  zone dataset IS the hard, original contribution.
 
 ================================================================================
 1. PEZA MANUFACTURING ZONE LIST — FOUND (Excel download from PEZA)
