@@ -291,53 +291,160 @@ OTHER YEARS AVAILABLE (same URL pattern, replace 2020):
   Useful for Part 4 temporal analysis.
 
 ================================================================================
-5. VIIRS NIGHTTIME LIGHTS — NOT YET DOWNLOADED (requires registration)
+5. VIIRS NIGHTTIME LIGHTS — DOWNLOADED (V2.0, 2018)
 ================================================================================
 
 Source: Earth Observation Group (EOG), Colorado School of Mines
-Product: VIIRS Nighttime Lights Annual Composite V2.2
-URL: https://eogdata.mines.edu/products/vnl/
-Registration page: https://eogdata.mines.edu/nighttime_light/annual/v22/
-  (redirects to login — create free account to access)
+Product: VIIRS Nighttime Lights Annual Composite V2.0, Year 2018
+Product page: https://eogdata.mines.edu/products/vnl/
+Download directory: https://eogdata.mines.edu/nighttime_light/annual/v20/2018/
 License: CC-BY 4.0
+Citation: Elvidge, C.D., et al. (2021). Annual time series of global VIIRS
+          nighttime lights derived from monthly averages: 2012 to 2019.
+          Remote Sensing, 13(5), 922.
+
+WHY VERSION V2.0 AND YEAR 2018:
+  - V2.0 was chosen because V2.2 (latest) is only available for 2012-2023
+    and all versions require the same authentication.
+  - Year 2018 was chosen to match temporal proximity with other datasets:
+    * PEZA zone list is as of November 2017
+    * Ravago et al. firm survey was conducted June-September 2019
+    * The PEZA registered companies list (Reference [7] in Ravago paper)
+      is from February 2018
+    * Hansen forest data includes lossyear through 2024 but baseline is 2000
+    * WorldPop and GHSL are available for 2020 but also for earlier years
+  - Using 2018 provides the closest temporal match to our zone data.
 
 WHAT IT MEASURES:
-  Average radiance (nW/cm²/sr) from nighttime satellite observations,
-  filtered for clouds, moonlight, and stray light. Annual composites
-  aggregate monthly observations.
+  Average radiance from nighttime satellite observations (VIIRS DNB sensor
+  aboard Suomi NPP satellite), measured in nanowatts per square centimeter
+  per steradian (nW/cm²/sr). Annual composites aggregate cloud-free monthly
+  observations into yearly summary statistics.
 
 SPATIAL RESOLUTION: 15 arc-seconds (~500 m at equator)
 CRS: EPSG:4326 (WGS 84)
-COVERAGE: 180°W-180°E, 75°N-65°S
-FORMAT: GeoTIFF, gzip compressed (.tif.gz)
-FILE SIZE: ~2-3 GB per annual composite (global)
+COVERAGE: 180°W-180°E, 75°N-65°S (global)
+PIXEL DEPTH: Float32
 
-AVAILABLE VERSIONS:
-  - V2.0: 2012-2020
-  - V2.1: 2012-2021
-  - V2.2: 2012-2023 (latest, recommended)
+FILES AVAILABLE IN 2018 DIRECTORY (all global):
 
-DOWNLOAD INSTRUCTIONS (manual):
-  1. Go to https://eogdata.mines.edu/nighttime_light/annual/v22/
-  2. Create a free account (email + password)
-  3. Log in
-  4. Navigate to the desired year folder (e.g., 2020/)
-  5. Download the .tif.gz file (the "average" or "median" composite)
-  6. Uncompress with: gunzip filename.tif.gz
-  7. Save to: raw datasets/viirs/
+  | File | Compressed | Description |
+  |------|-----------|-------------|
+  | ...average.tif.gz | 9.3 GB | Annual average radiance (UNMASKED — includes noise, gas flares, fires, aurora) |
+  | ...cf_cvg.tif.gz | 1.9 GB | Cloud-free coverage count |
+  | ...cvg.tif.gz | 286 MB | Total observation coverage count |
+  | ...maximum.tif.gz | 8.9 GB | Maximum radiance observed |
+  | ...median.tif.gz | 9.2 GB | Median radiance (UNMASKED) |
+  | ...minimum.tif.gz | 7.2 GB | Minimum radiance observed |
+  | ...average_masked.tif.gz | 271 MB | Annual average radiance (MASKED — background noise removed) |
+  | ...lit_mask.tif.gz | 21 MB | Binary mask of persistently lit areas |
+  | ...median_masked.tif.gz | 270 MB | Median radiance (MASKED) |
+
+WHY WE CHOSE THESE TWO FILES:
+
+  (a) average_masked.tif.gz (271 MB compressed → 11 GB uncompressed)
+
+      This is the PRIMARY analysis file. "Masked" means:
+      - Background areas (no persistent lighting) are set to zero
+      - Removes noise from gas flares, fires, volcanoes, aurora
+      - Removes ephemeral light sources
+      - Only retains pixels in "persistently lit" areas
+      This is what the academic literature uses for measuring economic
+      activity. The unmasked version (9.3 GB) includes all noise and
+      would require additional processing to remove non-economic light.
+
+      Pixel values: Radiance in nW/cm²/sr
+        - 0 = no persistent lighting (masked background)
+        - Positive values = average annual radiance
+        - Higher values = more intense/consistent nighttime lighting
+        - Typical urban range: 5-200 nW/cm²/sr
+        - Industrial areas: often 50-300+ nW/cm²/sr
+
+  (b) cvg.tif.gz (286 MB compressed → 5.4 GB uncompressed)
+
+      This is the QUALITY CONTROL file. It counts the total number of
+      valid observations per pixel during the year. Pixels with low
+      coverage (few cloud-free observations) have less reliable radiance
+      estimates. Use this to:
+      - Filter out pixels with < N observations (e.g., < 10)
+      - Weight analysis by observation count
+      - Identify data quality issues in cloudy regions (Philippines
+        is in the tropics — cloud cover is a real concern)
+
+      Pixel values: Integer count of valid observations
+        - Range: 0 to ~365 (theoretical max = nightly observations)
+        - Typical: 20-80 in tropical regions (due to cloud cover)
+        - < 10: Unreliable, consider excluding
+
+FILES DOWNLOADED:
+
+  | File                                                                    | Compressed | Uncompressed | Resolution  | CRS       |
+  |-------------------------------------------------------------------------|-----------|-------------|-------------|-----------|
+  | VNL_v2_npp_2018_global_vcmslcfg_c202102150000.average_masked.tif       | 271 MB    | 11 GB       | 15 arcsec   | EPSG:4326 |
+  | VNL_v2_npp_2018_global_vcmslcfg_c202101211500.cvg.tif                  | 286 MB    | 5.4 GB      | 15 arcsec   | EPSG:4326 |
+  |                                                                         |           | 16.4 GB     |             |           |
+
+  Local path: raw datasets/viirs/
+
+FILE NAMING CONVENTION:
+  VNL_v2_npp_2018_global_vcmslcfg_c202102150000.average_masked.tif
+  │     │   │    │      │         │              │
+  │     │   │    │      │         │              └─ statistic type
+  │     │   │    │      │         └─ processing timestamp (YYYYMMDDHHMMSS)
+  │     │   │    │      └─ configuration (VIIRS Cloud Mask Stray Light Corrected Filtered Gap-filled)
+  │     │   │    └─ coverage (global)
+  │     │   └─ year of composite
+  │     └─ sensor (NPP = Suomi National Polar-orbiting Partnership)
+  └─ product (VIIRS Nighttime Lights)
+
+  NOTE: The two files have DIFFERENT processing timestamps:
+    cvg: c202101211500 (processed 2021-01-21)
+    average_masked: c202102150000 (processed 2021-02-15)
+  This is because the masked products undergo additional processing.
+
+DOWNLOAD METHOD:
+  Manual browser download after OAuth2 authentication at eogdata.mines.edu.
+  Files were downloaded as .tif.gz (gzip compressed), then uncompressed.
 
 ISSUES ENCOUNTERED:
-  - ALL versions (V2.0, V2.1, V2.2) require OAuth2 authentication.
-    HTTP requests without auth return 302 redirect to login page.
-  - No public mirror or alternative unauthenticated source found.
-  - NOAA's old NGDC page redirects to the same EOG portal.
-  - Google Cloud Storage does not host a public VIIRS bucket.
+  - ALL VIIRS VNL products require OAuth2 authentication. HTTP requests
+    without auth return 302 redirect to OpenID Connect login page at
+    https://eogauth-new.mines.edu/realms/eog/protocol/openid-connect/auth
+  - This applies to ALL versions (V2.0, V2.1, V2.2) — no unauthenticated
+    access exists for any version.
+  - No public mirror found. NOAA's old NGDC portal redirects to EOG.
+  - Google Cloud Storage has no public VIIRS bucket.
   - This is the ONLY dataset in our collection that requires registration.
+  - Registration is free and instant (email + password).
+  - The uncompressed files are VERY LARGE (11 GB and 5.4 GB) because
+    they are global at 15 arcsec resolution = ~86,400 × 16,800 pixels
+    of Float32 data. In R, these should be loaded with terra::rast()
+    and immediately cropped to Philippines extent to manage memory.
 
-USE CASE:
-  Night lights as a proxy for economic activity. Compare radiance levels
-  in municipalities with industrial zones vs without. Time-stamped annual
-  composites enable Part 4 temporal analysis.
+FILES WE DID NOT DOWNLOAD AND WHY:
+  - average.tif.gz (9.3 GB): UNMASKED — includes background noise, gas
+    flares, fires, biomass burning, aurora, and other non-economic light.
+    Requires extensive manual masking. The masked version is pre-cleaned.
+  - median.tif.gz (9.2 GB): UNMASKED median — same noise issues.
+  - median_masked.tif.gz (270 MB): Valid alternative to average_masked.
+    Median is more robust to outliers (single bright events). Could
+    download later if average_masked shows outlier issues.
+  - maximum.tif.gz (8.9 GB): Maximum radiance — dominated by outlier
+    events, not useful for average economic activity measurement.
+  - minimum.tif.gz (7.2 GB): Minimum radiance — mostly zeros/near-zero.
+  - cf_cvg.tif.gz (1.9 GB): Cloud-free observation count (more specific
+    than total coverage). Could download if quality control requires it.
+  - lit_mask.tif.gz (21 MB): Binary mask of persistently lit areas.
+    Small file — could download later if needed for masking.
+
+USE CASE IN OUR ANALYSIS:
+  Night lights are a well-established proxy for economic activity in
+  development economics (Henderson, Storeygard & Weil, 2012). We use
+  average_masked radiance to:
+  1. Compare mean nighttime radiance in zone vs non-zone municipalities
+  2. Potential Part 4 temporal extension using multi-year composites
+  Night lights are explicitly listed in the assignment as an example
+  variable for comparing zone and non-zone locations.
 
 ================================================================================
 6. SUMMARY OF ALL LOCAL RASTER DATA
@@ -352,8 +459,9 @@ USE CASE:
 | 5 | GHSL                  | Population        | 1     | 460 MB    | 30 arcsec   | EPSG:4326  | raw datasets/ghsl/      |
 | 6 | GHSL                  | Settlement Model  | 1     | 28 MB     | 1000 m      | EPSG:54009 | raw datasets/ghsl/      |
 | 7 | WorldPop              | Pop. Density PHL  | 1     | 1.8 MB    | ~1 km       | EPSG:4326  | raw datasets/worldpop/  |
-| 8 | VIIRS (pending)       | Night Lights      | TBD   | ~2-3 GB   | 15 arcsec   | EPSG:4326  | raw datasets/viirs/     |
-|   |                       | TOTAL DOWNLOADED  | 18    | 1.70 GB   |             |            |                         |
+| 8 | VIIRS V2.0 (2018)     | average_masked    | 1     | 11 GB     | 15 arcsec   | EPSG:4326  | raw datasets/viirs/     |
+| 9 | VIIRS V2.0 (2018)     | cvg (coverage)    | 1     | 5.4 GB    | 15 arcsec   | EPSG:4326  | raw datasets/viirs/     |
+|   |                       | TOTAL DOWNLOADED  | 20    | 18.1 GB   |             |            |                         |
 
 CRS NOTES:
   - Most data is in EPSG:4326 (WGS 84) — no reprojection needed.
@@ -367,6 +475,9 @@ TILE DIMENSION NOTES:
   - GHSL 30ss: Global raster at ~1km
     = approximately 43,200 × 16,800 pixels
   - WorldPop 1km: Country-specific extent (Philippines bounding box)
+  - VIIRS 15 arcsec: Global raster at ~500m
+    = approximately 86,400 × 16,800 pixels (Float32 = 5.8 GB raw)
+    average_masked is larger (11 GB) due to Float32 precision across full globe
 
 ================================================================================
 END OF DOWNLOAD NOTES
