@@ -243,4 +243,36 @@ shiny::runApp("app.R")
 
 ## Technical Appendix
 
-The complete technical appendix including all code, data documentation, download notes, and reproducibility instructions is available in the GitHub repository: [https://github.com/AGR19/SEZ-Spatial-Data-Research](https://github.com/AGR19/SEZ-Spatial-Data-Research)
+### Data Pipeline
+
+1. **Zone identification:** PEZA Excel files parsed with `readxl`, World Bank CSV loaded with `readr`, Wikipedia data manually extracted to CSV.
+2. **Name matching:** Zone names normalized (lowercase, stripped punctuation), then matched across sources using Jaro-Winkler string distance (`stringdist` package, threshold < 0.25).
+3. **Geocoding:** Unmatched zones parsed for municipality names from location text, then fuzzy-matched to GADM level 2 boundary names. Municipality polygon centroids used as approximate coordinates (`sf::st_centroid`).
+4. **Raster extraction:** WorldPop, VIIRS, and GHSL global rasters cropped to Philippines extent (116-128E, 4-22N), then zonal statistics extracted per municipality polygon using `exactextractr::exact_extract`.
+5. **Distance computation:** Municipality centroids and infrastructure points (airports, road segments) reprojected to EPSG:3123 (PRS 92, meters), then minimum Euclidean distance computed with `sf::st_distance`.
+6. **Statistical comparison:** Welch's t-test (`t.test` with `var.equal=FALSE`) for unequal groups; logistic regression via `glm(family=binomial)`; Pearson correlation via `cor()`.
+
+### Folder Structure (local, not in repo)
+
+```
+raw datasets/
+  peza_zones_raw.xls          # PEZA 74 manufacturing zones
+  peza_locators_raw.xls       # PEZA 22+6 agro-industrial zones
+  worldbank_sez_philippines.csv  # World Bank 47 zones (filtered)
+  wikipedia_sez_data.csv      # Wikipedia 30 zones (extracted)
+  airports.csv                # OurAirports global (filter for PH)
+  gadm/                       # GADM boundaries (auto-downloaded by geodata)
+  worldpop/                   # WorldPop Philippines 2020 (1.8 MB)
+  viirs/                      # VIIRS 2018 nightlights (16.4 GB)
+  ghsl/                       # GHSL built-up, population, SMOD (666 MB)
+  hansen_forest/              # Hansen treecover2000 + lossyear (715 MB)
+  jrc_water/                  # JRC surface water occurrence (317 MB)
+  philippines-260503-free/    # OSM shapefiles (4.7 GB)
+```
+
+### CRS Details
+
+- **Storage:** All vector data stored in EPSG:4326 (WGS 84, degrees)
+- **Distance calculations:** Reprojected to EPSG:3123 (PRS 92, Philippine Reference System, meters) before computing distances
+- **Rasters:** WorldPop, VIIRS, GHSL natively in EPSG:4326; GHSL SMOD in EPSG:54009 (Mollweide) requires reprojection
+- **Why PRS 92:** Official Philippine projected coordinate system, provides accurate distance measurements in meters for the Philippine archipelago
