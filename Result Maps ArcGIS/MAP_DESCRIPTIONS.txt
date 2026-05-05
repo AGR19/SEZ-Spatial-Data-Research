@@ -1,0 +1,28 @@
+ArcGIS Pro Result Maps - Description
+=====================================
+
+Map 1: Zone Locations (Map 1 Zone Locations.pdf)
+  Shows the geographic distribution of all 102 industrial zones across
+  the Philippines, color-coded by zone type (manufacturing, agro-industrial,
+  freeport). Demonstrates the heavy concentration in the CALABARZON corridor
+  south of Metro Manila (Cavite, Laguna, Batangas) and secondary clusters
+  in Cebu and Davao.
+
+Map 2: Zone vs Non-Zone Choropleth (Map2 Zone vs Non Zone.pdf)
+  Municipality boundaries colored by mean nighttime light radiance (VIIRS 2018).
+  Zone locations overlaid as points. Visually confirms that industrial zones
+  are located in brighter (more economically active) municipalities.
+
+Map 3: Infrastructure and Distances (Map3 Infrastructure and Distances.pdf)
+  Shows major road networks (trunk/primary/motorway from OpenStreetMap) and
+  airport locations overlaid with zone points. Demonstrates that zones cluster
+  along major transport corridors and near airports.
+
+Map 4: Protected Areas and Zones (Map4 Protected Areas and Zones.pdf)
+  Protected and conserved areas (WDPCA/IUCN) shown as green polygons with
+  zone locations overlaid. Identifies potential environmental constraints
+  where industrial zones are located near protected ecosystems.
+
+Results.png
+  Screenshot of statistical comparison output from analysis.R showing
+  the zone vs non-zone t-test results table.

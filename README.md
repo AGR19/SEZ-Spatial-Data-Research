@@ -181,20 +181,24 @@ MIT License. See `LICENSE` file.
 
 ### Install R packages
 
+All package versions are listed in `requirements.txt`. Install with:
+
 ```r
 install.packages(c("sf", "terra", "exactextractr", "dplyr", "tidyr",
                     "readxl", "stringdist", "ggplot2", "corrplot",
-                    "readr", "jsonlite", "geodata"))
+                    "readr", "jsonlite", "geodata", "shiny", "leaflet",
+                    "DT", "plotly"))
 ```
 
 ### Download data
 
-All data sources documented in `sources.csv` with direct download links. Key downloads:
+**Note:** `analysis.R` requires raw data files to be downloaded first. The `raw datasets/` folder is not in the repository (too large, ~24 GB). All data sources are documented in `sources.csv` with direct download links. Key downloads:
 
 1. **PEZA zone files:** `peza.gov.ph/sites/default/files/1.xls` and `3.xls` (SSL bypass: `curl -k`)
-2. **World Bank SEZ:** `datacatalog.worldbank.org/search/dataset/0037742` → filter for Philippines
+2. **World Bank SEZ:** `datacatalog.worldbank.org/search/dataset/0037742` - filter for Philippines
 3. **GADM boundaries:** Auto-downloaded by analysis.R via `geodata::gadm()`
-4. **Raster data:** see `raw datasets/DOWNLOAD_NOTES.txt` for download instructions
+4. **Raster data:** see `raw datasets/DOWNLOAD_NOTES.txt` for tile-by-tile download instructions
+5. Place all files in `raw datasets/` folder following the structure in DOWNLOAD_NOTES.txt
 
 ### Run analysis
 
