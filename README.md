@@ -270,6 +270,41 @@ raw datasets/
   philippines-260503-free/    # OSM shapefiles (4.7 GB)
 ```
 
+### Execution Steps
+
+To reproduce the full analysis from scratch:
+
+```bash
+# Step 1: Clone the repository
+git clone https://github.com/AGR19/SEZ-Spatial-Data-Research.git
+cd SEZ-Spatial-Data-Research
+
+# Step 2: Install R packages (R 4.5+ required)
+Rscript -e 'install.packages(c("sf","terra","exactextractr","dplyr","tidyr","readxl","stringdist","ggplot2","corrplot","readr","jsonlite","geodata","shiny","leaflet","DT","plotly"))'
+
+# Step 3: Download raw data (see sources.csv for all URLs)
+mkdir -p "raw datasets"
+curl -k -o "raw datasets/peza_zones_raw.xls" https://www.peza.gov.ph/sites/default/files/1.xls
+curl -k -o "raw datasets/peza_locators_raw.xls" https://www.peza.gov.ph/sites/default/files/3.xls
+# World Bank SEZ: download from datacatalog.worldbank.org, filter for Philippines, save as worldbank_sez_philippines.csv
+# GADM: auto-downloaded by analysis.R via geodata::gadm()
+# Rasters (VIIRS, WorldPop, GHSL, etc.): see DOWNLOAD_NOTES.txt for tile URLs
+
+# Step 4: Run the main analysis (produces zones.csv, analysis_units.csv, figures/)
+Rscript analysis.R
+
+# Step 5: Run the Shiny dashboard locally
+Rscript -e 'shiny::runApp("app.R")'
+
+# Step 6: Generate ArcGIS maps (requires ArcGIS Pro - see ArcGIS Pro Workflow section above)
+```
+
+**Expected outputs after Step 4:**
+- `zones.csv` - 102 industrial zones with coordinates
+- `analysis_units.csv` - 1,628 municipalities with 17 variables
+- `figures/` - 6 PNG visualizations (boxplots, scatter, correlation matrix, bar chart, timeline)
+- Console output: t-test table, logistic regression summary, limitations text
+
 ### CRS Details
 
 - **Storage:** All vector data stored in EPSG:4326 (WGS 84, degrees)
